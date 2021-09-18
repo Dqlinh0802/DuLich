@@ -1,0 +1,63 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.dql.controllers;
+
+import com.dql.pojos.GioHang;
+import com.dql.service.TourService;
+import com.dql.utils.Utils;
+import java.util.Map;
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+/**
+ *
+ * @author Acer
+ */
+@Controller
+public class HomeController {
+    
+    @Autowired
+    private LocalSessionFactoryBean sessionFactory;
+    @Autowired
+    private TourService tourService;
+    
+    
+    @RequestMapping("/")
+    public String index(Model model,
+            @RequestParam(required = false) Map<String , String> params) {
+        
+        
+        //co thì lấy k có thì lấy 1
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        model.addAttribute("tours", this.tourService.getTours(params.get("kw"), page));
+        model.addAttribute("slTour", this.tourService.slTour());
+        
+        return "index";
+    }
+    
+    //dung chung
+    //phai ep kieu 
+    @ModelAttribute
+    public void dungChung(Model model, HttpSession session){
+        model.addAttribute("demSLTour", Utils.demSLTour((Map<Integer, GioHang>) session.getAttribute("gioHang")));
+    }
+    
+    
+    
+//    @RequestMapping("/")
+//    public String index(Model model){
+//        //trong tiles
+//        return "index";
+//    }
+    
+    
+}

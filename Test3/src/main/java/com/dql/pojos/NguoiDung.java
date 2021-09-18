@@ -1,0 +1,252 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.dql.pojos;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.Transient;
+
+/**
+ *
+ * @author Acer
+ */
+@Entity
+@Table(name = "nguoidung")
+public class NguoiDung implements Serializable{
+
+    public static final String ADMIN = "ROLE_ADMIN";
+    public static final String USER = "ROLE_USER";
+
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String ho;
+    private String ten;
+    private String email;
+    private String sdt;
+    private String taiKhoan;
+    private String matKhau;
+    private String anh;
+    private String diaChi;
+    private String vaiTro;
+    
+    
+    //truong bth dung tren day th, k luu xuong data
+    @Transient
+    private String xacThucMatKhau;
+    
+    //It VeCuaKhach
+    @OneToMany(mappedBy = "nguoiDung")//gắn với thuộc tính trong class bên kết nối
+    private List<VeCuaKhach> veCuaKhachs;
+    
+
+    //It VeCuaKhach
+    @OneToMany(mappedBy = "nguoiDungDK")//gắn với thuộc tính trong class bên kết nối
+    private List<DangKy> dangKys;
+
+    
+    
+    
+    
+    /**
+     * @return the xacThucMatKhau
+     */
+    public String getXacThucMatKhau() {
+        return xacThucMatKhau;
+    }
+
+    /**
+     * @param xacThucMatKhau the xacThucMatKhau to set
+     */
+    public void setXacThucMatKhau(String xacThucMatKhau) {
+        this.xacThucMatKhau = xacThucMatKhau;
+    }
+
+    /**
+     * @return the dangKys
+     */
+    public List<DangKy> getDangKys() {
+        return dangKys;
+    }
+
+    /**
+     * @param dangKys the dangKys to set
+     */
+    public void setDangKys(List<DangKy> dangKys) {
+        this.dangKys = dangKys;
+    }
+    /**
+     * @return the veCuaKhachs
+     */
+    public List<VeCuaKhach> getVeCuaKhachs() {
+        return veCuaKhachs;
+    }
+
+    /**
+     * @param veCuaKhachs the veCuaKhachs to set
+     */
+    public void setVeCuaKhachs(List<VeCuaKhach> veCuaKhachs) {
+        this.veCuaKhachs = veCuaKhachs;
+    }
+    
+    
+    
+    /**
+     * @return the anh
+     */
+    public String getAnh() {
+        return anh;
+    }
+
+    /**
+     * @param anh the anh to set
+     */
+    public void setAnh(String anh) {
+        this.anh = anh;
+    }
+    
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the ho
+     */
+    public String getHo() {
+        return ho;
+    }
+
+    /**
+     * @param ho the ho to set
+     */
+    public void setHo(String ho) {
+        this.ho = ho;
+    }
+
+    /**
+     * @return the ten
+     */
+    public String getTen() {
+        return ten;
+    }
+
+    /**
+     * @param ten the ten to set
+     */
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the sdt
+     */
+    public String getSdt() {
+        return sdt;
+    }
+
+    /**
+     * @param sdt the sdt to set
+     */
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    /**
+     * @return the taiKhoan
+     */
+    public String getTaiKhoan() {
+        return taiKhoan;
+    }
+
+    /**
+     * @param taiKhoan the taiKhoan to set
+     */
+    public void setTaiKhoan(String taiKhoan) {
+        this.taiKhoan = taiKhoan;
+    }
+
+    /**
+     * @return the matKhau
+     */
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    /**
+     * @param matKhau the matKhau to set
+     */
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
+    }
+
+    /**
+     * @return the diaChi
+     */
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    /**
+     * @param diaChi the diaChi to set
+     */
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
+    /**
+     * @return the vaiTro
+     */
+    public String getVaiTro() {
+        return vaiTro;
+    }
+
+    /**
+     * @param vaiTro the vaiTro to set
+     */
+    public void setVaiTro(String vaiTro) {
+        this.vaiTro = vaiTro;
+    }
+    
+    
+    
+}

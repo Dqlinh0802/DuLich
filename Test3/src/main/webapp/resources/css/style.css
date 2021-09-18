@@ -1,0 +1,106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 4, 2021, 3:21:12 AM
+    Author     : Acer
+*/
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/*font-family: 'Sansita Swashed', cursive;*/
+/*font-family: 'Pacifico', cursive;*/
+
+
+
+.btn-success{
+    color: white !important;
+    border-width: 2px !important;
+    border-bottom-style: solid !important;
+    border-color: #f2c26f !important;
+    border-radius: 20px !important;
+    font-weight: 700 ;
+    font-family: 'Pacifico', cursive ;
+    font-size: 24px !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.btn-success:hover{
+    color: white !important;
+    background: #f2c26f !important;
+}
+.btn-danger{
+    color: white !important;
+    border-width: 2px !important;
+    border-bottom-style: solid !important;
+    border-color: rgb(255, 61, 61)!important;
+    border-radius: 20px !important;
+    font-weight: 700 ;
+    font-family: 'Pacifico', cursive ;
+    font-size: 24px !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+.btn-danger:hover{
+    color: white !important;
+    background: rgb(255, 97, 97) !important;
+}
+
+/*==============HEADER=========*/
+
+.header {
+  border-top-color: #f65c5c;
+  border-top-style: solid;
+  border-top-width: 2px;
+  position: absolute;
+  width: 100%!important;
+  z-index: 1;
+}
+
+.nav-link{
+    color: #fff;
+    margin-right: 30px;
+    margin-top: 15px!important;
+    font-size: 24px;
+    font-weight: 600;
+    border-width: 3px;
+    border-color: rgba(0, 0, 0 , 0);
+    border-style: solid;
+}
+.nav-link:hover{
+    border-color: #f2c26f;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 20px;
+    background-color: #f2c26f;
+    color: #fff;
+}
+.navbar-brand{  
+    margin-top: 10px;
+    margin-right: 80px;
+}
+.fas{
+    color: white;
+    font-size: 36px;    
+}
+.fas:hover{
+    color: #f2c26f;
+}
+/*========HEADER==========*/
+
+
+
+/*===========FOOTER============*/
+.footer {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.copyright {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.font-pacifico{
+    font-family: 'Pacifico', cursive;
+}
+/*=============FOOTER===========*/

@@ -1,0 +1,164 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 12, 2021, 2:43:26 PM
+    Author     : Acer
+*/
+
+
+
+/*=========CONTENT=========*/
+
+/*==index==*/
+#jumbotron{
+    background-image: url(../images/banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    background-size: auto;
+}
+
+#jumbotron .container {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.info{
+    color: black;
+    margin-left: 50px;
+
+}
+.info p {
+    font-size: 24px  !important; 
+    font-family: 'Sansita Swashed', cursive;
+}
+h1 {
+    font-weight: 700 !important;
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 65px  !important; 
+    color: white;
+}
+.info .ten-ct {
+    color: #f2c26f;
+}
+
+.info-location {
+    height: 300px!important;
+    width: 600px!important;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 0px !important;
+    font-size: 20px;
+}
+.info-sec{
+    background: rgba(196, 238,236, 0.8);
+    width: 100%;
+}
+.form-inline{
+    justify-content: center;
+}
+.form-inline input[type = search] {
+    min-width: 350px!important;
+}
+#dsTour{
+    max-height: 1553px;
+    max-width: 1110px;
+}
+.col-4 {
+    justify-content: space-around;
+}
+.col-4 > img{
+    max-width: 300px;
+    max-height: 307px;
+    width: 300px;
+} 
+.row{
+    margin-bottom: 15px;
+}
+.info-location p, h3 {
+    font-family: 'Sansita Swashed', cursive;
+    line-height: 28px;
+}
+.info-location h3 {
+    color: #13A211;
+    font-size: 36px;
+}
+.info-location p span {
+    color: red;
+    font-size: 26px;
+}
+.row .col-md-3{
+    margin: 15px 15px;
+    padding: 0 0 !important;
+    border: 0!important;
+}
+.col-md-3 > .card{
+    background-color: #d0f1f0!important;
+    border: 0px !important;
+}
+.card-body{
+    padding: 0 10px 0 30px!important;
+    background: #fda0a0;
+    border-radius: 0 0 15px 15px;
+}
+.card .card-header{
+    background-color: rgba(253, 160, 160, 0.1);  
+    border-radius: 15px 15px 0 0 !important;
+    padding: 10px 10px !important;
+    border: 1px solid #fda0a0;
+}
+.card-header img {
+    border-radius: 30px 30px 0 0;
+    background-color: #fda0a0;
+    min-height: 398px;
+    min-width: 263px;
+}
+
+/*===========CONTENT===========*/
+
+
+
+
+
+
+
+
+
+/*button*/
+
+.btn-success{
+    color: white !important;
+    border-width: 2px !important;
+    border-bottom-style: solid !important;
+    border-color: #f2c26f !important;
+    border-radius: 20px !important;
+    font-weight: 700 ;
+    font-family: 'Pacifico', cursive ;
+    font-size: 24px !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.btn-success:hover{
+    color: white !important;
+    background: #f2c26f !important;
+}
+.btn-danger{
+    color: white !important;
+    border-width: 2px !important;
+    border-bottom-style: solid !important;
+    border-color: rgb(255, 61, 61)!important;
+    border-radius: 20px !important;
+    font-weight: 700 ;
+    font-family: 'Pacifico', cursive ;
+    font-size: 24px !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+.btn-danger:hover{
+    color: white !important;
+    background: rgb(255, 97, 97) !important;
+}
