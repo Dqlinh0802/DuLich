@@ -17,7 +17,9 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -30,7 +32,6 @@ public class NguoiDungController {
     
     @Autowired
     private NguoiDungService userDetailsService;
-    
     
     
     @InitBinder
@@ -48,8 +49,8 @@ public class NguoiDungController {
         model.addAttribute("nguoiDung", new NguoiDung());
         return "dangKy";
     }
-  
-    
+           
+            
     @PostMapping("/dangKy")
     public String dangKy(Model model, 
             @ModelAttribute(value = "nguoiDung") @Valid NguoiDung nguoiDung,

@@ -39,6 +39,7 @@ public class TourRepositoryImpl implements TourRepository{
         Root root = query.from(Tour.class);
         query = query.select(root);
         
+        
         //%% -> chuyen thanh 1 dau khi xuong duoi
         if(kw != null){
             Predicate p = builder.like(root.get("tenTour").as(String.class),
@@ -95,6 +96,21 @@ public class TourRepositoryImpl implements TourRepository{
     public Tour layTourId(int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         return session.get(Tour.class, id);
+    }
+
+    @Override
+    public boolean xoaTour(int tourId) {
+        try {
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            Tour t = session.get(Tour.class, tourId);
+            session.delete(t);
+            
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
     }
     
 }

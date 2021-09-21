@@ -56,8 +56,13 @@ public class TourServiceImpl implements TourService{
     }
 
     @Override
-    public Tour layTourId(int i) {
-        return this.tourRepository.layTourId(i);
+    public Tour layTourId(int tourId) {
+        return this.tourRepository.layTourId(tourId);
+    }
+
+    @Override
+    public boolean xoaTour(int tourId) {
+        return this.tourRepository.xoaTour(tourId);
     }
     
     

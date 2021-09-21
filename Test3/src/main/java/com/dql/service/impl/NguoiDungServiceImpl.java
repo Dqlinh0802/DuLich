@@ -5,11 +5,15 @@
  */
 package com.dql.service.impl;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.dql.pojos.NguoiDung;
 import com.dql.repository.NguoiDungRepository;
 import com.dql.service.NguoiDungService;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,6 +34,8 @@ public class NguoiDungServiceImpl implements NguoiDungService{
     private NguoiDungRepository nguoiDungRepository;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private Cloudinary cloudinary;
     
     
     //xu ly băm password
@@ -40,11 +46,34 @@ public class NguoiDungServiceImpl implements NguoiDungService{
         nguoiDung.setMatKhau(this.passwordEncoder.encode(pass));
         
         nguoiDung.setVaiTro(NguoiDung.USER);
+        try{
+            Map m = this.cloudinary.uploader().upload(nguoiDung.getFile().getBytes(),
+                    ObjectUtils.asMap("resource_type", "auto"));
+            
+                nguoiDung.setAnh((String) m.get("secure_url"));
+                return this.nguoiDungRepository.themNguoiDung(nguoiDung);
+        } catch (IOException ex) {
+            System.err.println("Đã xảy ra lỗi!!!");
+        }
         
-        
-        return this.nguoiDungRepository.themNguoiDung(nguoiDung);
+        return false;
     }
-
+//@Override
+//    public boolean themHoacSua(Tour tour) {
+//        try {
+//            Map m = this.cloudinary.uploader().upload(tour.getFile().getBytes(),
+//                    ObjectUtils.asMap("resource_type", "auto"));
+//            
+//            tour.setAnh((String) m.get("secure_url"));
+//            
+//            
+//            return this.tourRepository.themHoacSua(tour);
+//        } catch (IOException ex) {
+//            System.err.println("Upload file fail!!!");
+//        }
+//        
+//        return false;
+//    }
 
     
     @Override
@@ -70,5 +99,7 @@ public class NguoiDungServiceImpl implements NguoiDungService{
         return new org.springframework.security.core.userdetails.User(
                 nguoiDung.getTaiKhoan(), nguoiDung.getMatKhau(), auth);
     }
+
+
     
 }

@@ -29,6 +29,7 @@ and open the template in the editor.
 #bg-tour{
     padding-top: 100px;
     background-color: #383A59;
+    padding-bottom: 100px;
 }
 #bg-tour h1{
     color: #f2c26f;

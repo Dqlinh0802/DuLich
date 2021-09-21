@@ -16,5 +16,6 @@ public interface TourRepository {
     List<Tour> getTours(String kw, int page);
     Tour layTourId(int tourId);
     long slTour();
+    boolean xoaTour(int tourId);
     boolean themHoacSua(Tour tour);
 }

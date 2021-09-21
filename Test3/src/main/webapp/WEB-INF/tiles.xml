@@ -45,4 +45,9 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="css" value="/Test3/css/tour.css"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/jsp/gioHang.jsp"></put-attribute>
     </definition>
+    <definition name="chiTietTour" extends="baseLayout">
+        <put-attribute name="title" value="Chi tiết tour"></put-attribute>
+        <put-attribute name="css" value="/Test3/css/chiTietTour.css"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/jsp/chiTietTour.jsp"></put-attribute>
+    </definition>
 </tiles-definitions>

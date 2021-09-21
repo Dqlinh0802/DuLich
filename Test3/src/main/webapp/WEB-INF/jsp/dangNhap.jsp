@@ -10,10 +10,9 @@
 
 <c:url value="/dangNhap" var="action"/>
 
+
 <div id="background">
     <div class="dangNhap">
-
-
         <h1 class="text-center">Đăng nhập</h1>
         <form method="POST" action="${action}"> 
             <div class="form-group">
@@ -25,6 +24,11 @@
             <c:if test="${param.error != null}">
                 <div class="alert alert-danger mt-3 mb-3">
                     Đã có lỗi xảy ra
+                </div>
+            </c:if>
+            <c:if test="${param.accessDenied != null}">
+                <div class="alert alert-danger mt-3 mb-3">
+                    Bạn không có quyền
                 </div>
             </c:if>
             <div class="form-group d-flex justify-content-center">

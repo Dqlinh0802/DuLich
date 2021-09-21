@@ -6,7 +6,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <div class="footer text-center">
     <div class="container text-black">
         <div class="row pt-5 pb-5">
@@ -49,7 +48,8 @@
             </div>
         </div>
     </div>
+    <div class="copyright py-4 text-center text-white">
+        <div class="container "><small>Bản quyền &copy; 2021 DuLich.com</small></div>
+    </div>
 </div>
-<div class="copyright py-4 text-center text-white">
-    <div class="container "><small>Bản quyền &copy; 2021 DuLich.com</small></div>
-</div>
+

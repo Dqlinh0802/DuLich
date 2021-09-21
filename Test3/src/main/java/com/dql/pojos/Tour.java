@@ -8,7 +8,7 @@ package com.dql.pojos;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,9 +38,7 @@ public class Tour implements Serializable {
     @Column(name = "id")//****
     private int tourId;
     private String tenTour;
-    @Temporal(javax.persistence.TemporalType.DATE)//lay ngay thang
     private Date ngayBD;
-    @Temporal(javax.persistence.TemporalType.DATE)//lay ngay thang
     private Date ngayKT;
     private BigDecimal gia;
     private String anh;

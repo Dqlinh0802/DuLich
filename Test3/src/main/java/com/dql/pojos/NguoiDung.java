@@ -20,6 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -46,6 +47,8 @@ public class NguoiDung implements Serializable{
     private String diaChi;
     private String vaiTro;
     
+    @Transient
+    private MultipartFile file;
     
     //truong bth dung tren day th, k luu xuong data
     @Transient
@@ -245,6 +248,20 @@ public class NguoiDung implements Serializable{
      */
     public void setVaiTro(String vaiTro) {
         this.vaiTro = vaiTro;
+    }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
     
     

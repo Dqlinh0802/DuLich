@@ -41,8 +41,9 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository{
             session.save(nguoiDung);
             
             return true;
-        } catch (HibernateException ex){
+        } catch (Exception ex){
             System.err.println("Error " + ex.getMessage());
+            ex.printStackTrace();
         }
         
         return false;
@@ -65,5 +66,10 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository{
         Query q = session.createQuery(query);
         return q.getResultList();
     }
+
+
+
+
+    
     
 }

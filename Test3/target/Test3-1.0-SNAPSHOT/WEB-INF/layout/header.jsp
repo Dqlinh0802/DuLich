@@ -6,6 +6,7 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <div class="header">
     <div class="d-flex justify-content-between container pt-1 pb-1 fixed-top">
@@ -24,9 +25,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Chưa biết</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Chưa biết</a>
-                        </li>
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <li class="nav-item">
+                                <a class="nav-link" href="<c:url value="/admin/tours"/>">Thêm tour</a>
+                            </li>
+                        </sec:authorize>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
                         </li>
