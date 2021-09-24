@@ -48,7 +48,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
                 .passwordEncoder(passwordEncoder());
     }
 
-    
     //Phân quyền 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

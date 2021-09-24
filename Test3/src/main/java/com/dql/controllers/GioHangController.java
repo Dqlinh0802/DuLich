@@ -6,6 +6,7 @@
 package com.dql.controllers;
 
 import com.dql.pojos.GioHang;
+import com.dql.utils.Utils;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,9 @@ public class GioHangController {
             model.addAttribute("gioHangs", gioHang.values());// ds các item bỏ vô giỏ
         else
             model.addAttribute("gioHangs", null);
+        
+        model.addAttribute("tinhTien", Utils.tinhTien(gioHang));
+        
         return "gioHang";
     }
 }

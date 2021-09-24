@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Acer
  */
 @Controller
+@ControllerAdvice
 public class HomeController {
     
     @Autowired
@@ -54,7 +56,6 @@ public class HomeController {
     public void dungChung(Model model, HttpSession session){
         model.addAttribute("demSLTour", Utils.demSLTour((Map<Integer, GioHang>) session.getAttribute("gioHang")));
     }
-    
     
     
 //    @RequestMapping("/")

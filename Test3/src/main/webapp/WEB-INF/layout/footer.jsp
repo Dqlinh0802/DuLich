@@ -12,8 +12,8 @@
             <!--cot1-->
             <div class="col-4 text-left">
                 <div class="mb-2">
-                    <a href="#">
-                        <img class="rounded-circle" src="<c:url value="/images/logo.jpg"/>" alt="Logo" style="width:50px;">
+                    <a href="<c:url value="/" />">
+                        <img class="rounded-circle" src="<c:url value="/images/logo.png"/>" alt="Logo" style="width:50px;">
                     </a>
                 </div>
                 <p class="">

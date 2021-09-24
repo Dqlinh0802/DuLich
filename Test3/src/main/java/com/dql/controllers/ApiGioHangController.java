@@ -16,8 +16,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -26,48 +32,73 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ApiGioHangController {
-    
+
     @Autowired
     private TourService tourService;
-    
+
     @GetMapping("/api/tours")
-    public ResponseEntity<List<Tour>> dsTours(){
+    public ResponseEntity<List<Tour>> dsTours() {
         List<Tour> tours = this.tourService.getTours("", 1);
-        
+
         return new ResponseEntity<>(tours, HttpStatus.OK);
     }
-    
+
     //phien lam viec, no khac truy van hibernate
-    @GetMapping("/api/gioHang/{tourId}")
-    public ResponseEntity<Integer> gioHang(@PathVariable(value = "tourId") Integer tourId,
-            HttpSession session){
+    @PostMapping("/api/gioHang")
+    public int themVaoGio(@RequestBody GioHang params,
+            HttpSession session) {
         Map<Integer, GioHang> gioHang = (Map<Integer, GioHang>) session.getAttribute("gioHang");
         //neu chua co gio hang thi tao mới
-        if(gioHang == null)
+        if (gioHang == null) {
             gioHang = new HashMap<>();
-        
-        
-        if(gioHang.containsKey(tourId) == true){
+        }
+
+        int tourId = params.getTourId();
+
+        if (gioHang.containsKey(tourId) == true) {
             //neu co tour trong gio thi
             GioHang g = gioHang.get(tourId);
             g.setSoLuong(g.getSoLuong() + 1);
         } else {
-            //neu k co tour trong gio thi 
+            //neu khong co tour trong gio
+            gioHang.put(tourId, params);
+        }
+
+        session.setAttribute("gioHang", gioHang);
+        return Utils.demSLTour(gioHang);
+
+    }
+
+    @PutMapping("/api/gioHang")
+    public ResponseEntity<Map<String, String>> capNhapGioHang(@RequestBody GioHang params, HttpSession session) {
+        Map<Integer, GioHang> gioHang = (Map<Integer, GioHang>) session.getAttribute("gioHang");
+        if (gioHang == null) {
+            gioHang = new HashMap<>();
+        }
+
+        int tourId = params.getTourId();
+
+        if (gioHang.containsKey(tourId) == true) {
+            //neu co tour trong gio thi
+            GioHang g = gioHang.get(tourId);
+            g.setSoLuong(params.getSoLuong());
+        }
+        session.setAttribute("gioHang", gioHang);
+        
+        
+        return new ResponseEntity<>(Utils.tinhTien(gioHang), HttpStatus.OK);
+    }
+    
+    @DeleteMapping("/api/gioHang/{tourId}")
+    public ResponseEntity<Map<String, String>> xoaTourTrongGio(HttpSession session, 
+            @PathVariable(value = "tourId") int tourId){
+        Map<Integer, GioHang> gioHang = (Map<Integer, GioHang>) session.getAttribute("gioHang");
+        if (gioHang != null && gioHang.containsKey(tourId)) {
+            gioHang.remove(tourId);
             
-            Tour t = this.tourService.layTourId(tourId);
-            
-            GioHang c = new GioHang();
-            c.setTourId(t.getTourId());
-            c.setTenTour(t.getTenTour());
-            c.setGia(t.getGia());
-            c.setSoLuong(1);
-            
-            gioHang.put(tourId, c);
+            session.setAttribute("gioHang", gioHang);
         }
         
-        session.setAttribute("gioHang", gioHang);
-        Utils.demSLTour(gioHang);
-        return new ResponseEntity<>(Utils.demSLTour(gioHang), HttpStatus.OK);
-        
+        return new ResponseEntity<>(Utils.tinhTien(gioHang), HttpStatus.OK);
     }
 }

@@ -7,9 +7,58 @@ and open the template in the editor.
     Created on : Sep 20, 2021, 3:35:09 PM
     Author     : Acer
 */
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
 
 #bg-tour{
     padding-top: 200px;
     background-color: #383A59;
     padding-bottom: 100px;
+}
+#bg-tour h1 {
+    font-family: 'Sansita Swashed', cursive;
+    margin-bottom: 50px;
+    color: #13A211;
+    font-size: 50px;    
+}
+.col-md-6 > img {
+    max-height: 560px;
+    max-width: 500px;
+}
+.col-md-6 > h3{
+    margin-left: 50px;
+    color: #f2c26f;
+}
+.col-md-6 > p {
+    font-size: 22px;
+}
+.col-md-6 .mo-ta{
+    margin-top: 30px;
+    font-size: 18px;
+}
+.col-md-2 > .rounded-circle{
+    height: 70px !important;
+    width: 70px;
+}
+.binh-luan {
+    margin-top: 10px;
+}
+.binh-luan > textarea{
+    padding-left: 20px!important;
+    color: white;
+    background-color: transparent;
+    margin-bottom: 10px;
+    
+}
+.binh-luan > textarea:focus{
+    background-color: transparent;
+    color: white;
+}
+.binh-luan > textarea::placeholder{
+    color: rgba(255, 255, 255, 0.8);
+}
+.cac-binh-luan{
+    margin-top: 40px;
+}
+.cac-binh-luan > .row {
+    margin-top: 10px;
 }

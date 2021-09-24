@@ -48,6 +48,11 @@
                         <form:errors path="ngayKT" cssClass="text-danger" element="div"/>
                     </div>
                     <div class="form-group">
+                        <label class="text-white" for="moTa">Mô tả</label>
+                        <form:textarea path="moTa" id="moTa" rows="5" cols="52" />
+                        <form:errors path="moTa" cssClass="text-danger" element="div"/>
+                    </div>
+                    <div class="form-group">
                         <label class="text-white" for="file">Hình ảnh</label>
                         <form:input type="file" cssClass="form-control" id="file" path="file"/>
                     </div>

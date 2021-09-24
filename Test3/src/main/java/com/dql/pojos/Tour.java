@@ -33,6 +33,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name = "tour")
 public class Tour implements Serializable {
 
+    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")//****
@@ -42,6 +44,7 @@ public class Tour implements Serializable {
     private Date ngayKT;
     private BigDecimal gia;
     private String anh;
+    private String moTa;
 
     @Transient
     private MultipartFile file;
@@ -75,6 +78,22 @@ public class Tour implements Serializable {
     @JsonIgnore// k lay khi truyenlen Json
     private List<TourDiPhuongTien> tourDiPhuongTiens;
 
+    
+    
+    
+    /**
+     * @return the moTa
+     */
+    public String getMoTa() {
+        return moTa;
+    }
+
+    /**
+     * @param moTa the moTa to set
+     */
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
+    }
     /**
      * @return the tourId
      */

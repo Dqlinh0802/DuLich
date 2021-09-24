@@ -49,15 +49,10 @@ and open the template in the editor.
 
 /*==============HEADER=========*/
 
-.header {
-  border-top-color: #f65c5c;
-  border-top-style: solid;
-  border-top-width: 2px;
-  position: absolute;
-  width: 100%!important;
-  z-index: 1;
+.bgcolor{
+    background-color: rgba(0,0,0,0.4);
+    height: 90px;
 }
-
 .nav-link{
     color: #fff;
     margin-right: 30px;

@@ -78,7 +78,7 @@
                                     </div>
                                     <div class="Dat-Them-Tour">
                                         <div>
-                                            <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId})">Đặt tour</a>
+                                            <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})">Đặt tour</a>
                                             <sec:authorize access="hasRole('ROLE_ADMIN')">
                                                 <a href="javascript:;" class="btn btn-info bg-danger" onclick="xoaTour(${pro.tourId})">Xóa tour</a>
                                             </sec:authorize>
@@ -91,6 +91,15 @@
                 </div>
 
             </div>
+        </div>
+        <div>
+            <ul class="pagination">
+                <c:forEach begin="1" end="${Math.ceil(slTour/6)}" var="i">
+                    <li class="page-item">
+                        <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
+                    </li>
+                </c:forEach> 
+            </ul>
         </div>
         <c:forEach var="tour" items="${tours}">
             <h3 class="d-inline-block ml-3">${tour.tenTour}</h3>
