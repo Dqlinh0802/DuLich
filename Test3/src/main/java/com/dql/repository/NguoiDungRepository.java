@@ -15,4 +15,5 @@ import java.util.List;
 public interface NguoiDungRepository {
     boolean themNguoiDung(NguoiDung nguoiDung);
     List<NguoiDung> danhSachNguoiDung(String taiKhoan);
+    NguoiDung layNguoiDungId(int nguoiDungId);
 }

@@ -16,5 +16,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public interface NguoiDungService extends UserDetailsService{
     boolean themNguoiDung(NguoiDung nguoiDung);
     List<NguoiDung> danhSachNguoiDung(String taiKhoan);
-
+    NguoiDung layNguoiDungId(int nguoiDungId);
 }

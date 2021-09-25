@@ -33,8 +33,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name = "tour")
 public class Tour implements Serializable {
 
-    
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")//****
@@ -63,24 +61,35 @@ public class Tour implements Serializable {
     @JsonIgnore// k lay khi truyenlen Json
     private DiemThamQuan diemThamQuan;
 
-    //Tour
+
+    //HoaDon
     @OneToMany(mappedBy = "tour")//gắn với thuộc tính trong class bên kết nối
     @JsonIgnore// k lay khi truyenlen Json
-    private List<Ve> ves;
+    private List<BinhLuan> binhLuans;
 
-    //dangKy
+    
+    //ChiTietHoaDon
     @OneToMany(mappedBy = "tour")//gắn với thuộc tính trong class bên kết nối
     @JsonIgnore// k lay khi truyenlen Json
-    private List<DangKy> dangKys;
-
-    //Tourdiphuongtien
-    @OneToMany(mappedBy = "tour")//gắn với thuộc tính trong class bên kết nối
-    @JsonIgnore// k lay khi truyenlen Json
-    private List<TourDiPhuongTien> tourDiPhuongTiens;
-
+    private List<ChiTietHoaDon> chiTietHoaDons;
+   
     
     
     
+    /**
+     * @return the chiTietHoaDons
+     */
+    public List<ChiTietHoaDon> getChiTietHoaDons() {
+        return chiTietHoaDons;
+    }
+
+    /**
+     * @param chiTietHoaDons the chiTietHoaDons to set
+     */
+    public void setChiTietHoaDons(List<ChiTietHoaDon> chiTietHoaDons) {
+        this.chiTietHoaDons = chiTietHoaDons;
+    }
+
     /**
      * @return the moTa
      */
@@ -150,47 +159,6 @@ public class Tour implements Serializable {
         this.diemThamQuan = diemThamQuan;
     }
 
-    /**
-     * @return the dangKys
-     */
-    public List<DangKy> getDangKys() {
-        return dangKys;
-    }
-
-    /**
-     * @param dangKys the dangKys to set
-     */
-    public void setDangKys(List<DangKy> dangKys) {
-        this.dangKys = dangKys;
-    }
-
-    /**
-     * @return the tourDiPhuongTiens
-     */
-    public List<TourDiPhuongTien> getTourDiPhuongTiens() {
-        return tourDiPhuongTiens;
-    }
-
-    /**
-     * @param tourDiPhuongTiens the tourDiPhuongTiens to set
-     */
-    public void setTourDiPhuongTiens(List<TourDiPhuongTien> tourDiPhuongTiens) {
-        this.tourDiPhuongTiens = tourDiPhuongTiens;
-    }
-
-    /**
-     * @return the ves
-     */
-    public List<Ve> getVes() {
-        return ves;
-    }
-
-    /**
-     * @param ves the ves to set
-     */
-    public void setVes(List<Ve> ves) {
-        this.ves = ves;
-    }
 
     /**
      * @return the tenTour
@@ -260,6 +228,20 @@ public class Tour implements Serializable {
      */
     public void setHuongDanVien(HuongDanVien huongDanVien) {
         this.huongDanVien = huongDanVien;
+    }
+
+    /**
+     * @return the binhLuans
+     */
+    public List<BinhLuan> getBinhLuans() {
+        return binhLuans;
+    }
+
+    /**
+     * @param binhLuans the binhLuans to set
+     */
+    public void setBinhLuans(List<BinhLuan> binhLuans) {
+        this.binhLuans = binhLuans;
     }
 
 }

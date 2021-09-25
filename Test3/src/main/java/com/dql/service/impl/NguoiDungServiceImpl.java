@@ -100,6 +100,8 @@ public class NguoiDungServiceImpl implements NguoiDungService{
                 nguoiDung.getTaiKhoan(), nguoiDung.getMatKhau(), auth);
     }
 
-
-    
+    @Override
+    public NguoiDung layNguoiDungId(int nguoiDungId) {
+        return this.nguoiDungRepository.layNguoiDungId(nguoiDungId);
+    }
 }

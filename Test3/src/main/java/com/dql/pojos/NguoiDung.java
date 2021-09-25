@@ -5,6 +5,7 @@
  */
 package com.dql.pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -28,12 +29,11 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Entity
 @Table(name = "nguoidung")
-public class NguoiDung implements Serializable{
+public class NguoiDung implements Serializable {
 
     public static final String ADMIN = "ROLE_ADMIN";
     public static final String USER = "ROLE_USER";
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -46,27 +46,38 @@ public class NguoiDung implements Serializable{
     private String anh;
     private String diaChi;
     private String vaiTro;
-    
+
     @Transient
     private MultipartFile file;
-    
+
     //truong bth dung tren day th, k luu xuong data
     @Transient
     private String xacThucMatKhau;
-    
-    //It VeCuaKhach
+
+    //HoaDon
     @OneToMany(mappedBy = "nguoiDung")//gắn với thuộc tính trong class bên kết nối
-    private List<VeCuaKhach> veCuaKhachs;
+    @JsonIgnore// k lay khi truyenlen Json
+    private List<HoaDon> hoaDons;
     
+    //BinhLuan
+    @OneToMany(mappedBy = "nguoiDung")//gắn với thuộc tính trong class bên kết nối
+    @JsonIgnore// k lay khi truyenlen Json
+    private List<BinhLuan> binhLuans;
 
-    //It VeCuaKhach
-    @OneToMany(mappedBy = "nguoiDungDK")//gắn với thuộc tính trong class bên kết nối
-    private List<DangKy> dangKys;
+    /**
+     * @return the binhLuans
+     */
+    public List<BinhLuan> getBinhLuans() {
+        return binhLuans;
+    }
 
-    
-    
-    
-    
+    /**
+     * @param binhLuans the binhLuans to set
+     */
+    public void setBinhLuans(List<BinhLuan> binhLuans) {
+        this.binhLuans = binhLuans;
+    }
+
     /**
      * @return the xacThucMatKhau
      */
@@ -82,35 +93,6 @@ public class NguoiDung implements Serializable{
     }
 
     /**
-     * @return the dangKys
-     */
-    public List<DangKy> getDangKys() {
-        return dangKys;
-    }
-
-    /**
-     * @param dangKys the dangKys to set
-     */
-    public void setDangKys(List<DangKy> dangKys) {
-        this.dangKys = dangKys;
-    }
-    /**
-     * @return the veCuaKhachs
-     */
-    public List<VeCuaKhach> getVeCuaKhachs() {
-        return veCuaKhachs;
-    }
-
-    /**
-     * @param veCuaKhachs the veCuaKhachs to set
-     */
-    public void setVeCuaKhachs(List<VeCuaKhach> veCuaKhachs) {
-        this.veCuaKhachs = veCuaKhachs;
-    }
-    
-    
-    
-    /**
      * @return the anh
      */
     public String getAnh() {
@@ -123,7 +105,7 @@ public class NguoiDung implements Serializable{
     public void setAnh(String anh) {
         this.anh = anh;
     }
-    
+
     /**
      * @return the id
      */
@@ -263,7 +245,5 @@ public class NguoiDung implements Serializable{
     public void setFile(MultipartFile file) {
         this.file = file;
     }
-    
-    
-    
+
 }

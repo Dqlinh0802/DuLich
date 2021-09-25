@@ -67,9 +67,10 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository{
         return q.getResultList();
     }
 
+    @Override
+    public NguoiDung layNguoiDungId(int nguoiDungId) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(NguoiDung.class, nguoiDungId);
+    }
 
-
-
-    
-    
 }

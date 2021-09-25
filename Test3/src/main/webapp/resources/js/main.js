@@ -82,3 +82,15 @@ function xoaTourTrongGio(tourId) {
         })
     }
 }
+function thanhToan() {
+    if (confirm("Tiến hành thanh toán!!!") == true) {
+        fetch("/Test3/api/thanhToan", {
+            method: "post"
+        }).then(function (res) {
+            return res.json()
+        }).then(function (code){
+            console.info(code);
+            location.reload();
+        })
+    }
+}

@@ -7,6 +7,7 @@ package com.dql.controllers;
 
 import com.dql.pojos.GioHang;
 import com.dql.pojos.Tour;
+import com.dql.service.HoaDonService;
 import com.dql.service.TourService;
 import com.dql.utils.Utils;
 import java.util.HashMap;
@@ -32,7 +33,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ApiGioHangController {
-
+    
+    
+    @Autowired
+    private HoaDonService hoaDonService;
     @Autowired
     private TourService tourService;
 
@@ -100,5 +104,15 @@ public class ApiGioHangController {
         }
         
         return new ResponseEntity<>(Utils.tinhTien(gioHang), HttpStatus.OK);
+    }
+    
+    @PostMapping("/api/thanhToan")
+    public HttpStatus thanhToan(HttpSession session){
+        if(this.hoaDonService.themHoaDon((Map<Integer, GioHang>) session.getAttribute("gioHang")) == true) {
+            session.removeAttribute("gioHang");
+            return HttpStatus.OK;
+        }
+        return HttpStatus.BAD_REQUEST;
+        
     }
 }
