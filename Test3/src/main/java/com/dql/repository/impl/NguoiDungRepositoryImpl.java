@@ -6,6 +6,7 @@
 package com.dql.repository.impl;
 
 import com.dql.pojos.NguoiDung;
+import com.dql.pojos.Tour;
 import com.dql.repository.NguoiDungRepository;
 import java.util.List;
 import javax.persistence.Query;
@@ -71,6 +72,31 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository{
     public NguoiDung layNguoiDungId(int nguoiDungId) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         return session.get(NguoiDung.class, nguoiDungId);
+    }
+
+    @Override
+    public List<NguoiDung> dsNguoiDung(String taiKhoan, int page) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();  
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<NguoiDung> query = builder.createQuery(NguoiDung.class);
+        Root root = query.from(NguoiDung.class);
+        query = query.select(root);
+        
+        
+        //%% -> chuyen thanh 1 dau khi xuong duoi
+        if(taiKhoan != null){
+            Predicate p = builder.like(root.get("taiKhoan").as(String.class),
+                    String.format("%%%s%%", taiKhoan));
+            query = query.where(p);
+        }
+        
+        Query q = session.createQuery(query); 
+        int maxPage = 6;
+        q.setMaxResults(maxPage);
+        //page= 1 thì lấy 6 phần tử đầu 
+        q.setFirstResult((page - 1 ) * maxPage);
+        
+        return q.getResultList();
     }
 
 }

@@ -20,10 +20,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="<c:url value="/"/>">Trang chủ</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Chưa biết</a>
-            </li>
-            <sec:authorize access="hasRole('ROLE_ADMIN')">
+            <sec:authorize access="hasAnyRole('ROLE_MANAGE', 'ROLE_ADMIN')">
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value="/nhanVien/nguoiDungs"/>">Quản lý</a>
+                </li>
+            </sec:authorize>
+            <sec:authorize access="hasAnyRole('ROLE_MANAGE', 'ROLE_ADMIN')">
                 <li class="nav-item">
                     <a class="nav-link" href="<c:url value="/admin/tours"/>">Thêm tour</a>
                 </li>

@@ -13,7 +13,9 @@ and open the template in the editor.
 /*font-family: 'Sansita Swashed', cursive;*/
 /*font-family: 'Pacifico', cursive;*/
 
-
+/*.container{
+    max-width: 1550px!important;
+}*/
 
 .btn-success{
     color: white !important;

@@ -33,6 +33,7 @@ public class NguoiDung implements Serializable {
 
     public static final String ADMIN = "ROLE_ADMIN";
     public static final String USER = "ROLE_USER";
+    public static final String MANAGE = "ROLE_MANAGE";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

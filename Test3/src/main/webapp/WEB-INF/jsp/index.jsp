@@ -18,7 +18,7 @@
                 Tận hưởng những chuyến đi...
             </p>
             <div>
-                <a class="btn btn-success" href="#">Xem tour</a>
+                <a class="btn btn-success " href="#">Xem tour</a>
                 <a class="btn btn-success ml-2" href="#">Đặt tour</a>
             </div>
         </div>
@@ -41,69 +41,70 @@
                 </p>
             </div>
         </div>
-        <form class="form-inline" action="">
-            <input class="form-control mr-sm-2" name="kw" type="search" placeholder="Nhập thứ bạn cần tìm kiếm..." aria-label="Search">
-            <input type="submit" class="btn btn-info" value="Search" />
-        </form>
         <div>
-            <div>Tổng số tour: ${slTour}</div>
-            <ul class="pagination">
-                <c:forEach begin="1" end="${Math.ceil(slTour/6)}" var="i">
-                    <li class="page-item">
-                        <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
-                    </li>
-                </c:forEach> 
-            </ul>
-        </div>
-        <div id="dsTour">
-            <div class="info-img">  
-                <div class="row d-flex justify-content-center">
-                    <c:forEach var="pro" items="${tours}">   
-                        <div class="card col-md-3"  id="pro${pro.tourId}">
-                            <div class="card">
-                                <a href="<c:url value="/tours/${pro.tourId}"/>">
-                                    <div class="card-header">
-                                        <c:if test="${pro.anh != null && pro.anh.startsWith('https') == true}">
-                                            <img class="img-fluid " src="<c:url value="${pro.anh}"/>" alt="${pro.tenTour}"/>
-                                        </c:if>
-                                        <c:if test="${pro.anh == null || pro.anh.startsWith('https') == false}">
-                                            <img class="img-fluid " src="<c:url value="/images/phongCanh3.jpg"/>" alt="${pro.tenTour}"/>
-                                        </c:if>
-                                    </div>
-                                </a>
-                                <div class="card-body d-flex justify-content-between">
-                                    <div>
-                                        <h3 class="text-white">${pro.tenTour}</h3>
-                                        <p class="text-white">${pro.gia} VND</p>
-                                    </div>
-                                    <div class="Dat-Them-Tour">
+            <form class="form-inline" action="">
+                <input class="form-control mr-sm-2" name="kw" type="search" placeholder="Nhập thứ bạn cần tìm kiếm..." aria-label="Search">
+                <input type="submit" class="btn btn-info" value="Search" />
+            </form>
+            <div>
+                <div>Tổng số tour: ${slTour}</div>
+                <ul class="pagination">
+                    <c:forEach begin="1" end="${Math.ceil(slTour/6)}" var="i">
+                        <li class="page-item">
+                            <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
+                        </li>
+                    </c:forEach> 
+                </ul>
+            </div>
+            <div id="dsTour">
+                <div class="info-img">  
+                    <div class="row d-flex justify-content-center">
+                        <c:forEach var="pro" items="${tours}">   
+                            <div class="card col-md-2"  id="pro${pro.tourId}">
+                                <div class="card">
+                                    <a href="<c:url value="/tours/${pro.tourId}"/>">
+                                        <div class="card-header">
+                                            <c:if test="${pro.anh != null && pro.anh.startsWith('https') == true}">
+                                                <img class="img-fluid " src="<c:url value="${pro.anh}"/>" alt="${pro.tenTour}"/>
+                                            </c:if>
+                                            <c:if test="${pro.anh == null || pro.anh.startsWith('https') == false}">
+                                                <img class="img-fluid " src="<c:url value="/images/phongCanh3.jpg"/>" alt="${pro.tenTour}"/>
+                                            </c:if>
+                                        </div>
+                                    </a>
+                                    <div class="card-body d-flex justify-content-between">
                                         <div>
-                                            <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})">Đặt tour</a>
-                                            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                                <a href="javascript:;" class="btn btn-info bg-danger" onclick="xoaTour(${pro.tourId})">Xóa tour</a>
-                                            </sec:authorize>
+                                            <h3 class="text-white">${pro.tenTour}</h3>
+                                            <p class="text-white">${pro.gia} VND</p>
+                                        </div>
+                                        <div class="Dat-Them-Tour">
+                                            <div>
+                                                <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})">Đặt tour</a>
+                                                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                                    <a href="javascript:;" class="btn btn-info bg-danger" onclick="xoaTour(${pro.tourId})">Xóa tour</a>
+                                                </sec:authorize>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </c:forEach>
+                        </c:forEach>
+                    </div>
                 </div>
             </div>
+            <div>
+                <ul class="pagination">
+                    <c:forEach begin="1" end="${Math.ceil(slTour/6)}" var="i">
+                        <li class="page-item">
+                            <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
+                        </li>
+                    </c:forEach> 
+                </ul>
+            </div>
+            <c:forEach var="tour" items="${tours}">
+                <h3 class="d-inline-block ml-3">${tour.tenTour}</h3>
+            </c:forEach>
         </div>
-        <div>
-            <ul class="pagination">
-                <c:forEach begin="1" end="${Math.ceil(slTour/6)}" var="i">
-                    <li class="page-item">
-                        <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
-                    </li>
-                </c:forEach> 
-            </ul>
-        </div>
-        <c:forEach var="tour" items="${tours}">
-            <h3 class="d-inline-block ml-3">${tour.tenTour}</h3>
-        </c:forEach>
-
     </div>
 </section>
 

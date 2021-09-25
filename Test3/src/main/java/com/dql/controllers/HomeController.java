@@ -46,7 +46,6 @@ public class HomeController {
         model.addAttribute("tours", this.tourService.getTours(params.get("kw"), page));
         model.addAttribute("slTour", this.tourService.slTour());
         
-        
         return "index";
     }
     

@@ -104,4 +104,9 @@ public class NguoiDungServiceImpl implements NguoiDungService{
     public NguoiDung layNguoiDungId(int nguoiDungId) {
         return this.nguoiDungRepository.layNguoiDungId(nguoiDungId);
     }
+
+    @Override
+    public List<NguoiDung> dsNguoiDung(String taiKhoan, int page) {
+        return this.nguoiDungRepository.dsNguoiDung(taiKhoan, page);
+    }
 }
