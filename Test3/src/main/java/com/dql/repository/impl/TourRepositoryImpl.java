@@ -48,7 +48,7 @@ public class TourRepositoryImpl implements TourRepository{
         }
         
         Query q = session.createQuery(query); 
-        int maxPage = 6;
+        int maxPage = 20;
         q.setMaxResults(maxPage);
         //page= 1 thì lấy 6 phần tử đầu 
         q.setFirstResult((page - 1 ) * maxPage);
@@ -68,8 +68,11 @@ public class TourRepositoryImpl implements TourRepository{
         Session session = this.sessionFactory.getObject().getCurrentSession();
         
         try{
-            session.save(tour);
-            
+            if(tour.getTourId() > 0)
+                session.update(tour);
+            else
+                session.save(tour);
+       
             return true;
         } catch (Exception ex){
             System.err.println("Lỗi xảy ra khi thêm hoặc sửa" + ex.getMessage());
@@ -78,18 +81,6 @@ public class TourRepositoryImpl implements TourRepository{
         }
         return false;
         
-//        try {
-//            if (tour.getId() > 0)
-//                session.update(tour);
-//            else
-//                session.save(tour);
-//            
-//            return true;
-//        } catch (HibernateException ex) {
-//            ex.printStackTrace();
-//        }
-//        
-//        return false;
     }
 
     @Override

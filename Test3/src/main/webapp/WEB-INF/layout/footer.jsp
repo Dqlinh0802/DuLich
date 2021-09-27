@@ -6,7 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="footer text-center">
+<div class="footer text-center" id="lienHe">
     <div class="container text-black">
         <div class="row pt-5 pb-5">
             <!--cot1-->
@@ -24,7 +24,7 @@
                     <span>dulich@gmail.com</span>
                     <br />
                     <span class="font-weight-bold text-warning">Phone: </span>
-                    <span>(+84) 123 456</span>
+                    <span class="text-danger font-weight-bold h4">(+84) 123 456</span>
                 </p>
                 <!--<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>-->
                 <!--<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>-->
@@ -49,7 +49,7 @@
         </div>
     </div>
     <div class="copyright py-4 text-center text-white">
-        <div class="container "><small>Bản quyền &copy; 2021 DuLich.com</small></div>
+        <div class="container"><small>Bản quyền &copy; 2021 DuLich.com</small></div>
     </div>
 </div>
 

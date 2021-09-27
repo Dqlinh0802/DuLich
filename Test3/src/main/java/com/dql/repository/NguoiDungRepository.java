@@ -17,4 +17,5 @@ public interface NguoiDungRepository {
     List<NguoiDung> danhSachNguoiDung(String taiKhoan);
     NguoiDung layNguoiDungId(int nguoiDungId);
     List<NguoiDung> dsNguoiDung(String taiKhoan, int page);
+    long slNguoiDung();
 }

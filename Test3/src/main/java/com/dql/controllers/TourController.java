@@ -42,7 +42,7 @@ public class TourController {
     //@Valid chi khi past het thi Tour moi duoc nhan
     //het vi pham moi cho lam BindingResult bao vi pham vao day het
     
-    @PostMapping("/admin/tours")
+    @PostMapping("/nhanVien/tours")
     public String post(Model model,
             @ModelAttribute(value = "tour") @Valid Tour tour, 
             BindingResult result){
@@ -61,11 +61,17 @@ public class TourController {
     
     
     //phan quyen cho admin
-    @GetMapping("/admin/tours")
-    public String danhSach(Model model) {
-        model.addAttribute("tour", new Tour());
+    @GetMapping("/nhanVien/tours")
+    public String danhSach(Model model,
+            @RequestParam(name = "tourId", defaultValue = "0") int tourId) {
+        if (tourId > 0) // cập nhật
+            model.addAttribute("tour", this.tourService.layTourId(tourId));
+        else
+            model.addAttribute("tour", new Tour());//thêm
+        
         return "tour";
     }
+    
     
     @GetMapping("/tours/{tourId}")
     public String chiTietTour(Model model,

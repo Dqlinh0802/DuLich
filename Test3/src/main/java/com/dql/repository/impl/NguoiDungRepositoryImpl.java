@@ -99,4 +99,13 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository{
         return q.getResultList();
     }
 
+    @Override
+    public long slNguoiDung() {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        Query q = session.createQuery("Select Count(*) From NguoiDung");
+        return Long.parseLong(q.getSingleResult().toString());        
+    }
+
+    
+
 }

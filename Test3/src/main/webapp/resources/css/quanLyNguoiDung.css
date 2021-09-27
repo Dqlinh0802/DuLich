@@ -20,3 +20,19 @@ and open the template in the editor.
     max-height: 60px!important;
     max-width: 60px!important;
 }
+.table td {
+    vertical-align: middle!important;
+}
+.table {
+    border-bottom: 1px solid #fff;
+}
+.page{
+    color: #f2c26f;
+    font-size: 20px;
+}
+.table img {
+    width: 60px;
+}
+.table .ten-nguoi-dung {
+    
+}

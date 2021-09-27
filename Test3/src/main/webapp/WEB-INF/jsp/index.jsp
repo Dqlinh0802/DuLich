@@ -43,13 +43,13 @@
         </div>
         <div>
             <form class="form-inline" action="">
-                <input class="form-control mr-sm-2" name="kw" type="search" placeholder="Nhập thứ bạn cần tìm kiếm..." aria-label="Search">
+                <input class="form-control mr-sm-2" name="kw" type="search" placeholder="Nhập tour bạn cần tìm kiếm..." aria-label="Search">
                 <input type="submit" class="btn btn-info" value="Search" />
             </form>
-            <div>
-                <div>Tổng số tour: ${slTour}</div>
+            <div class="d-flex align-items-end flex-column">
+                <div >Tổng số tour: ${slTour}</div>
                 <ul class="pagination">
-                    <c:forEach begin="1" end="${Math.ceil(slTour/6)}" var="i">
+                    <c:forEach begin="1" end="${Math.ceil(slTour/20)}" var="i">
                         <li class="page-item">
                             <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
                         </li>
@@ -77,11 +77,20 @@
                                             <h3 class="text-white">${pro.tenTour}</h3>
                                             <p class="text-white">${pro.gia} VND</p>
                                         </div>
-                                        <div class="Dat-Them-Tour">
+                                        <div class="dat-them-tour">
                                             <div>
                                                 <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})">Đặt tour</a>
-                                                <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                                    <a href="javascript:;" class="btn btn-info bg-danger" onclick="xoaTour(${pro.tourId})">Xóa tour</a>
+                                                <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
+                                                    <div class="d-flex btn-seting">
+                                                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                                            <a href="javascript:;" class="btn btn-info bg-danger" onclick="xoaTour(${pro.tourId})">
+                                                                <i class="far fa-trash-alt"></i>
+                                                            </a>
+                                                        </sec:authorize>
+                                                        <a href="<c:url value="/nhanVien/tours/?tourId=${pro.tourId}" />" class="btn btn-warning text-white">
+                                                            <i class="fas fa-wrench"></i>
+                                                        </a>
+                                                    </div>
                                                 </sec:authorize>
                                             </div>
                                         </div>
@@ -93,17 +102,14 @@
                 </div>
             </div>
             <div>
-                <ul class="pagination">
-                    <c:forEach begin="1" end="${Math.ceil(slTour/6)}" var="i">
+                <ul class="pagination d-flex justify-content-end">
+                    <c:forEach begin="1" end="${Math.ceil(slTour/20)}" var="i">
                         <li class="page-item">
                             <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
                         </li>
                     </c:forEach> 
                 </ul>
             </div>
-            <c:forEach var="tour" items="${tours}">
-                <h3 class="d-inline-block ml-3">${tour.tenTour}</h3>
-            </c:forEach>
         </div>
     </div>
 </section>

@@ -25,12 +25,7 @@ public class QuanLyNguoiDungConTroller {
     private NguoiDungService nguoiDungService;
     
 //    //phan quyen cho nhan vien va admin
-//    @GetMapping("/nhanVien/nguoiDungs")
-//    public String danhSachNguoiDung(Model model) {
-//        
-//        
-//        return "quanLyNguoiDung";
-//    }
+
     
     
     @RequestMapping("/nhanVien/nguoiDungs")
@@ -40,8 +35,7 @@ public class QuanLyNguoiDungConTroller {
         //co thì lấy k có thì lấy 1
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         model.addAttribute("dsNguoiDung", this.nguoiDungService.dsNguoiDung(params.get("taiKhoan"), page));
-//        model.addAttribute("slTour", this.nguoiDungService.slTour());
-        
+        model.addAttribute("slNguoiDung", this.nguoiDungService.slNguoiDung());
         
         return "quanLyNguoiDung";
     }

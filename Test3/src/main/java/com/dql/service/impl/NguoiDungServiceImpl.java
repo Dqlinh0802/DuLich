@@ -109,4 +109,10 @@ public class NguoiDungServiceImpl implements NguoiDungService{
     public List<NguoiDung> dsNguoiDung(String taiKhoan, int page) {
         return this.nguoiDungRepository.dsNguoiDung(taiKhoan, page);
     }
+
+    @Override
+    public long slNguoiDung() {
+        return  this.nguoiDungRepository.slNguoiDung();
+    }
+
 }
