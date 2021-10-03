@@ -39,4 +39,9 @@ public class QuanLyNguoiDungConTroller {
         
         return "quanLyNguoiDung";
     }
+    
+    @GetMapping("/khongTimThay")
+    public String khongTimThay(){
+        return "khongTimThay";
+    }
 }

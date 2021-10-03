@@ -55,4 +55,11 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="css" value="/Test3/css/quanLyNguoiDung.css"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/jsp/quanLyNguoiDung.jsp"></put-attribute>
     </definition>
+    <definition name="khongTimThay" extends="baseLayout">
+        <put-attribute name="title" value="404"></put-attribute>
+        <put-attribute name="header" value=""></put-attribute>
+        <put-attribute name="footer" value=""></put-attribute>
+        <put-attribute name="css" value="/Test3/css/404.css"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/jsp/khongTimThay.jsp"></put-attribute>
+    </definition>
 </tiles-definitions>

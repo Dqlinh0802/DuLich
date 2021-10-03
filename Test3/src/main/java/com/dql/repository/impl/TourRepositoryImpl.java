@@ -38,6 +38,7 @@ public class TourRepositoryImpl implements TourRepository{
         CriteriaQuery<Tour> query = builder.createQuery(Tour.class);
         Root root = query.from(Tour.class);
         query = query.select(root);
+//        query = query.orderBy(builder.desc(root.get("tourId")));//sap xep
         
         
         //%% -> chuyen thanh 1 dau khi xuong duoi
@@ -50,7 +51,7 @@ public class TourRepositoryImpl implements TourRepository{
         Query q = session.createQuery(query); 
         int maxPage = 20;
         q.setMaxResults(maxPage);
-        //page= 1 thì lấy 6 phần tử đầu 
+        //page= 1 thì lấy 20 phần tử đầu 
         q.setFirstResult((page - 1 ) * maxPage);
         
         return q.getResultList();
@@ -72,7 +73,6 @@ public class TourRepositoryImpl implements TourRepository{
                 session.update(tour);
             else
                 session.save(tour);
-       
             return true;
         } catch (Exception ex){
             System.err.println("Lỗi xảy ra khi thêm hoặc sửa" + ex.getMessage());

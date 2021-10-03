@@ -35,11 +35,14 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository{
 
     
     @Override
-    public boolean themNguoiDung(NguoiDung nguoiDung) {
+    public boolean themSuaNguoiDung(NguoiDung nguoiDung) {
         Session session = sessionFactory.getObject().getCurrentSession();
         
         try{
-            session.save(nguoiDung);
+            if(nguoiDung.getId() > 0)
+                session.update(nguoiDung);
+            else
+                session.save(nguoiDung);
             
             return true;
         } catch (Exception ex){
@@ -104,6 +107,21 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository{
         Session session = this.sessionFactory.getObject().getCurrentSession();
         Query q = session.createQuery("Select Count(*) From NguoiDung");
         return Long.parseLong(q.getSingleResult().toString());        
+    }
+
+    @Override
+    public boolean xoaNguoiDung(int id) {
+        try {
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            NguoiDung t = session.get(NguoiDung.class, id);
+            session.delete(t);
+            
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
     }
 
     

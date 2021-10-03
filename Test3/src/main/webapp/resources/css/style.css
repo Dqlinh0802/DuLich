@@ -16,7 +16,9 @@ and open the template in the editor.
 /*.container{
     max-width: 1550px!important;
 }*/
-
+.container{
+    max-width: 1500px!important;
+}
 .btn-success{
     color: white !important;
     border-width: 2px !important;
@@ -63,6 +65,7 @@ and open the template in the editor.
 .bgcolor.scrolled{
     background: rgba(0,0,0,0.4)!important;
 }
+
 .nav-link{
     color: #fff;
     margin-right: 30px;
@@ -92,6 +95,7 @@ and open the template in the editor.
 .fas:hover{
     color: #f2c26f;
 }
+
 /*========HEADER==========*/
 
 

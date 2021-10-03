@@ -7,7 +7,7 @@ package com.dql.pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -40,7 +40,7 @@ public class BinhLuan implements Serializable {
     private Tour tour;
     
     
-    @ManyToOne(fetch = FetchType.LAZY)//mac dinh la eager join vao lay het
+    @ManyToOne(fetch = FetchType.EAGER)//mac dinh la eager join vao lay het
     //lazy khi nao goi thi moi join 
     @JoinColumn(name = "idNguoiDung")
     private NguoiDung nguoiDung;

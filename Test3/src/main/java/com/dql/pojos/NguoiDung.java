@@ -31,6 +31,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name = "nguoidung")
 public class NguoiDung implements Serializable {
 
+    
+
     public static final String ADMIN = "ROLE_ADMIN";
     public static final String USER = "ROLE_USER";
     public static final String MANAGE = "ROLE_MANAGE";
@@ -85,7 +87,19 @@ public class NguoiDung implements Serializable {
     public String getXacThucMatKhau() {
         return xacThucMatKhau;
     }
+/**
+     * @return the hoaDons
+     */
+    public List<HoaDon> getHoaDons() {
+        return hoaDons;
+    }
 
+    /**
+     * @param hoaDons the hoaDons to set
+     */
+    public void setHoaDons(List<HoaDon> hoaDons) {
+        this.hoaDons = hoaDons;
+    }
     /**
      * @param xacThucMatKhau the xacThucMatKhau to set
      */

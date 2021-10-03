@@ -6,7 +6,10 @@
 package com.dql.controllers;
 
 import com.dql.pojos.Tour;
+import com.dql.service.BinhLuanService;
 import com.dql.service.TourService;
+import com.dql.validator.TourValidator;
+import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +32,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TourController {
     @Autowired
     private TourService tourService;
+    @Autowired
+    private BinhLuanService binhLuanService;
+    @Autowired
+    private TourValidator tourValidator;
+    @InitBinder
+    public void initBinder(WebDataBinder binder){
+        binder.setValidator(tourValidator);
+    }
 //    @Autowired
 //    private WebAppValidator webAppValidator;
 //    
@@ -75,9 +86,15 @@ public class TourController {
     
     @GetMapping("/tours/{tourId}")
     public String chiTietTour(Model model,
-        @PathVariable (value = "tourId") int tourId){
+        @PathVariable (value = "tourId") int tourId,
+        @RequestParam(required = false) Map<String , String> params){
+        
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
         
         model.addAttribute("tour", this.tourService.layTourId(tourId));
+        model.addAttribute("binhLuans", this.binhLuanService.layBinhLuansTour(tourId, page));
+        model.addAttribute("slBinhLuan", this.binhLuanService.slBinhLuan(tourId));
+        
         return "chiTietTour";
     }
     

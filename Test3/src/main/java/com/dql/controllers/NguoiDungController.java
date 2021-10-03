@@ -27,59 +27,52 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class NguoiDungController {
+
     @Autowired
     private NguoiDungValidator nguoiDungValidator;
-    
+
     @Autowired
     private NguoiDungService userDetailsService;
-    
-    
+
     @InitBinder
-    public void initBinder(WebDataBinder binder){
+    public void initBinder(WebDataBinder binder) {
         binder.setValidator(nguoiDungValidator);
     }
-    
+
     @GetMapping("/dangNhap")
-    public String dangNhap(){
+    public String dangNhap() {
         return "dangNhap";
     }
-    
+
     @GetMapping("/dangKy")
-    public String dangKyView(Model model){
-        model.addAttribute("nguoiDung", new NguoiDung());
+    public String dangKyView(Model model,
+            @RequestParam(name = "id", defaultValue = "0") int id) {
+        if (id > 0) {
+            model.addAttribute("nguoiDung", this.userDetailsService.layNguoiDungId(id));
+        } else {
+            model.addAttribute("nguoiDung", new NguoiDung());
+        }
         return "dangKy";
     }
-           
-            
-    @PostMapping("/dangKy")
-    public String dangKy(Model model, 
-            @ModelAttribute(value = "nguoiDung") @Valid NguoiDung nguoiDung,
-            BindingResult result){
-//        String err = "";
-//        if(!result.hasErrors()){
-////        if(nguoiDung.getMatKhau().equals(nguoiDung.getXacThucMatKhau())){
-//            if(this.userDetailsService.themNguoiDung(nguoiDung) == true)
-//                return "redirect:/dangNhap";  
-//            else
-//                err = "Đã có lỗi xảy ra";
-//        } else
-//            err = "Đã có lỗi xảy ra";
-//        model.addAttribute("err", err);
-//        return "dangKy";
 
-       String err = "";
-       if(!result.hasErrors()){
-//        if(nguoiDung.getMatKhau().equals(nguoiDung.getXacThucMatKhau())){
-            if(this.userDetailsService.themNguoiDung(nguoiDung) == true)
-                return "redirect:/dangNhap";  
-            else
+    @PostMapping("/dangKy")
+    public String dangKy(Model model,
+            @ModelAttribute(value = "nguoiDung") @Valid NguoiDung nguoiDung,
+            BindingResult result) {
+        
+        String err = "";
+        if (!result.hasErrors()) {
+            if (this.userDetailsService.themSuaNguoiDung(nguoiDung) == true) {
+                return "redirect:/dangNhap";
+            } else {
                 err = "Đã có lỗi xảy ra";
-        } else
+            }
+        } else {
             err = "Error";
+        }
         model.addAttribute("err", err);
         return "dangKy";
-        
+
     }
-    
-  
+
 }

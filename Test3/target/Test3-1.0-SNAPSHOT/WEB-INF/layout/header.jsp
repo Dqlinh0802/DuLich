@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-expand-lg d-flex justify-content-between container pt-1 pb-1 bgcolor fixed-top">
     <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ">
+        <ul class="navbar-nav">
             <li class="nav-item mr-5">
                 <a class="navbar-brand" href="<c:url value="/" />">
                     <img class="rounded-circle" src="<c:url value="/images/logo.png"/>" alt="Logo" style="width:50px;">
@@ -29,7 +29,7 @@
                     <a class="nav-link" href="<c:url value="/nhanVien/tours"/>">Thêm tour</a>
                 </li>
             </sec:authorize>
-            <li class="nav-item">
+            <li class="nav-item lien-he">
                 <a class="nav-link" href="#lienHe">Liên hệ</a>
             </li>
         </ul>

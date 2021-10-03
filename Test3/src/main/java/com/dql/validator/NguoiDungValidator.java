@@ -26,8 +26,11 @@ public class NguoiDungValidator implements Validator{
     public void validate(Object o, Errors errors) {
         NguoiDung n = (NguoiDung) o;
         //rejectValue name nó biet truong nào bị lỗi
-        if(n.getTen() == "" || n.getTen() == null)
-            errors.rejectValue("ten", "nguoidung.errNull");
+//        if(n.getTen() == "" || n.getTen() == null)
+//            errors.rejectValue("ten", "nguoidung.errNull");
+        
+//        if(n.getAnh() == "" || n.getAnh() == null)
+//            errors.rejectValue("anh", "nguoidung.errNull");
 //        if(n.getHo() == "" || n.getHo() == null)
 //            errors.rejectValue("ho", "nguoidung.errNull");
 //        if(n.getEmail()== "" || n.getEmail() == null)

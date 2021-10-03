@@ -1,4 +1,5 @@
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\impl\HoaDonRepositoryImpl.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\BinhLuanService.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\utils\Utils.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\NguoiDungController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\NguoiDungRepository.java
@@ -6,13 +7,16 @@ E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\ApiGioHangController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\SecurityWebAppInitializer.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\SpringSecurityConfig.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\impl\HoaDonServiceImpl.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\ApiBinhLuanController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\TilesConfig.java
-E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\AipTourController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\impl\NguoiDungRepositoryImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\TourRepository.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\ApiNguoiDungConTroller.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\BinhLuanRepository.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\TourService.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\NguoiDung.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\impl\NguoiDungServiceImpl.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\ApiTourController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\KhachSan.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\impl\TourServiceImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\ChiTietHoaDon.java
@@ -22,6 +26,7 @@ E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\HomeController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\QuanLyNguoiDungConTroller.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\HuongDanVien.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\WebConfig.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\impl\BinhLuanRepositoryImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\BinhLuan.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\HoaDon.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\HibernateConfig.java
@@ -32,5 +37,6 @@ E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\Tour.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\DispatcherServletInitializer.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\HoaDonRepository.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\HoaDonService.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\impl\BinhLuanServiceImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\GioHangController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\validator\NguoiDungValidator.java

@@ -65,10 +65,16 @@ and open the template in the editor.
     margin-top: auto;
     margin-bottom: auto;
     margin-left: auto;
-    margin-right: 15px;
+    margin-right: 35px;
+}
+#form-tour{
+    max-width: 100hv;
+    align-items: center;
 }
 .form-tour{
     max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .btn-success{
     color: white !important;

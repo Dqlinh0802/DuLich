@@ -13,9 +13,10 @@ import java.util.List;
  * @author Acer
  */
 public interface NguoiDungRepository {
-    boolean themNguoiDung(NguoiDung nguoiDung);
+    boolean themSuaNguoiDung(NguoiDung nguoiDung);
     List<NguoiDung> danhSachNguoiDung(String taiKhoan);
     NguoiDung layNguoiDungId(int nguoiDungId);
     List<NguoiDung> dsNguoiDung(String taiKhoan, int page);
     long slNguoiDung();
+    boolean xoaNguoiDung(int id);
 }

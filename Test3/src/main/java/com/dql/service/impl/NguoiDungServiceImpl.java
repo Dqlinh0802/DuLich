@@ -40,40 +40,28 @@ public class NguoiDungServiceImpl implements NguoiDungService{
     
     //xu ly băm password
     @Override
-    public boolean themNguoiDung(NguoiDung nguoiDung) {
+    public boolean themSuaNguoiDung(NguoiDung nguoiDung) {
         
         String pass = nguoiDung.getMatKhau();
         nguoiDung.setMatKhau(this.passwordEncoder.encode(pass));
         
-        nguoiDung.setVaiTro(NguoiDung.USER);
+        
+        //neu nguoi binh thuong dk thi mac d
+//        if(nguoiDung.getVaiTro() == "")
+            nguoiDung.setVaiTro(NguoiDung.USER);
         try{
             Map m = this.cloudinary.uploader().upload(nguoiDung.getFile().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             
                 nguoiDung.setAnh((String) m.get("secure_url"));
-                return this.nguoiDungRepository.themNguoiDung(nguoiDung);
+//                nguoiDung.setVaiTro(nguoiDung.getVaiTro());
+                return this.nguoiDungRepository.themSuaNguoiDung(nguoiDung);
         } catch (IOException ex) {
             System.err.println("Đã xảy ra lỗi!!!");
         }
         
         return false;
     }
-//@Override
-//    public boolean themHoacSua(Tour tour) {
-//        try {
-//            Map m = this.cloudinary.uploader().upload(tour.getFile().getBytes(),
-//                    ObjectUtils.asMap("resource_type", "auto"));
-//            
-//            tour.setAnh((String) m.get("secure_url"));
-//            
-//            
-//            return this.tourRepository.themHoacSua(tour);
-//        } catch (IOException ex) {
-//            System.err.println("Upload file fail!!!");
-//        }
-//        
-//        return false;
-//    }
 
     
     @Override
@@ -113,6 +101,11 @@ public class NguoiDungServiceImpl implements NguoiDungService{
     @Override
     public long slNguoiDung() {
         return  this.nguoiDungRepository.slNguoiDung();
+    }
+
+    @Override
+    public boolean xoaNguoiDung(int id) {
+        return this.nguoiDungRepository.xoaNguoiDung(id);
     }
 
 }

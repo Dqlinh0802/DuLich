@@ -7,22 +7,30 @@ and open the template in the editor.
     Created on : Sep 20, 2021, 3:35:09 PM
     Author     : Acer
 */
-@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
+
 
 #bg-tour{
-    padding-top: 200px;
+    padding-top: 150px;
     background-color: #383A59;
     padding-bottom: 100px;
 }
 #bg-tour h1 {
-    font-family: 'Sansita Swashed', cursive;
+    font-family: 'Pacifico', cursive;
     margin-bottom: 50px;
     color: #13A211;
+    font-weight: bold;
     font-size: 50px;    
+}
+.container .chi-tiet-tour {
+    padding: 15px 10px;
+    border: 2px solid #fda0a0;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 10px rgba(204 ,127, 127, 0.2) !important
 }
 .col-md-6 > img {
     max-height: 560px;
     max-width: 500px;
+    padding-right: 10px;
 }
 .col-md-6 > h3{
     margin-left: 50px;
@@ -38,15 +46,17 @@ and open the template in the editor.
 .col-md-2 > .rounded-circle{
     height: 70px !important;
     width: 70px;
+    background-color: rgba(204 ,127, 127, 1);
 }
-.binh-luan {
-    margin-top: 10px;
+.binh-luan {    
+    margin-top: 70px;
+    margin-left: 35px;
 }
 .binh-luan > textarea{
     padding-left: 20px!important;
     color: white;
     background-color: transparent;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     
 }
 .binh-luan > textarea:focus{
@@ -59,6 +69,25 @@ and open the template in the editor.
 .cac-binh-luan{
     margin-top: 40px;
 }
-.cac-binh-luan > .row {
+.cac-binh-luan .row:nth-child(1){
+    margin-top: 0px;
+}
+.cac-binh-luan .row {
+    margin-top: 20px;
+}
+.cac-binh-luan .bg-bl{
+    padding: 20px 0;
+    border: 2px solid #fda0a0;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 10px rgba(204 ,127, 127, 0.2) !important
+}
+.cac-binh-luan .col-md-10 p {
+    font-size: 22px;
+    margin-bottom: 0px;
     margin-top: 10px;
+}
+.page{
+    margin-top: 15px;
+    color: #f2c26f;
+    font-size: 20px;
 }

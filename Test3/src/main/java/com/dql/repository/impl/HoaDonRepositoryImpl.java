@@ -13,6 +13,7 @@ import com.dql.repository.NguoiDungRepository;
 import com.dql.repository.TourRepository;
 import com.dql.utils.Utils;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Map;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -37,14 +38,17 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
     private TourRepository tourRepository;
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)//do cap nhat nhieu giao tac
+    //do cap nhat nhieu giao tac
+    @Transactional(propagation = Propagation.REQUIRED)
     public boolean themHoaDon(Map<Integer, GioHang> gioHang) {
         try {
             Session session = sessionFactory.getObject().getCurrentSession();
 
             HoaDon hoaDon = new HoaDon();
             hoaDon.setNguoiDung(this.nguoiDungRepository.layNguoiDungId(6));
-//            hoaDon.setNgayMua("");// lay ngay hien tai
+
+            hoaDon.setNgayMua(new Date());
+
 
             Map<String, String> tinhTien = Utils.tinhTien(gioHang);
             hoaDon.setTongTien(BigDecimal.valueOf(Long.parseLong(tinhTien.get("tongTien"))));

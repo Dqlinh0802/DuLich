@@ -56,12 +56,6 @@ public class HomeController {
         model.addAttribute("demSLTour", Utils.demSLTour((Map<Integer, GioHang>) session.getAttribute("gioHang")));
     }
     
-    
-//    @RequestMapping("/")
-//    public String index(Model model){
-//        //trong tiles
-//        return "index";
-//    }
-    
+   
     
 }
