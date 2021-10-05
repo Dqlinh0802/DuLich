@@ -20,10 +20,13 @@ E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\ApiTourController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\KhachSan.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\impl\TourServiceImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\ChiTietHoaDon.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\XuLyDangNhapThanhCong.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\impl\TourRepositoryImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\NguoiDungService.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\XuLyDangXuat.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\HomeController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\QuanLyNguoiDungConTroller.java
+E:\DoAn\DuLich\Test3\src\main\java\com\dql\validator\TourValidator.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\HuongDanVien.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\WebConfig.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\impl\BinhLuanRepositoryImpl.java

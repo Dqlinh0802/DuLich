@@ -25,8 +25,8 @@ public class TourValidator implements Validator{
     @Override
     public void validate(Object o, Errors errors) {
         Tour n = (Tour) o;
-        if(n.getAnh() == "" || n.getAnh() == null)
-            errors.rejectValue("anh", "tour.errNull");
+//        if(n.getAnh() == "" || n.getAnh() == null)
+//            errors.rejectValue("anh", "tour.errNull");
     }
     
 }

@@ -119,32 +119,32 @@ function thanhToan() {
 }
 window.onload = function () {
     let ngays = document.getElementsByClassName("ngayBL")
-    
+
     for (let i = 0; i < ngays.length; i++)
     {
         ngays[i].innerText = "Bình luận " + moment(ngays[i].innerText).fromNow();
     }
 }
-function themBinhLuan(tourId){
+function themBinhLuan(tourId) {
     event.preventDefault();
-    
-    fetch("/Test3/api/themBinhLuan",{
+
+    fetch("/Test3/api/themBinhLuan", {
         method: 'post',
         body: JSON.stringify({
             "noiDung": document.getElementById("binhLuanId").value,
             "tourId": tourId
         }),
-        headers:{
+        headers: {
             "Content-Type": "application/json"
-            }
-        }).then(function (res) {
-            console.info(res)
-            return res.json();
-        }).then(function (data) {
-            console.info(data)
-            let area = document.getElementById("binhLuanArea");
-            
-            area.innerHTML = `
+        }
+    }).then(function (res) {
+        console.info(res)
+        return res.json();
+    }).then(function (data) {
+        console.info(data)
+        let area = document.getElementById("binhLuanArea");
+
+        area.innerHTML = `
                     <div class="row">
                         <div class="col-md-2 d-flex justify-content-end">
                             <img class="img-fluid rounded-circle" alt="alt"/>
@@ -158,3 +158,17 @@ function themBinhLuan(tourId){
         location.reload();
     })
 }
+window.onload = function () {
+    let gia = document.getElementsByClassName("giaTien")
+    var formatter = new Intl.NumberFormat('vi', {
+        style: 'currency',
+        currency: 'VND',
+    });
+    for (let i = 0; i < gia.length; i++)
+    {
+
+        gia[i].innerText = formatter.format(gia[i].innerText);
+    }
+}
+
+$('body').scrollspy({ target: '#navbar-example' })

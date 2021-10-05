@@ -108,4 +108,9 @@ public class NguoiDungServiceImpl implements NguoiDungService{
         return this.nguoiDungRepository.xoaNguoiDung(id);
     }
 
+    @Override
+    public List<NguoiDung> layNguoiDungTaiKhoan(String taiKhoan) {
+        return this.nguoiDungRepository.layNguoiDungTaiKhoan(taiKhoan);
+    }
+
 }

@@ -29,7 +29,6 @@ and open the template in the editor.
 .info{
     color: black;
     margin-left: 50px;
-
 }
 .info p {
     font-size: 24px  !important; 
@@ -44,39 +43,29 @@ h1 {
 .info .ten-ct {
     color: #f2c26f;
 }
+.info-sec > div > h3{
+    border-bottom: 2px solid #13A211;
+    color: #13A211;
+    font-size: 35px;
+    padding-bottom: 5px;
+}
+.info-sec .so-luong-tour{
 
+    color: #00c1de;
+    font-size: 20px;
+}
+
+.pagination li > a{
+    font-weight: bold;
+    color: #00c1de!important;
+}
 .info-location {
-    height: 300px!important;
-    width: 600px!important;
+    min-height: 300px!important;
+    max-width: 600px!important;
     margin-left: auto;
     margin-right: auto;
     padding: 30px 0px !important;
     font-size: 20px;
-}
-.info-sec{
-    background: rgba(196, 238,236, 0.8);
-    width: 100%;
-}
-.form-inline{
-    justify-content: center;
-}
-.form-inline input[type = search] {
-    min-width: 350px!important;
-}
-#dsTour{
-    /*max-height: 1553px;*/
-    max-width: 1500px;  
-}
-.col-4 {
-    justify-content: space-around;
-}
-.col-4 > img{
-    max-width: 300px;
-    max-height: 307px;
-    width: 300px;
-} 
-.row{
-    margin-bottom: 15px;
 }
 .info-location p, h3 {
     font-family: 'Sansita Swashed', cursive;
@@ -91,47 +80,69 @@ h1 {
     font-size: 26px;
 }
 
-
-
-.row .col-md-2{
-    margin: 15px 15px;
-    padding: 0 0 !important;
-    border: 0!important;
-}
-.col-md-2 > .card{
-    background-color: #d0f1f0!important;
-    border: 0px !important;
+.row > div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 30px;
 }
 
-.card .card-header{
-    background-color: rgba(253, 160, 160, 0.1);  
-    border-radius: 15px 15px 0 0 !important;
-    padding: 10px 10px !important;
-    border: 1px solid #fda0a0;
+.row > div > div {
+    background-color: #fff;
 }
-.card-header img {
-    border-radius: 30px 30px 0 0;
-    background-color: #fda0a0;
-    min-height: 405px;
-    min-width: 168px;
-    /*max-height: 253px!important;*/
+.row a{
+    text-decoration: none;
 }
-.card-body{
-    padding: 5px 5px 5px 10px!important;
-    background: #fda0a0;
-    border-radius: 0 0 15px 15px;
-    min-height: 148px!important;
+.row .img-fluid{
+    height: 197px;
+    width: 350px;
 }
-.card-body .dat-them-tour {
-    margin: auto auto;
+.info-img .gia{
+    color: #00c1de;
 }
-.card-body .dat-them-tour > div{
-    width: 87px;
+.btn-seting a{
+    margin-right: 10px;
 }
-.card-body .dat-them-tour > div a{
-    margin-bottom: 5px;
-    margin-top: 5px; 
+.fas{
+    font-size: 28px;
 }
+.fa-trash-alt{
+    transform: rotate(-15deg);
+    transition: transform ease-in-out 0.2s;
+}
+.fa-trash-alt:hover{
+    transform: rotate(15deg);
+    transition: transform ease-in-out 0.2s;
+}
+.fa-wrench{
+    transition: transform ease-in-out 0.1s; 
+}
+.fa-wrench:hover{
+    transform: rotate(35deg);
+    transition: transform ease-in-out 0.1s;
+}
+
+.info-tour{
+    padding: 15px;
+}
+.info-tour h3 {
+    color: #00c1de;
+    font-weight: 500;
+}
+.margin-5{
+    min-height: 24px;
+}
+.giaTien{
+    font-weight: bold;
+    font-size: 22px;
+}
+.form-inline{
+    justify-content: center;
+}
+.row a{
+    text-decoration: none!important;
+}
+
 /*===========CONTENT===========*/
 
 

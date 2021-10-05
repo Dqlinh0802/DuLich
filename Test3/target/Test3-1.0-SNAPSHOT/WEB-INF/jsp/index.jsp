@@ -42,14 +42,17 @@
             </div>
         </div>
         <div>
-            <form class="form-inline" action="">
-                <input class="form-control mr-sm-2" name="kw" type="search" placeholder="Nhập tour bạn cần tìm kiếm..." aria-label="Search">
-                <input type="submit" class="btn btn-info" value="Search" />
+            <h3>Danh sách các tour</h3>
+            <form class="form-inline row" action="">
+                <input class="form-control col-xs-1 col-md-4 mr-sm-2 mb-2" name="kw" type="search" placeholder="Bạn muốn đi đâu?" aria-label="Search">
+                <input type="submit" class="btn btn-info mb-2 font-weight-bold" value="Tìm kiếm"/>
             </form>
-            <div class="d-flex align-items-end flex-column">
-                <div >Tổng số tour: ${slTour}</div>
+            <div class="d-flex justify-content-between">
+                <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
+                    <div class="so-luong-tour">Tổng số tour: ${slTour}</div>
+                </sec:authorize>
                 <ul class="pagination">
-                    <c:forEach begin="1" end="${Math.ceil(slTour/20)}" var="i">
+                    <c:forEach begin="1" end="${Math.ceil(slTour/18)}" var="i">
                         <li class="page-item">
                             <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
                         </li>
@@ -58,41 +61,45 @@
             </div>
             <div id="dsTour">
                 <div class="info-img">  
-                    <div class="row d-flex justify-content-center">
+                    <div class="row">
                         <c:forEach var="pro" items="${tours}">   
-                            <div class="card col-md-2"  id="pro${pro.tourId}">
-                                <div class="card">
+                            <div class="col-xs-12 col-sm-6 col-md-4" id="pro${pro.tourId}">
+                                <div>
                                     <a href="<c:url value="/tours/${pro.tourId}"/>">
-                                        <div class="card-header">
+                                        <div>
+
                                             <c:if test="${pro.anh != null && pro.anh.startsWith('https') == true}">
                                                 <img class="img-fluid " src="<c:url value="${pro.anh}"/>" alt="${pro.tenTour}"/>
                                             </c:if>
                                             <c:if test="${pro.anh == null || pro.anh.startsWith('https') == false}">
-                                                <img class="img-fluid " src="<c:url value="/images/phongCanh3.jpg"/>" alt="${pro.tenTour}"/>
+                                                <img class="img-fluid " src="<c:url value="/images/macDinh.gif"/>" alt="${pro.tenTour}"/>
                                             </c:if>
+
                                         </div>
                                     </a>
-                                    <div class="card-body d-flex justify-content-between">
+                                    <div class="info-tour">
                                         <div>
-                                            <h3 class="text-white">${pro.tenTour}</h3>
-                                            <p class="text-white">${pro.gia} VND</p>
+                                            <h3>${pro.tenTour}</h3>
                                         </div>
-                                        <div class="dat-them-tour">
-                                            <div>
-                                                <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})">Đặt tour</a>
-                                                <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
-                                                    <div class="d-flex btn-seting">
-                                                        <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                                            <a href="javascript:;" class="btn btn-info bg-danger" onclick="xoaTour(${pro.tourId})">
-                                                                <i class="far fa-trash-alt"></i>
-                                                            </a>
-                                                        </sec:authorize>
-                                                        <a href="<c:url value="/nhanVien/tours/?tourId=${pro.tourId}" />" class="btn btn-warning text-white">
-                                                            <i class="fas fa-wrench"></i>
+                                        <div class="margin-5">
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})">Đặt tour</a>
+                                            <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
+                                                <div class="btn-seting d-inline-block mt-1">
+                                                    <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                                        <a href="javascript:;" onclick="xoaTour(${pro.tourId})">
+                                                            <i class="fas fa-trash-alt text-danger"></i>
                                                         </a>
-                                                    </div>
-                                                </sec:authorize>
-                                            </div>
+                                                    </sec:authorize>
+                                                    <a href="<c:url value="/nhanVien/tours/?tourId=${pro.tourId}" />">
+                                                        <i class="fas fa-wrench text-warning"></i>
+                                                    </a>
+                                                </div>
+                                            </sec:authorize>
+                                        </div>
+                                        <div class="gia d-flex justify-content-end">
+                                            <span class="giaTien">${pro.gia}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +110,7 @@
             </div>
             <div>
                 <ul class="pagination d-flex justify-content-end">
-                    <c:forEach begin="1" end="${Math.ceil(slTour/20)}" var="i">
+                    <c:forEach begin="1" end="${Math.ceil(slTour/18)}" var="i">
                         <li class="page-item">
                             <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
                         </li>

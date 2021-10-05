@@ -54,6 +54,7 @@ public class HomeController {
     @ModelAttribute
     public void dungChung(Model model, HttpSession session){
         model.addAttribute("demSLTour", Utils.demSLTour((Map<Integer, GioHang>) session.getAttribute("gioHang")));
+        model.addAttribute("nguoiDungDangNhap", session.getAttribute("nguoiDungDangNhap"));
     }
     
    

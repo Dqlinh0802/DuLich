@@ -124,6 +124,27 @@ public class NguoiDungRepositoryImpl implements NguoiDungRepository{
         return false;
     }
 
+    @Override
+    public List<NguoiDung> layNguoiDungTaiKhoan(String taiKhoan) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();  
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<NguoiDung> query = builder.createQuery(NguoiDung.class);
+        Root root = query.from(NguoiDung.class);
+        query = query.select(root);
+        
+        
+        //%% -> chuyen thanh 1 dau khi xuong duoi
+        if(taiKhoan != null){
+            Predicate p = builder.like(root.get("taiKhoan").as(String.class),
+                    String.format("%%%s%%", taiKhoan));
+            query = query.where(p);
+        }
+        
+        Query q = session.createQuery(query); 
+        
+        return q.getResultList();
+    }
+
     
 
 }

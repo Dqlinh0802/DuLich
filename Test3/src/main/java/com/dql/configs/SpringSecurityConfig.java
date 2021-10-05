@@ -18,6 +18,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -35,6 +36,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
+    private AuthenticationSuccessHandler dangNhapThanhCong;
+    @Autowired
+    private LogoutSuccessHandler dangXuatThanhCong;
 
     //phương thức băm mật khẩu
     @Bean
@@ -64,9 +69,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 //that bai o yen day
                 .failureUrl("/dangNhap?error");
-
+        
+        
+        http.formLogin().successHandler(this.dangNhapThanhCong);
+        
         //logout
         http.logout().logoutSuccessUrl("/dangNhap");
+        http.logout().logoutSuccessHandler(this.dangXuatThanhCong);
 
         //kiem tra co quyen để truy cập k
         http.exceptionHandling()
@@ -91,5 +100,15 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 "secure", true));
         return c;
     }
-
+    
+    //tao doi tuong
+    @Bean
+    public AuthenticationSuccessHandler dangNhapThanhCong(){
+        return new XuLyDangNhapThanhCong();
+    }
+    
+    @Bean
+    public LogoutSuccessHandler dangXuatThanhCong(){
+        return new XuLyDangXuat();
+    }
 }

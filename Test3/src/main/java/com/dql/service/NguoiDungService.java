@@ -17,6 +17,7 @@ public interface NguoiDungService extends UserDetailsService{
     boolean themSuaNguoiDung(NguoiDung nguoiDung);
     List<NguoiDung> danhSachNguoiDung(String taiKhoan);
     NguoiDung layNguoiDungId(int nguoiDungId);
+    List<NguoiDung> layNguoiDungTaiKhoan(String taiKhoan);
     List<NguoiDung> dsNguoiDung(String taiKhoan, int page);
     long slNguoiDung();
     boolean xoaNguoiDung(int id);

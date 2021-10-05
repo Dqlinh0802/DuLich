@@ -49,7 +49,7 @@ public class TourRepositoryImpl implements TourRepository{
         }
         
         Query q = session.createQuery(query); 
-        int maxPage = 20;
+        int maxPage = 18;
         q.setMaxResults(maxPage);
         //page= 1 thì lấy 20 phần tử đầu 
         q.setFirstResult((page - 1 ) * maxPage);

@@ -13,80 +13,63 @@ and open the template in the editor.
 /*font-family: 'Sansita Swashed', cursive;*/
 /*font-family: 'Pacifico', cursive;*/
 
+
 /*.container{
-    max-width: 1550px!important;
-}*/
-.container{
     max-width: 1500px!important;
+}*/
+body{
+    background-color: #ecf0f5!important;
+    z-index: -800;
 }
-.btn-success{
-    color: white !important;
-    border-width: 2px !important;
-    border-bottom-style: solid !important;
+/*.btn-success{
     border-color: #f2c26f !important;
-    border-radius: 20px !important;
-    font-weight: 700 ;
-    font-family: 'Pacifico', cursive ;
-    font-size: 24px !important;
-    background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .btn-success:hover{
     color: white !important;
     background: #f2c26f !important;
 }
-.btn-danger{
-    color: white !important;
-    border-width: 2px !important;
-    border-bottom-style: solid !important;
-    border-color: rgb(255, 61, 61)!important;
-    border-radius: 20px !important;
-    font-weight: 700 ;
-    font-family: 'Pacifico', cursive ;
-    font-size: 24px !important;
-    background-color: rgba(255, 255, 255, 0) !important;
-}
 .btn-danger:hover{
     color: white !important;
     background: rgb(255, 97, 97) !important;
+}*/
+.flex-column .btn{
+    color: rgb(255, 61, 61)!important;
+    border-width: 2px !important;
+    border-bottom-style: solid !important;
+    border-color: rgb(255, 61, 61)!important;
+    border-radius: 5px !important;
+    font-weight: 700 ;
+    font-family: sans-serif;
+    font-size: 20px !important;
+    background-color: rgba(255, 255, 255, 0) !important;
 }
-
-/*==============HEADER=========*/
-
-
-.bgcolor{
-    background: rgba(0,0,0,0.4)!important;
-    height: 90px;   
-    position:fixed;
-    top:0;
-    width:100%;
-
-}
-.bgcolor.scrolled{
-    background: rgba(0,0,0,0.4)!important;
-}
-
-.nav-link{
-    color: #fff;
-    margin-right: 30px;
-    margin-top: 15px!important;
-    font-size: 24px;
-    font-weight: 600;
-    border-width: 3px;
-    border-color: rgba(0, 0, 0 , 0);
-    border-style: solid;
-}
-.nav-link:hover{
-    border-color: #f2c26f;
-    border-width: 3px;
-    border-style: solid;
-    border-radius: 20px;
+.flex-column .rounded-circle:hover{
     background-color: #f2c26f;
-    color: #fff;
 }
-.navbar-brand{  
-    margin-top: 10px;
-    margin-right: 80px;
+.flex-column .btn-success {
+    color: #f2c26f !important;
+    border-color: #f2c26f !important;
+    margin-bottom: 5px;
+}
+.flex-column .btn:hover{
+    color: white !important;
+}
+/*==============HEADER=========*/
+.bg-nav{
+    background-color: #003c71!important;
+}
+.header{
+    background-color: #003c71!important;
+}
+.dropdown > a{
+    color: #fff!important;
+}
+.dropdown-menu{
+    left: 40px!important;
+    top: 100%!important;
+    min-width: 15rem!important;
+    box-shadow: 0px 4px 3px 2px rgb(0 0 0 / 55%);
 }
 .fas{
     color: white;
@@ -95,10 +78,35 @@ and open the template in the editor.
 .fas:hover{
     color: #f2c26f;
 }
+.title{
+    font-family: 'Sansita Swashed', cursive;
+    color: #f2c26f!important;
+    font-size: 30px!important;
+    border: none!important;
+}
 
+.navbar-dark .navbar-nav .nav-link{
+    font-size: 20px;
+    color: rgba(255,255,255,.5);
+    transition: color ease-out 0.2s;
+}
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: #f2c26f!important;
+    transition: color ease-in 0.2s;
+}
+.navbar-dark .nav-item #navbarDropdownMenuLink{
+    font-size: 24px;
+}
+.navbar-dark .nav-item #navbarDropdownMenuLink:hover{
+    color: #00c1de!important;
+}
+.item-gio-hang{
+    padding-top: 12px;
+}
+ul.navbar-nav {
+    margin-right: 160px;
+}
 /*========HEADER==========*/
-
-
 
 /*===========FOOTER============*/
 .footer {
@@ -111,5 +119,8 @@ and open the template in the editor.
 
 .font-pacifico{
     font-family: 'Pacifico', cursive;
+}
+.nav-link{
+    padding: 10px 40px!important;
 }
 /*=============FOOTER===========*/
