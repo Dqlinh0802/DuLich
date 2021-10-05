@@ -58,6 +58,9 @@ and open the template in the editor.
 .info-tour input::placeholder { 
     color: rgba(255, 255, 255, 0.9);
 }
+input.so-luong.text-center {
+    width: 70px;
+}
 .info-tour label{
     font-size: 20px;
     color: #fff !important;
@@ -108,4 +111,7 @@ and open the template in the editor.
     background: transparent;
     color: white;
     padding: 7px 10px;
+}
+.thanh-toan{
+    float: right;
 }

@@ -30,14 +30,14 @@
                                    onblur="capNhatSLTour(this, ${c.tourId})"/>
                         </div>
                     </td>
-                    <td>${c.gia} VND</td>
+                    <td class="giaTien">${c.gia}</td>
                     <td>
                         <input type="button" value="Xóa" onclick="xoaTourTrongGio(${c.tourId})" class="btn btn-danger"/>
                     </td>
                 </tr>
             </c:forEach>
         </table>
-        <h4 class="alert alert-warning">Tổng tiền: <span id="tongTien">${tinhTien.tongTien}</span> VND</h4>
-        <input type="button" onclick="thanhToan()" value="Thanh toán" class="btn btn-info"/>
+        <h4 class="alert alert-warning text-right">Tổng tiền: <span id="tongTien" class="giaTien">${tinhTien.tongTien}</span></h4>
+        <input type="button" onclick="thanhToan()" value="Thanh toán" class="btn btn-info thanh-toan"/>
     </div>
 </div>

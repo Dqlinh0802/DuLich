@@ -28,7 +28,7 @@
 
 <section class="">
     <div class="container info-sec">
-        <div id = "diaDiem">
+        <div id="diaDiem">
             <div class="info-location d-block">
                 <h3 class="text-center">Điểm đến nổi bật</h3>
                 <p class=""><span>" </span>Là một con dân nước Việt Nam nhưng mấy ai 
@@ -42,10 +42,10 @@
             </div>
         </div>
         <div>
-            <h3>Danh sách các tour</h3>
-            <form class="form-inline row" action="">
-                <input class="form-control col-xs-1 col-md-4 mr-sm-2 mb-2" name="kw" type="search" placeholder="Bạn muốn đi đâu?" aria-label="Search">
-                <input type="submit" class="btn btn-info mb-2 font-weight-bold" value="Tìm kiếm"/>
+            <h3 id="danh-sach-tour">Danh sách các tour</h3>
+            <form class="form-inline row container pr-xs-0"" action="">
+                <input class="form-control col-xs-1 col-md-4 mr-xs-2 mr-sm-1 mb-2" name="kw" type="search" placeholder="Bạn muốn đi đâu?" aria-label="Search">
+                <input type="submit" class="btn btn-warning mb-2 font-weight-bold" value="Tìm kiếm"/>
             </form>
             <div class="d-flex justify-content-between">
                 <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
@@ -54,7 +54,7 @@
                 <ul class="pagination">
                     <c:forEach begin="1" end="${Math.ceil(slTour/18)}" var="i">
                         <li class="page-item">
-                            <a class="page-link" href="<c:url value="/" />?page=${i}#diaDiem">${i}</a>
+                            <a class="page-link" href="<c:url value="/" />?page=${i}#danh-sach-tour">${i}</a>
                         </li>
                     </c:forEach> 
                 </ul>
@@ -84,8 +84,10 @@
                                         <div class="margin-5">
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})">Đặt tour</a>
+                                            <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})"
+                                               data-toggle="modal" data-target="#myModal" >Đặt tour</a>
                                             <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
+                                                <span class="m-auto">Còn: <span class="text-danger">2</span></span>
                                                 <div class="btn-seting d-inline-block mt-1">
                                                     <sec:authorize access="hasRole('ROLE_ADMIN')">
                                                         <a href="javascript:;" onclick="xoaTour(${pro.tourId})">
@@ -98,7 +100,8 @@
                                                 </div>
                                             </sec:authorize>
                                         </div>
-                                        <div class="gia d-flex justify-content-end">
+                                        <div class="gia d-flex justify-content-between">
+                                            <span class="mt-auto ml-2">Đã bán: <span class="text-danger">2</span></span>
                                             <span class="giaTien">${pro.gia}</span>
                                         </div>
                                     </div>
@@ -116,6 +119,31 @@
                         </li>
                     </c:forEach> 
                 </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Đã thêm tour vào giỏ hàng
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Đóng</button>
+                </div>
+
             </div>
         </div>
     </div>

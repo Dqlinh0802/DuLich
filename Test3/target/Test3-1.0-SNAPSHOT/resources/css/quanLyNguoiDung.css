@@ -33,6 +33,16 @@ and open the template in the editor.
 .table img {
     width: 60px;
 }
-.table .ten-nguoi-dung {
-    
+.btn-success{
+    margin: 0;
+}
+.btn-success:hover{
+    background-color: #f2c26f !important;
+}
+.btn-info{
+    color: #17a2b8!important;
+    border-color: #17a2b8!important;
+}
+.btn-info:hover{
+    background-color: #17a2b8!important;
 }

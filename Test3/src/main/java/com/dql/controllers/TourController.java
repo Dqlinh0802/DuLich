@@ -34,12 +34,13 @@ public class TourController {
     private TourService tourService;
     @Autowired
     private BinhLuanService binhLuanService;
-    @Autowired
-    private TourValidator tourValidator;
-    @InitBinder
-    public void initBinder(WebDataBinder binder){
-        binder.setValidator(tourValidator);
-    }
+//    @Autowired
+//    private TourValidator tourValidator;
+//    @InitBinder
+//    public void initBinder(WebDataBinder binder){
+//        binder.setValidator(tourValidator);
+//    }
+    
 //    @Autowired
 //    private WebAppValidator webAppValidator;
 //    

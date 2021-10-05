@@ -101,7 +101,7 @@ h1 {
     color: #00c1de;
 }
 .btn-seting a{
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .fas{
     font-size: 28px;
@@ -144,7 +144,19 @@ h1 {
 }
 
 /*===========CONTENT===========*/
-
+/*modal*/
+.modal-content{
+    background-color: #ecf0f5!important;
+}
+.modal-body{
+    color: #00adc2; 
+    font-size: 18px;
+    font-weight: 400;
+}
+.modal-header, .modal-footer{
+    border: none!important;
+}
+/*modal*/
 
 
 
@@ -154,7 +166,13 @@ h1 {
 
 
 /*button*/
-
+.btn-warning{
+    color: #13A211!important;
+    border-color: #13A211!important;
+}
+.btn-warning:hover{
+    background-color: #13A211!important;
+}
 .btn-success{
     color: white !important;
     border-width: 2px !important;
