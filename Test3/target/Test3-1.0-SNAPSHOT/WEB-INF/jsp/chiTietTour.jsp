@@ -25,7 +25,7 @@
                     <p>Giá chỉ còn:<span class="text-danger"> ${tour.gia} </span> VND</p>
                     <h4>Mô tả </h4>
                     <p class="mo-ta">${tour.moTa}</p>
-                    <a href="javascript:;" class="btn btn-danger" onclick="themVaoGio(${tour.tourId})">Đặt tour</a>
+                    <a href="javascript:;" class="btn btn-danger" onclick="themVaoGio(${tour.tourId}, '${tour.tenTour}', ${tour.gia})">Đặt tour</a>
                 </div>
             </div>
             <form class="binh-luan">

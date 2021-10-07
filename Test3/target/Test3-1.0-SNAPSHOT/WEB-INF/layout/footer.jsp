@@ -16,18 +16,22 @@
                         <img class="rounded-circle" src="<c:url value="/images/logo.jpg"/>" alt="Logo" style="width:50px;">
                     </a>
                 </div>
-                <p class="">
+                <div class="">
                     Công Ty TNHH Du Lịch DL 123 Hùng Vương, Sài Gòn, Việt Nam
-                    <br />
                     <br />
                     <span class="font-weight-bold text-warning">Email: </span>
                     <span>dulich@gmail.com</span>
                     <br />
                     <span class="font-weight-bold text-warning">Phone: </span>
                     <span class="text-danger font-weight-bold h4">(+84) 123 456</span>
-                </p>
-                <!--<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>-->
-                <!--<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>-->
+                    
+                </div>
+                <div>
+                    <br />
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://www.facebook.com/dqlinh0802/"><i class="fab fa-fw fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://www.instagram.com/d__q__l/"><i class="fab fa-fw fa-instagram"></i></a>
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://github.com/Dqlinh0802"><i class="fab fa-fw fa-github"></i></a>
+                </div>
             </div>
             <!-- cot2-->
             <div class="col-4">

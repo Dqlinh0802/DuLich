@@ -23,10 +23,8 @@ body{
 }
 
 .btn{
-    color: rgb(255, 61, 61)!important;
     border-width: 2px !important;
     border-bottom-style: solid !important;
-    border-color: rgb(255, 61, 61)!important;
     border-radius: 5px !important;
     font-weight: 700 ;
     font-family: sans-serif;
@@ -43,16 +41,28 @@ body{
 }
 .btn:hover{
     color: white !important;
-    background-color: rgb(255, 61, 61)!important;
+}
+.btn-social{
+    border-radius: 100%!important;
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    font-size: 22px;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.8!important;
+}
+.btn-social:hover{
+    background-color: black!important;
 }
 /*==============HEADER=========*/
 .logo{
-    transform: rotate(720deg);
-    transition: transform 1s ease-in-out;
+    animation: logo 2.5s cubic-bezier(0.8, -0.84, 0.22, 1.71) infinite;
 }
-.logo:hover{
-    transform: rotate(0deg);
-    transition: transform 1s ease-in-out;
+@keyframes logo{
+    to {
+        transform: rotate(360deg);
+    }
 }
 .bg-nav{
     background-color: #003c71!important;
@@ -101,7 +111,7 @@ body{
 .item-gio-hang{
     padding-top: 12px;
 }
-ul.navbar-nav {
+.header ul.navbar-nav {
     margin-right: 120px;
 }
 .align-items-center img{
@@ -123,11 +133,13 @@ ul.navbar-nav {
     color: #f2c26f;
     cursor: pointer;
 }
-
+.quan-ly{
+    left: -30px!important;
+}
 /*========HEADER==========*/
 /*responsive*/
 @media screen and (max-width: 1203px){
-    ul.navbar-nav {
+    .header ul.navbar-nav {
         margin-right: 20px!important;
     }
     

@@ -117,14 +117,7 @@ function thanhToan() {
         })
     }
 }
-window.onload = function () {
-    let ngays = document.getElementsByClassName("ngayBL")
 
-    for (let i = 0; i < ngays.length; i++)
-    {
-        ngays[i].innerText = "Bình luận " + moment(ngays[i].innerText).fromNow();
-    }
-}
 function themBinhLuan(tourId) {
     event.preventDefault();
 
@@ -160,6 +153,10 @@ function themBinhLuan(tourId) {
 }
 window.onload = function () {
     let gia = document.getElementsByClassName("giaTien")
+    let ngays = document.getElementsByClassName("ngayBL")
+    
+    
+    //dau phay trong tien
     var formatter = new Intl.NumberFormat('vi', {
         style: 'currency',
         currency: 'VND',
@@ -168,6 +165,12 @@ window.onload = function () {
     {
 
         gia[i].innerText = formatter.format(gia[i].innerText);
+    }
+    
+    //thoi gian binh luan
+    for (let i = 0; i < ngays.length; i++)
+    {
+        ngays[i].innerText = "Bình luận " + moment(ngays[i].innerText).fromNow();
     }
 }
 

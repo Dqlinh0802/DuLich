@@ -1,0 +1,43 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 6, 2021, 6:31:13 PM
+    Author     : Acer
+*/
+
+.nav-item{
+    max-width: 230px;
+}
+.nav-item a, i{
+    font-size: 20px;
+    color: rgba(252, 186, 3, 0.7) !important;
+    
+}
+.nav-item a:hover{
+    font-size: 20px;
+    color: rgba(252, 186, 3, 1)  !important;
+    text-decoration: none;
+}
+.form{
+    width: 100%;
+}
+form{
+    max-width: 450px;
+}
+.row span{
+    line-height: 36px;
+}
+.btn-success:hover{
+    background-color: #f2c26f !important;
+}
+.rounded-circle{
+    animation: logo 2.5s cubic-bezier(0.8, -0.84, 0.22, 1.71) infinite;
+}
+@keyframes logo{
+    to {
+        transform: rotate(360deg);
+    }
+}

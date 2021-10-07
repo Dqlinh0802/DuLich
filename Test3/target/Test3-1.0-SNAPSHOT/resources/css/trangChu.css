@@ -107,19 +107,18 @@ h1 {
     font-size: 28px;
 }
 .fa-trash-alt{
-    transform: rotate(-15deg);
     transition: transform ease-in-out 0.2s;
 }
 .fa-trash-alt:hover{
-    transform: rotate(15deg);
-    transition: transform ease-in-out 0.2s;
+    transform: rotate(360deg);
+    transition: transform cubic-bezier 0.2s;
 }
 .fa-wrench{
-    transition: transform ease-in-out 0.1s; 
+    transition: transform ease-in-out 0.2s; 
 }
 .fa-wrench:hover{
-    transform: rotate(35deg);
-    transition: transform ease-in-out 0.1s;
+    transform: rotate(360deg);
+    transition: transform cubic-bezier 0.2s;
 }
 
 .info-tour{
@@ -172,6 +171,13 @@ h1 {
 }
 .btn-warning:hover{
     background-color: #13A211!important;
+}
+.btn-info{
+    color: #ffc107!important;
+    border-color: #ffc107!important;
+}
+.btn-info:hover{
+    background-color: #ffc107!important;
 }
 .btn-success{
     color: white !important;

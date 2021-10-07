@@ -15,7 +15,7 @@ and open the template in the editor.
     padding-bottom: 100px;
 }
 #bg-tour h1 {
-    font-family: 'Pacifico', cursive;
+    font-family: sans-serif;
     margin-bottom: 50px;
     color: #13A211;
     font-weight: bold;
@@ -90,4 +90,14 @@ and open the template in the editor.
     margin-top: 15px;
     color: #f2c26f;
     font-size: 20px;
+}
+.btn-info{
+    color: #ffc107!important;
+    border-color: #ffc107!important;
+}
+.btn-info:hover{
+    background-color: #ffc107!important;
+}
+.btn-danger:hover{
+    background-color: #dc3545!important;
 }

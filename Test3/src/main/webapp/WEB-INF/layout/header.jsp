@@ -27,7 +27,7 @@
                     <a class="nav-link" href="<c:url value="/"/>">Trang chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#diaDiem">Tour</a>
+                    <a class="nav-link" href="<c:url value="/nhanVien/xemNguoiDangKyTour"/>">Quản lý đặt tour</a>
                 </li>
                 <sec:authorize access="hasAnyRole('ROLE_MANAGE', 'ROLE_ADMIN')">
                     <div class="nav-item dropdown d-flex">
@@ -35,16 +35,18 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Quản lý
                         </a>
-                        <div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink2">
-                            <a class="btn btn-info mr-auto ml-auto mb-2" href="<c:url value="/nhanVien/nguoiDungs"/>">Người dùng</a>
-                            <a class="btn btn-info mr-auto ml-auto" href="<c:url value="/nhanVien/nguoiDungs"/>">Thống kê</a>
+                        <div class="dropdown-menu text-center quan-ly" aria-labelledby="navbarDropdownMenuLink2">
+                            <div>
+                                <a class="btn btn-info mr-auto ml-auto mb-2" href="<c:url value="/nhanVien/tours"/>">Tour</a>
+                            </div> 
+                            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                <a class="btn btn-info mr-auto ml-auto mb-2" href="<c:url value="/admin/thongKeDoanhThuTour"/>">Thống kê</a>
+                            </sec:authorize>
+                            <div>
+                                <a class="btn btn-info mr-auto ml-auto" href="<c:url value="/nhanVien/nguoiDungs"/>">Người dùng</a>
+                            </div>
                         </div>
                     </div>
-                </sec:authorize>
-                <sec:authorize access="hasAnyRole('ROLE_MANAGE', 'ROLE_ADMIN')">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/nhanVien/tours"/>">Thêm tour</a>
-                    </li>
                 </sec:authorize>
                 <sec:authorize access="!hasAnyRole('ROLE_MANAGE', 'ROLE_ADMIN')">
                     <li class="nav-item">

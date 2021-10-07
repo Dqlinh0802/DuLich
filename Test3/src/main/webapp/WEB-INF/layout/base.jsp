@@ -16,8 +16,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
             <tiles:insertAttribute name="title"></tiles:insertAttribute>
-            </title>
-            <link rel="stylesheet" href="<c:url value="/css/style.css"/>"/>
+        </title>
+        <link rel="stylesheet" href="<c:url value="/css/style.css"/>"/>
         <link type="text/css" rel="stylesheet" href="<tiles:getAsString name="css"/>"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
