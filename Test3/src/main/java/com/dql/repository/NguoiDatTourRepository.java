@@ -5,13 +5,12 @@
  */
 package com.dql.repository;
 
-import com.dql.pojos.GioHang;
-import java.util.Map;
+import java.util.List;
 
 /**
  *
  * @author Acer
  */
-public interface HoaDonRepository {
-    boolean themHoaDon(Map<Integer, GioHang> gioHang, int id);
+public interface NguoiDatTourRepository {
+    List<Object[]> dsTourDuocDat(String tenTour);
 }

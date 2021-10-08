@@ -38,6 +38,6 @@
             </c:forEach>
         </table>
         <h4 class="alert alert-warning text-right">Tổng tiền: <span id="tongTien" class="giaTien">${tinhTien.tongTien}</span></h4>
-        <input type="button" onclick="thanhToan()" value="Thanh toán" class="btn btn-info thanh-toan"/>
+        <input type="button" onclick="thanhToan(${nguoiDungDangNhap.id})" value="Thanh toán" class="btn btn-info thanh-toan"/>
     </div>
 </div>

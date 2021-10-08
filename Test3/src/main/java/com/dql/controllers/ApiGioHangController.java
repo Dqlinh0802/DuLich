@@ -106,9 +106,11 @@ public class ApiGioHangController {
         return new ResponseEntity<>(Utils.tinhTien(gioHang), HttpStatus.OK);
     }
     
-    @PostMapping("/api/thanhToan")
-    public HttpStatus thanhToan(HttpSession session){
-        if(this.hoaDonService.themHoaDon((Map<Integer, GioHang>) session.getAttribute("gioHang")) == true) {
+    
+    @PostMapping("/api/thanhToan/{id}")
+    public HttpStatus thanhToan(HttpSession session,
+            @PathVariable(value = "id") int id){
+        if(this.hoaDonService.themHoaDon((Map<Integer, GioHang>) session.getAttribute("gioHang"), id) == true) {
             session.removeAttribute("gioHang");
             return HttpStatus.OK;
         }

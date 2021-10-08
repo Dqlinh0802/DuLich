@@ -30,7 +30,14 @@
             </div>
             <form class="binh-luan">
                 <textarea id="binhLuanId" class="form-control col-md-5" placeholder="Nhập bình luận"></textarea>
-                <button type="submit" onclick="themBinhLuan(${tour.tourId})" class="btn btn-info">Đăng bình luận</button>
+                <c:if test="${nguoiDungDangNhap.id != null}">
+                    <button type="submit" onclick="themBinhLuan(${tour.tourId}, ${nguoiDungDangNhap.id})"
+                            class="btn btn-info">Đăng bình luận</button>
+                </c:if>
+                <c:if test="${nguoiDungDangNhap.id == null}">
+                    <a data-toggle="popover" data-content="Bạn cần đăng nhập để bình luận"
+                       class="btn btn-info">Đăng bình luận</a>
+                </c:if>
             </form>
         </div>
         <div class="cac-binh-luan">
@@ -38,11 +45,19 @@
                 <c:forEach var="b" items="${binhLuans}">
                     <div class="row">
                         <div class="col-md-2 d-flex justify-content-end">
-                            <img class="img-fluid rounded-circle" src="${tour.anh}" alt="alt"/>
+                            <c:if test="${b[3] != null && b[3].startsWith('https') == true}">
+                                <img class="img-fluid rounded-circle" src="${b[3]}"  alt="alt"/>
+                            </c:if>
+                            <c:if test="${b[3] == null || b[3].startsWith('https') == false}">
+                                <div class="img-fluid rounded-circle d-flex flex-column text-center">
+                                    <i class="fas fa-user-secret"></i>
+                                    <span class="an-danh">Ẩn danh</span>
+                                </div>
+                            </c:if>
                         </div>
                         <div class="col-md-10">
-                            <p>${b.noiDung}</p>
-                            <i class="ngayBL">${b.ngayBL}</i>
+                            <p>${b[1]}</p>
+                            <i class="ngayBL">${b[2]}</i>
                         </div>
                     </div>
                 </c:forEach>
@@ -60,3 +75,8 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>

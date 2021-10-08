@@ -8,6 +8,7 @@ package com.dql.repository.impl;
 import com.dql.pojos.ChiTietHoaDon;
 import com.dql.pojos.GioHang;
 import com.dql.pojos.HoaDon;
+import com.dql.pojos.NguoiDung;
 import com.dql.repository.HoaDonRepository;
 import com.dql.repository.NguoiDungRepository;
 import com.dql.repository.TourRepository;
@@ -40,12 +41,12 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
     @Override
     //do cap nhat nhieu giao tac
     @Transactional(propagation = Propagation.REQUIRED)
-    public boolean themHoaDon(Map<Integer, GioHang> gioHang) {
+    public boolean themHoaDon(Map<Integer, GioHang> gioHang, int id) {
         try {
             Session session = sessionFactory.getObject().getCurrentSession();
 
             HoaDon hoaDon = new HoaDon();
-            hoaDon.setNguoiDung(this.nguoiDungRepository.layNguoiDungId(6));
+            hoaDon.setNguoiDung(this.nguoiDungRepository.layNguoiDungId(id));
 
             hoaDon.setNgayMua(new Date());
 

@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dql.repository;
+package com.dql.service;
 
-import com.dql.pojos.GioHang;
-import java.util.Map;
+import java.util.List;
 
 /**
  *
  * @author Acer
  */
-public interface HoaDonRepository {
-    boolean themHoaDon(Map<Integer, GioHang> gioHang, int id);
+public interface NguoiDatTourService {
+    List<Object[]> dsTourDuocDat(String tenTour);
 }

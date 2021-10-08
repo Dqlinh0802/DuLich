@@ -104,24 +104,27 @@ function xoaTourTrongGio(tourId) {
         })
     }
 }
-function thanhToan() {
+function thanhToan(id) {
     event.preventDefault();
     if (confirm("Tiến hành thanh toán!!!") == true) {
-        fetch("/Test3/api/thanhToan", {
-            method: "post"
-        }).then(function (res) {
-            return res.json()
-        }).then(function (code) {
-            console.info(code);
-            location.reload();
-        })
+        fetch(`/Test3/api/thanhToan/${id}`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            }
+    }).then(function (res) {
+        return res.json()
+    }).then(function (code) {
+        console.info(code);
+        location.reload();
+    })
     }
 }
 
-function themBinhLuan(tourId) {
+function themBinhLuan(tourId, id) {
     event.preventDefault();
 
-    fetch("/Test3/api/themBinhLuan", {
+    fetch(`/Test3/api/themBinhLuan/${id}`, {
         method: 'post',
         body: JSON.stringify({
             "noiDung": document.getElementById("binhLuanId").value,
@@ -136,7 +139,6 @@ function themBinhLuan(tourId) {
     }).then(function (data) {
         console.info(data)
         let area = document.getElementById("binhLuanArea");
-
         area.innerHTML = `
                     <div class="row">
                         <div class="col-md-2 d-flex justify-content-end">

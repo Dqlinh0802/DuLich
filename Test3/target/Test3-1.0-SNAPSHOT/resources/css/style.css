@@ -23,6 +23,7 @@ body{
 }
 
 .btn{
+    /*color: black !important;*/
     border-width: 2px !important;
     border-bottom-style: solid !important;
     border-radius: 5px !important;

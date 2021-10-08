@@ -17,7 +17,7 @@
                     </a>
                 </div>
                 <div class="">
-                    Công Ty TNHH Du Lịch DL 123 Hùng Vương, Sài Gòn, Việt Nam
+                    Công Ty TNHH Du Lịch DL 123 Hùng Vương, tp Hồ Chí Minh, Việt Nam
                     <br />
                     <span class="font-weight-bold text-warning">Email: </span>
                     <span>dulich@gmail.com</span>

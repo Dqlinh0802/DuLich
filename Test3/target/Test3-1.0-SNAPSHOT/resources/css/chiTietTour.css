@@ -101,3 +101,12 @@ and open the template in the editor.
 .btn-danger:hover{
     background-color: #dc3545!important;
 }
+.fa-user-secret{
+    padding-top: 8px;
+}
+.fa-user-secret:hover{
+    color: #fff;
+}
+.an-danh{
+    font-size: 12px;
+}

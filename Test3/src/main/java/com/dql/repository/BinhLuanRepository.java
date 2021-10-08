@@ -13,7 +13,7 @@ import java.util.List;
  * @author Acer
  */
 public interface BinhLuanRepository {
-    List<BinhLuan> layBinhLuansTour(int tourId, int page);
     long slBinhLuan(int tourId);
-    BinhLuan themBinhLuan(BinhLuan binhLuan);
+    BinhLuan themBinhLuan(BinhLuan binhLuan, int id);
+    List<Object[]> layBinhLuansTour2(int tourId, int page);
 }

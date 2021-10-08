@@ -93,7 +93,7 @@ public class TourController {
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         
         model.addAttribute("tour", this.tourService.layTourId(tourId));
-        model.addAttribute("binhLuans", this.binhLuanService.layBinhLuansTour(tourId, page));
+        model.addAttribute("binhLuans", this.binhLuanService.layBinhLuansTour2(tourId, page));
         model.addAttribute("slBinhLuan", this.binhLuanService.slBinhLuan(tourId));
         
         return "chiTietTour";

@@ -14,5 +14,5 @@ import java.util.Map;
  */
 
 public interface HoaDonService {
-    boolean themHoaDon(Map<Integer, GioHang> gioHang); 
+    boolean themHoaDon(Map<Integer, GioHang> gioHang, int id); 
 }

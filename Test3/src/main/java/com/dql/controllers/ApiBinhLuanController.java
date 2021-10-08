@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,14 +27,15 @@ public class ApiBinhLuanController {
     @Autowired
     private BinhLuanService binhLuanService;
 
-    @PostMapping(path = "/api/themBinhLuan", produces = {
+    @PostMapping(path = "/api/themBinhLuan/{id}", produces = {
         MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<BinhLuan> themBinhLuan(@RequestBody Map<String, String> params) {
+    public ResponseEntity<BinhLuan> themBinhLuan(@RequestBody Map<String, String> params,
+            @PathVariable(value = "id") int id) {
         try {
             String noiDung = params.get("noiDung");
             int tourId = Integer.parseInt(params.get("tourId"));
 
-            BinhLuan b = this.binhLuanService.themBinhLuan(noiDung, tourId);
+            BinhLuan b = this.binhLuanService.themBinhLuan(noiDung, tourId, id);
 
             return new ResponseEntity<>(b, HttpStatus.CREATED);
 

@@ -6,12 +6,16 @@
 package com.dql.repository.impl;
 
 import com.dql.pojos.BinhLuan;
+import com.dql.pojos.ChiTietHoaDon;
+import com.dql.pojos.HoaDon;
 import com.dql.pojos.NguoiDung;
 import com.dql.repository.BinhLuanRepository;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -31,24 +35,7 @@ public class BinhLuanRepositoryImpl implements BinhLuanRepository{
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
     
-    @Override
-    public List<BinhLuan> layBinhLuansTour(int tourId, int page) {
-        Session session = this.sessionFactory.getObject().getCurrentSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<BinhLuan> query = builder.createQuery(BinhLuan.class);
-        Root root = query.from(BinhLuan.class);
-        
-        query = query.where(builder.equal(root.get("tour"), tourId));
-        query = query.orderBy(builder.desc(root.get("id")));//sap xep
-        
-        Query q = session.createQuery(query);
-        int maxPage = 5;
-        q.setMaxResults(maxPage);
-        //page= 1 thì lấy 5 phần tử đầu 
-        q.setFirstResult((page - 1 ) * maxPage);
-        
-        return q.getResultList();
-    }
+  
 
     @Override
     public long slBinhLuan(int tourId) {
@@ -61,7 +48,7 @@ public class BinhLuanRepositoryImpl implements BinhLuanRepository{
     }
 
     @Override
-    public BinhLuan themBinhLuan(BinhLuan bl) {
+    public BinhLuan themBinhLuan(BinhLuan bl, int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
             session.save(bl);
@@ -71,6 +58,35 @@ public class BinhLuanRepositoryImpl implements BinhLuanRepository{
             ex.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public List<Object[]> layBinhLuansTour2(int tourId, int page) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Object[]> query = builder.createQuery(Object[].class);
+
+        Root rootB = query.from(BinhLuan.class);
+        Root rootN = query.from(NguoiDung.class);
+
+        
+//        vi nhieu dieu kien ket nen dung List<Predicate>
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(builder.equal(rootB.get("nguoiDung"), rootN.get("id")));
+        predicates.add(builder.equal(rootB.get("tour"), tourId));
+        query.multiselect(rootB.get("id"), rootB.get("noiDung"),
+                rootB.get("ngayBL"), rootN.get("anh"));
+        query.where(predicates.toArray(new Predicate[] {}));
+        query = query.orderBy(builder.desc(rootB.get("id")));//sap xep
+        
+        Query q = session.createQuery(query);
+        int maxPage = 5;
+        q.setMaxResults(maxPage);
+        //page= 1 thì lấy 5 phần tử đầu 
+        q.setFirstResult((page - 1 ) * maxPage);
+        
+        return q.getResultList();
+        
     }
     
 }
