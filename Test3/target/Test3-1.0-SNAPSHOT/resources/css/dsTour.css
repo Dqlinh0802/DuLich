@@ -1,0 +1,106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 9, 2021, 11:43:52 PM
+    Author     : Acer
+*/
+.info-sec > div > h3{
+    border-bottom: 2px solid #13A211;
+    color: #13A211;
+    font-size: 35px;
+    padding-bottom: 5px;
+}
+ .so-luong-tour{
+
+    color: #00c1de;
+    font-size: 20px;
+}
+
+.pagination li > a{
+    font-weight: bold;
+    color: #00c1de!important;
+}
+
+
+.row > div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.row > div > div {
+    background-color: #fff;
+}
+.row a{
+    text-decoration: none;
+}
+.row .img-fluid{
+    height: 197px;
+    width: 350px;
+}
+.info-img .gia{
+    color: #00c1de;
+}
+.btn-seting a{
+    margin-right: 5px;
+}
+.fas{
+    font-size: 28px;
+}
+.fa-trash-alt{
+    transition: transform ease-in-out 0.2s;
+}
+.fa-trash-alt:hover{
+    transform: rotate(360deg);
+    transition: transform cubic-bezier 0.2s;
+}
+.fa-wrench{
+    transition: transform ease-in-out 0.2s; 
+}
+.fa-wrench:hover{
+    transform: rotate(360deg);
+    transition: transform cubic-bezier 0.2s;
+}
+
+.info-tour{
+    padding: 15px;
+}
+.info-tour h3 {
+    color: #00c1de;
+    font-weight: 500;
+}
+.margin-5{
+    min-height: 24px;
+}
+.giaTien{
+    font-weight: bold;
+    font-size: 22px;
+}
+.form-inline{
+    justify-content: center;
+}
+.row a{
+    text-decoration: none!important;
+}
+
+/*modal*/
+.modal-content{
+    background-color: #ecf0f5!important;
+}
+.modal-body{
+    color: #00adc2; 
+    font-size: 18px;
+    font-weight: 400;
+}
+.modal-header, .modal-footer{
+    border: none!important;
+}
+/*modal*/
+
+.dat-them-tour .btn-seting a i{
+    font-size: 16px;
+}

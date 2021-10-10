@@ -13,5 +13,5 @@ import java.util.List;
  * @author Acer
  */
 public interface ThongKeRepository {
-    List<Object[]> doanhThuTheoTour(String tenTour, Date ngayBD, Date ngayKT);
+    List<Object[]> doanhThuTheoTour(Date ngayBD, Date ngayKT);
 }

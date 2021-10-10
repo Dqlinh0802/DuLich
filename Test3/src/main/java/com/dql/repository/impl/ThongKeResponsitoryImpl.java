@@ -35,7 +35,7 @@ public class ThongKeResponsitoryImpl implements ThongKeRepository {
     private LocalSessionFactoryBean sessionFactory;
 
     @Override
-    public List<Object[]> doanhThuTheoTour(String tenTour, Date ngayBD, Date ngayKT) {
+    public List<Object[]> doanhThuTheoTour(Date ngayBD, Date ngayKT) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Object[]> query = builder.createQuery(Object[].class);
@@ -54,9 +54,9 @@ public class ThongKeResponsitoryImpl implements ThongKeRepository {
         query.multiselect(rootT.get("tourId"), rootT.get("tenTour"),
                 builder.sum(builder.prod(rootC.get("soLuong"), rootC.get("gia"))));
         
-        if (tenTour != null && tenTour.trim().isEmpty()) {
-            predicates.add(builder.like(rootT.get("tenTour"), String.format("%%%s%%", tenTour)));
-        }
+//        if (tenTour != null && tenTour.trim().isEmpty()) {
+//            predicates.add(builder.like(rootT.get("tenTour"), String.format("%%%s%%", tenTour)));
+//        }
         
         if (ngayBD != null) {
             predicates.add(builder.greaterThanOrEqualTo(rootH.get("ngayMua"), ngayBD));
@@ -69,7 +69,7 @@ public class ThongKeResponsitoryImpl implements ThongKeRepository {
 //        ket xong thi group lai theo tung thang
         query.where(predicates.toArray(new Predicate[] {}));
         query.groupBy(rootT.get("tourId"));
-        query.orderBy(builder.asc(builder.sum(builder.prod(rootC.get("soLuong"), rootC.get("gia")))));
+        query.orderBy(builder.asc(rootT.get("tourId")));
         
         Query q = session.createQuery(query);
         

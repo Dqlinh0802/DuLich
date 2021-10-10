@@ -97,15 +97,15 @@
                 </sec:authorize>
             </c:if>
             <div class="form-group d-flex justify-content-center">
-                <a class="btn btn-success " href="<c:url value="/" />">Trang chủ</a>
+                <a class="btn btn-success text-white" href="<c:url value="/" />">Trang chủ</a>
                 <form:hidden path="id" />
                 <c:if test="${nguoiDung.id > 0}">
-                    <input type="submit" value="Sửa thông tin" class="btn btn-success"/>
+                    <input type="submit" value="Sửa thông tin" class="btn btn-success text-white"/>
                 </c:if>
                 <c:if test="${nguoiDung.id <= 0}">    
-                    <input type="submit" value="Đăng ký" class="btn btn-success"/>
+                    <input type="submit" value="Đăng ký" class="btn btn-success text-white"/>
                 </c:if>
-                <a class="btn btn-success " href="<c:url value="/dangNhap" />">Đăng nhập</a>
+                <a class="btn btn-success text-white" href="<c:url value="/dangNhap" />">Đăng nhập</a>
             </div>
 
         </form:form>

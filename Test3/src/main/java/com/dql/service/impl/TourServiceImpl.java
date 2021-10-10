@@ -13,6 +13,8 @@ import com.dql.service.TourService;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +23,8 @@ import org.springframework.stereotype.Service;
  * @author Acer
  */
 @Service
-public class TourServiceImpl implements TourService{
+public class TourServiceImpl implements TourService {
+
     @Autowired
     private TourRepository tourRepository;
     @Autowired
@@ -29,7 +32,7 @@ public class TourServiceImpl implements TourService{
 
     @Override
     public List<Tour> getTours(String kw, int page) {
-    
+
         return this.tourRepository.getTours(kw, page);
     }
 
@@ -38,20 +41,35 @@ public class TourServiceImpl implements TourService{
         return this.tourRepository.slTour();
     }
 
+
     @Override
     public boolean themHoacSua(Tour tour) {
         try {
-            Map m = this.cloudinary.uploader().upload(tour.getFile().getBytes(),
+            if (tour.getTourId() > 0) {   //sua tour
+                if (tour.getFile().getBytes().length == 0) {
+                    Tour a = this.tourRepository.layTourId(tour.getTourId());
+                    tour.setAnh(a.getAnh());
+                }else{
+                Map m = this.cloudinary.uploader().upload(tour.getFile().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             
-            tour.setAnh((String) m.get("secure_url"));
+                    tour.setAnh((String) m.get("secure_url"));
+                }
+            } else {    //them
+                if (tour.getFile().getBytes().length != 0) {
+                    Map m = this.cloudinary.uploader().upload(tour.getFile().getBytes(),
+                    ObjectUtils.asMap("resource_type", "auto"));
             
-            
+                    tour.setAnh((String) m.get("secure_url"));
+                } else {
+                    tour.setAnh("");
+                }
+            }
             return this.tourRepository.themHoacSua(tour);
         } catch (IOException ex) {
-            System.err.println("Upload file fail!!!");
+            System.err.println("Đã bị lỗi!!!");
         }
-        
+
         return false;
     }
 
@@ -64,9 +82,5 @@ public class TourServiceImpl implements TourService{
     public boolean xoaTour(int tourId) {
         return this.tourRepository.xoaTour(tourId);
     }
-    
-    
+
 }
-
-
-

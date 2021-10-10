@@ -31,8 +31,6 @@ public class AdminController {
             @RequestParam(required = false) Map<String, String> params) {
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
 
-        String tenTour = params.getOrDefault("tenTour", null);
-
         Date ngayBD = null, ngayKT = null;
         try {
             String BD = params.getOrDefault("ngayBD", null);
@@ -49,7 +47,7 @@ public class AdminController {
         }
 
         
-        model.addAttribute("thongKeTour", this.thongKeService.doanhThuTheoTour(tenTour, ngayBD, ngayKT));
+        model.addAttribute("thongKeTour", this.thongKeService.doanhThuTheoTour(ngayBD, ngayKT));
 
         return "thongKeDoanhThuTour";
     }

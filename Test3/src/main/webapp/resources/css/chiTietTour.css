@@ -11,7 +11,7 @@ and open the template in the editor.
 
 #bg-tour{
     padding-top: 150px;
-    background-color: #383A59;
+/*    background-color: #383A59;*/
     padding-bottom: 100px;
 }
 #bg-tour h1 {
@@ -54,17 +54,15 @@ and open the template in the editor.
 }
 .binh-luan > textarea{
     padding-left: 20px!important;
-    color: white;
     background-color: transparent;
     margin-bottom: 20px;
     
 }
 .binh-luan > textarea:focus{
     background-color: transparent;
-    color: white;
 }
 .binh-luan > textarea::placeholder{
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
 }
 .cac-binh-luan{
     margin-top: 40px;
@@ -91,7 +89,7 @@ and open the template in the editor.
     color: #f2c26f;
     font-size: 20px;
 }
-.btn-info{
+/*.btn-info{
     color: #ffc107!important;
     border-color: #ffc107!important;
 }
@@ -100,7 +98,7 @@ and open the template in the editor.
 }
 .btn-danger:hover{
     background-color: #dc3545!important;
-}
+}*/
 .fa-user-secret{
     padding-top: 8px;
 }

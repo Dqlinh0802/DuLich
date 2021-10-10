@@ -14,9 +14,6 @@
     <li class="nav-item">
         <a class="nav-link p-0 pt-3" href="<c:url value="/admin/thongKeDoanhThuTour"/>">Doanh thu theo tour</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link p-0 pt-3" href="<c:url value="/admin/thongKeDoanhThuTour"/>">Doanh thu theo tour</a>
-    </li>
   </ul>
 
 </nav>

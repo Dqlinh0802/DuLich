@@ -35,7 +35,7 @@ public class NguoiDatTourRepositoryImpl implements NguoiDatTourRepository{
     private LocalSessionFactoryBean sessionFactory;
     
     @Override
-    public List<Object[]> dsTourDuocDat(String tenTour) {
+    public List<Object[]> dsTourDuocDat(String tenTour, int page) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Object[]> query = builder.createQuery(Object[].class);
@@ -46,15 +46,37 @@ public class NguoiDatTourRepositoryImpl implements NguoiDatTourRepository{
         Root rootN = query.from(NguoiDung.class);
         
         List<Predicate> predicates = new ArrayList<>();
+        predicates.add(builder.equal(rootC.get("tour"), rootT.get("tourId")));
+        predicates.add(builder.equal(rootC.get("hoaDon"), rootH.get("id")));
+        predicates.add(builder.equal(rootH.get("nguoiDung"), rootN.get("id")));
+        
         
         if (tenTour != null && tenTour.trim().isEmpty()) {
             predicates.add(builder.like(rootT.get("tenTour"), String.format("%%%s%%", tenTour)));
         }
-        query.multiselect(rootT.get("tourId"), rootT.get("tenTour"));
         
+//        query.multiselect(rootN.get("ho"), rootN.get("ten"),
+//                rootN.get("sdt"), rootH.get("ngayMua"), rootH.get("tongTien"));
+
+        query.multiselect(rootT.get("tourId"), rootT.get("tenTour"), rootN.get("ho"), rootN.get("ten"),
+                rootN.get("sdt"), rootH.get("ngayMua"), rootH.get("tongTien"));
+        
+        query.where(predicates.toArray(new Predicate[] {}));
+        query.groupBy(rootH.get("id"));
+        query.orderBy(builder.desc(rootH.get("id")));
         Query q = session.createQuery(query);
-        
+        int maxPage = 10;
+        q.setMaxResults(maxPage);
+        //page= 1 thì lấy 10 phần tử đầu 
+        q.setFirstResult((page - 1 ) * maxPage);
         return q.getResultList();
+    }
+
+    @Override
+    public long slTourDuocDat() {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        Query q = session.createQuery("Select Count(*) From HoaDon");
+        return Long.parseLong(q.getSingleResult().toString());
     }
     
 }

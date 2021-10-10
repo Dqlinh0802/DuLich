@@ -11,9 +11,9 @@
 
 <div id="bg-tour" class="text-white">
     <div class="container mr-auto ml-auto">
-        <h1 class="text-center">Giỏ hàng</h1>
+        <h1 class="text-center">Thanh toán</h1>
         <table class="table text-white">
-            <tr class="text-center">
+            <tr class="text-center text-white h4 bg-tb">
                 <th>Mã tour</th>
                 <th>Tên tour</th>
                 <th>Số lượng</th>
@@ -38,6 +38,17 @@
             </c:forEach>
         </table>
         <h4 class="alert alert-warning text-right">Tổng tiền: <span id="tongTien" class="giaTien">${tinhTien.tongTien}</span></h4>
-        <input type="button" onclick="thanhToan(${nguoiDungDangNhap.id})" value="Thanh toán" class="btn btn-info thanh-toan"/>
+            <c:if test="${nguoiDungDangNhap.id != null}">
+            <input type="button" onclick="thanhToan(${nguoiDungDangNhap.id})" value="Đặt ngay" class="btn btn-info thanh-toan"/>
+        </c:if>
+        <c:if test="${nguoiDungDangNhap.id == null}">
+            <a data-toggle="popover" data-content="Bạn cần đăng nhập để đặt tour"
+               class="btn btn-info thanh-toan">Đặt ngay</a>
+        </c:if>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>

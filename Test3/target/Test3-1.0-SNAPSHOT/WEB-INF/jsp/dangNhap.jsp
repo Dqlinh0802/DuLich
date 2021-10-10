@@ -20,6 +20,7 @@
                 <input type="text" name="taiKhoan" placeholder="Tên đăng nhập" class="form-control"/>
                 <!--name phai giong trong SpringSecurityConfig--> 
                 <input type="password" name="matKhau" placeholder="Mật khẩu" class="form-control"/>
+                <a href="#" class="quen-mat-khau form-control">Quên mật khẩu?</a>
             </div>
             <c:if test="${param.error != null}">
                 <div class="alert alert-danger mt-3 mb-3">
@@ -32,9 +33,9 @@
                 </div>
             </c:if>
             <div class="form-group d-flex justify-content-center">
-                <a class="btn btn-success " href="<c:url value="/" />">Trang chủ</a>
-                <input class="btn btn-success" type="submit" value="Đăng nhập"/>
-                <a class="btn btn-success " href="<c:url value="/dangKy" />">Đăng ký</a>
+                <a class="btn btn-success text-white" href="<c:url value="/" />">Trang chủ</a>
+                <input class="btn btn-success text-white" type="submit" value="Đăng nhập"/>
+                <a class="btn btn-success text-white" href="<c:url value="/dangKy" />">Đăng ký</a>
             </div>
         </form>
     </div>

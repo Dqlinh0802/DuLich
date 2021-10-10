@@ -35,14 +35,19 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="footer" value=""></put-attribute>
         <put-attribute name="content" value="/WEB-INF/jsp/dangKy.jsp"></put-attribute>
     </definition>
-    <definition name="tour" extends="baseLayout">
+    <definition name="themSuaTour" extends="baseLayout">
         <put-attribute name="title" value="Tour"></put-attribute>
-        <put-attribute name="css" value="/Test3/css/tour.css"></put-attribute>
-        <put-attribute name="content" value="/WEB-INF/jsp/tour.jsp"></put-attribute>
+        <put-attribute name="css" value="/Test3/css/themSuaTour.css"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/jsp/themSuaTour.jsp"></put-attribute>
+    </definition>
+    <definition name="dsTour" extends="baseLayout">
+        <put-attribute name="title" value="Danh sách các tour"></put-attribute>
+        <put-attribute name="css" value="/Test3/css/dsTour.css"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/jsp/dsTour.jsp"></put-attribute>
     </definition>
     <definition name="gioHang" extends="baseLayout">
         <put-attribute name="title" value="Giỏ hàng"></put-attribute>
-        <put-attribute name="css" value="/Test3/css/tour.css"></put-attribute>
+        <put-attribute name="css" value="/Test3/css/themSuaTour.css"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/jsp/gioHang.jsp"></put-attribute>
     </definition>
     <definition name="chiTietTour" extends="baseLayout">
@@ -59,7 +64,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="title" value="404"></put-attribute>
         <put-attribute name="header" value=""></put-attribute>
         <put-attribute name="footer" value=""></put-attribute>
-        <put-attribute name="css" value="/Test3/css/404.css"></put-attribute>
+        <put-attribute name="css" value="/Test3/css/nangCap.css"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/jsp/khongTimThay.jsp"></put-attribute>
     </definition>
     <definition name="xemNguoiDangKyTour" extends="baseLayout">

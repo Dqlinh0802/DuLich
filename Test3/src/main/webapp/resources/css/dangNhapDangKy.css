@@ -7,8 +7,7 @@ and open the template in the editor.
     Created on : Sep 8, 2021, 5:50:48 PM
     Author     : Acer
 */
-@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 
 #background{
     background-image: url(../images/background7.jpg);
@@ -71,6 +70,21 @@ and open the template in the editor.
     text-align: center;
     margin-right: auto;
 }
+.dangNhap .quen-mat-khau{
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 20px;
+    width: 180px!important;
+    background-color: rgba(0,0,0,0)!important;
+    color: #fff!important;
+    border: none;
+    text-align: center;
+}
+.dangNhap .quen-mat-khau:hover{
+    color: #f2c26f !important
+}
+
+
 
 /*danhKy*/
 .dangKy .form-group {
@@ -98,23 +112,6 @@ and open the template in the editor.
     margin-right: 15px;
 }
 
-
-.btn-success{
-    color: white !important;
-    border-width: 2px !important;
-    border-bottom-style: solid !important;
-    border-color: #f2c26f !important;
-    border-radius: 20px !important;
-    font-weight: 700 ;
-    font-family: 'Pacifico', cursive ;
-    font-size: 24px !important;
-    background-color: rgba(255, 255, 255, 0) !important;
-}
-
-.btn-success:hover{
-    color: white !important;
-    background: #f2c26f !important;
-}
 
 h1 {
     font-weight: 700 !important;

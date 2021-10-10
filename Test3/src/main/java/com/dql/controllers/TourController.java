@@ -54,26 +54,24 @@ public class TourController {
     //@Valid chi khi past het thi Tour moi duoc nhan
     //het vi pham moi cho lam BindingResult bao vi pham vao day het
     
-    @PostMapping("/nhanVien/tours")
+    @PostMapping("/nhanVien/themSuaTour")
     public String post(Model model,
             @ModelAttribute(value = "tour") @Valid Tour tour, 
             BindingResult result){
-        
-        
         if(!result.hasErrors()){
             if(this.tourService.themHoacSua(tour) == true)
-                return "redirect:/";
+                return "redirect:/dsTour";
             else
                 model.addAttribute("errMsg", "Có lỗi rồi!!!");
         }
         //neu that bai thi no dung o tour
-        return "tour";
+        return "themSuaTour";
     }
     
     
     
     //phan quyen cho admin
-    @GetMapping("/nhanVien/tours")
+    @GetMapping("/nhanVien/themSuaTour")
     public String danhSach(Model model,
             @RequestParam(name = "tourId", defaultValue = "0") int tourId) {
         if (tourId > 0) // cập nhật
@@ -81,11 +79,11 @@ public class TourController {
         else
             model.addAttribute("tour", new Tour());//thêm
         
-        return "tour";
+        return "themSuaTour";
     }
     
     
-    @GetMapping("/tours/{tourId}")
+    @GetMapping("/themSuaTour/{tourId}")
     public String chiTietTour(Model model,
         @PathVariable (value = "tourId") int tourId,
         @RequestParam(required = false) Map<String , String> params){

@@ -8,28 +8,24 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<h1 class="text-center">Thống kê doanh thu theo tour</h1>
+<h1 class="text-center mt-3 text-success">Thống kê doanh thu theo tour</h1>
 <div class="d-flex justify-content-center form">
     <form action="" class="text-center">
-        <div class="row">
-            <span class="col-2 px-0">Tên tour</span>
-            <input type="text" name="tenTour" class="form-control col-9"/>
-        </div>
         <div class="d-flex align-items-center mt-2 mb-2">
             <input type="date" name="ngayBD" class="form-control"/>
             <span class="mx-2">-</span>
             <input type="date" name="ngayKT" class="form-control"/>
         </div>
-        <input type="submit" value="Thống kê" class="btn btn-success"/>
+        <input type="submit" value="Thống kê" class="btn btn-info"/>
     </form>
 </div>
 <div>
     <canvas id="myChart"></canvas>
 </div>
 <table class="table">
-    <tr>
+    <tr class="text-white h5 bg-tb">
         <th class="text-center">Mã tour</th>
-        <th class="text-center">Tên Tour</th>
+        <th class="text-center">Tên tour</th>
         <th class="text-center">Doanh thu</th>
     </tr>
     <c:forEach var="pro" items="${thongKeTour}">

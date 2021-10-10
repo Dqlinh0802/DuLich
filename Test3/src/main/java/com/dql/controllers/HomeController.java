@@ -37,7 +37,12 @@ public class HomeController {
     
     
     @RequestMapping("/")
-    public String index(Model model,
+    public String index(Model model) {
+
+        return "index";
+    }
+    @RequestMapping("/dsTour")
+    public String dsTour(Model model,
             @RequestParam(required = false) Map<String , String> params) {
         
         
@@ -46,7 +51,7 @@ public class HomeController {
         model.addAttribute("tours", this.tourService.getTours(params.get("kw"), page));
         model.addAttribute("slTour", this.tourService.slTour());
         
-        return "index";
+        return "dsTour";
     }
     
     //dung chung

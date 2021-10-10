@@ -6,8 +6,6 @@
 package com.dql.repository.impl;
 
 import com.dql.pojos.BinhLuan;
-import com.dql.pojos.ChiTietHoaDon;
-import com.dql.pojos.HoaDon;
 import com.dql.pojos.NguoiDung;
 import com.dql.repository.BinhLuanRepository;
 import java.util.ArrayList;

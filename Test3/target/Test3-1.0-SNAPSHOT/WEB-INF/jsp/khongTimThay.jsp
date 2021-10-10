@@ -11,9 +11,9 @@
 
     <div class="khong-tim-thay">
         <div class="khong-tim-thay-404">
-            <h1>404</h1>
+            <h1>Hệ thống đang nâng cấp</h1>
         </div>
-        <p class="text-uppercase">Oops, Trang bạn tìm kiếm không thể tìm được</p>
+        <p class="text-uppercase">Hệ thống đang nâng cấp</p>
         <a href="<c:url value="/"/>">Trở về trang chủ</a>
     </div>
 </div>

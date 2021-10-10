@@ -35,19 +35,17 @@
             </div>
             <!-- cot2-->
             <div class="col-4">
-                <h4 class="text-uppercase mb-4 font-pacifico">Điểm đến</h4>
-                <div class="mb-2">
-                    <a  class="btn btn-outline-success " href="#diaDiem">Vịnh Hạ Long</a>
-                    <a  class="btn btn-outline-info " href="#diaDiem">Đảo Phú Quốc</a>
-                </div>
-                <div>
-                    <a  class="btn btn-outline-warning " href="#diaDiem">Đảo Cát Bà</a>
-                    <a  class="btn btn-outline-danger " href="#diaDiem">SaPa</a>
+                <h4 class="text-uppercase mb-4 font-pacifico mx-auto">Điểm đến</h4>
+                <div class="">
+                    <a  class="btn btn-success mb-1" href="#diaDiem">Vịnh Hạ Long</a>
+                    <a  class="btn btn-info mb-1" href="#diaDiem">Đảo Phú Quốc</a>
+                    <a  class="btn btn-warning mb-1" href="#diaDiem">Đảo Cát Bà</a>
+                    <a  class="btn btn-danger mb-1" href="#diaDiem">SaPa</a>
                 </div>
             </div>
             <!-- cot3-->
             <div class="col-4 ">
-                <h4 class="text-uppercase mb-4 font-pacifico">Giới thiệu</h4>
+                <h4 class="text-uppercase mb-4 font-pacifico mx-auto">Giới thiệu</h4>
                 <p>Giấy chứng nhận Đăng ký Kinh doanh số: xxxxxx do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 00/00/2012</p>
             </div>
         </div>

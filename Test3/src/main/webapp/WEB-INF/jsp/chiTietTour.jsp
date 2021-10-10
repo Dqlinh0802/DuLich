@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<div id="bg-tour" class="text-white">
+<div id="bg-tour" class="">
     <div class="container mr-auto ml-auto">
         <h1 class="text-center">Chi tiết tour</h1>
         <div class="chi-tiet-tour">
@@ -17,15 +17,17 @@
                         <img src="${tour.anh}" alt="alt"/>
                     </c:if>
                     <c:if test="${tour.anh == null || tour.anh.startsWith('https') == false}">
-                        <img class="img-fluid " src="<c:url value="/images/phongCanh3.jpg"/>" alt="${pro.tenTour}"/>
+                        <img class="img-fluid " src="<c:url value="/images/phongCanh3.jpg"/>" alt="${tour.tenTour}"/>
                     </c:if>
                 </div>
-                <div class="col-md-6 text-white">
+                <div class="col-md-6">
                     <h3>${tour.tenTour}</h3>
-                    <p>Giá chỉ còn:<span class="text-danger"> ${tour.gia} </span> VND</p>
+                    <p>Giá chỉ còn: <span class="text-success giaTien"> ${tour.gia} </span></p>
                     <h4>Mô tả </h4>
                     <p class="mo-ta">${tour.moTa}</p>
-                    <a href="javascript:;" class="btn btn-danger" onclick="themVaoGio(${tour.tourId}, '${tour.tenTour}', ${tour.gia})">Đặt tour</a>
+                    <a href="javascript:;" class="btn btn-info" 
+                       onclick="themVaoGio(${tour.tourId}, '${tour.tenTour}', ${tour.gia})"
+                       data-toggle="modal" data-target="#myModal" >Đặt tour</a>
                 </div>
             </div>
             <form class="binh-luan">
@@ -66,7 +68,7 @@
                 <ul class="pagination">
                     <c:forEach begin="1" end="${Math.ceil(slBinhLuan/5)}" var="i">  
                         <li class="page-item">
-                            <a class="page-link" href="<c:url value="/tours/${tour.tourId}" />?page=${i}">${i}</a>
+                            <a class="page-link" href="<c:url value="/themSuaTour/${tour.tourId}" />?page=${i}">${i}</a>
                         </li>
                     </c:forEach>
                 </ul>
@@ -75,6 +77,30 @@
         </div>
     </div>
 </div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Đã thêm tour vào giỏ hàng
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+            </div>
+
+        </div>
+    </div>
+</div>      
 <script>
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover();

@@ -10,9 +10,16 @@ and open the template in the editor.
 
 #bg-quan-ly{
     padding-top: 100px;
-    background-color: #383A59;
+    /*background-color: #383A59;*/
     padding-bottom: 100px;
 }
 #bg-quan-ly h1{
     color: #f2c26f;
+}
+.pagination li > a{
+    font-weight: bold;
+    color: #00c1de!important;
+}
+.bg-tb{
+    background-color: #f27979!important;
 }

@@ -27,7 +27,7 @@
                     <a class="nav-link" href="<c:url value="/"/>">Trang chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/nhanVien/xemNguoiDangKyTour"/>">Quản lý đặt tour</a>
+                    <a class="nav-link" href="<c:url value="/dsTour"/>">Tour</a>
                 </li>
                 <sec:authorize access="hasAnyRole('ROLE_MANAGE', 'ROLE_ADMIN')">
                     <div class="nav-item dropdown d-flex">
@@ -37,22 +37,28 @@
                         </a>
                         <div class="dropdown-menu text-center quan-ly" aria-labelledby="navbarDropdownMenuLink2">
                             <div>
-                                <a class="btn btn-info mr-auto ml-auto mb-2" href="<c:url value="/nhanVien/tours"/>">Tour</a>
+                                <a class="btn btn-info mr-auto ml-auto mb-2" href="<c:url value="/nhanVien/themSuaTour"/>">Tour</a>
                             </div> 
-                            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                <a class="btn btn-info mr-auto ml-auto mb-2" href="<c:url value="/admin/thongKeDoanhThuTour"/>">Thống kê</a>
-                            </sec:authorize>
+                            <div>
+                                <a class="btn btn-info mr-auto ml-auto mb-2"  href="<c:url value="/nhanVien/xemNguoiDangKyTour"/>">Đặt tour</a>
+                            </div>
                             <div>
                                 <a class="btn btn-info mr-auto ml-auto" href="<c:url value="/nhanVien/nguoiDungs"/>">Người dùng</a>
                             </div>
                         </div>
                     </div>
                 </sec:authorize>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li class="nav-item">
+                        <a  class="nav-link" href="<c:url value="/admin/thongKeDoanhThuTour"/>">Thống kê</a>
+                    </li>               
+                </sec:authorize>
                 <sec:authorize access="!hasAnyRole('ROLE_MANAGE', 'ROLE_ADMIN')">
                     <li class="nav-item">
                         <a class="nav-link" href="#lienHe">Liên hệ</a>
                     </li>
                 </sec:authorize>
+
             </ul>
             <div class="nav-item dropdown d-flex">
                 <div class="item-gio-hang">
@@ -88,7 +94,7 @@
                         </c:if>
                     </div>
                     <div class="ml-2">
-                        <a class="btn btn-danger" href="<c:url value="/logout" />">Đăng xuất</a>
+                        <a class="btn btn-danger text-white" href="<c:url value="/logout" />">Đăng xuất</a>
                     </div>
                 </c:if>
             </div>

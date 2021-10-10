@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
-<div id="bg-quan-ly" class="text-white">
+<div id="bg-quan-ly" class="">
     <div class="container">
         <h1 class="text-center text-black">Quản lý người dùng</h1>
         <div class="mb-3 d-flex justify-content-between">
@@ -18,8 +18,8 @@
                 <input type="submit" class="btn btn-info" value="Search" />
             </form>
         </div>
-        <table class="table text-white">
-            <tr class="text-center">
+        <table class="table bg-light">
+            <tr class="text-center text-white h5 bg-tb">
                 <th>Người dùng</th>
                 <th>Tài khoản người dùng</th>
                 <th>Số điện thoại</th>
@@ -62,7 +62,7 @@
                             <a href="javascript:;" onclick="xoaNguoiDung(${nguoiDung.id})">
                                 <input type="button" value="Xóa" class="btn btn-danger"/>
                             </a>
-                            <a href="<c:url value="/dangKy/?id=${nguoiDung.id}" />">
+                            <a href="<c:url value="/khongTimThay" />">
                                 <input type="button" value="Sửa" class="btn btn-success"/>
                             </a>
                         </td>

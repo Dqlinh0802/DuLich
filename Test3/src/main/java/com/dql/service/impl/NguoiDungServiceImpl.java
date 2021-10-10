@@ -47,14 +47,14 @@ public class NguoiDungServiceImpl implements NguoiDungService{
         
         
         //neu nguoi binh thuong dk thi mac d
-//        if(nguoiDung.getVaiTro() == "")
+        if(nguoiDung.getVaiTro() == null)
             nguoiDung.setVaiTro(NguoiDung.USER);
         try{
             Map m = this.cloudinary.uploader().upload(nguoiDung.getFile().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             
                 nguoiDung.setAnh((String) m.get("secure_url"));
-//                nguoiDung.setVaiTro(nguoiDung.getVaiTro());
+                nguoiDung.setVaiTro(nguoiDung.getVaiTro());
                 return this.nguoiDungRepository.themSuaNguoiDung(nguoiDung);
         } catch (IOException ex) {
             System.err.println("Đã xảy ra lỗi!!!");

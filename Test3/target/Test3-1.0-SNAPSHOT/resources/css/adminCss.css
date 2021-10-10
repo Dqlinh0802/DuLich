@@ -21,6 +21,9 @@ and open the template in the editor.
     color: rgba(252, 186, 3, 1)  !important;
     text-decoration: none;
 }
+.bg-tb{
+    background-color: #f27979!important;
+}
 .form{
     width: 100%;
 }
@@ -30,9 +33,9 @@ form{
 .row span{
     line-height: 36px;
 }
-.btn-success:hover{
+/*.btn-success:hover{
     background-color: #f2c26f !important;
-}
+}*/
 .rounded-circle{
     animation: logo 2.5s cubic-bezier(0.8, -0.84, 0.22, 1.71) infinite;
 }

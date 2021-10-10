@@ -10,7 +10,7 @@ and open the template in the editor.
 
 #bg-quan-ly{
     padding-top: 100px;
-    background-color: #383A59;
+    /*background-color: #383A59;*/
     padding-bottom: 100px;
 }
 #bg-quan-ly h1{
@@ -19,6 +19,9 @@ and open the template in the editor.
 #bg-quan-ly .img-fluid {
     max-height: 60px!important;
     max-width: 60px!important;
+}
+.bg-tb{
+    background-color: #f27979!important;
 }
 .table td {
     vertical-align: middle!important;
@@ -33,16 +36,4 @@ and open the template in the editor.
 .table img {
     width: 60px;
 }
-.btn-success{
-    margin: 0;
-}
-.btn-success:hover{
-    background-color: #f2c26f !important;
-}
-.btn-info{
-    color: #17a2b8!important;
-    border-color: #17a2b8!important;
-}
-.btn-info:hover{
-    background-color: #17a2b8!important;
-}
+

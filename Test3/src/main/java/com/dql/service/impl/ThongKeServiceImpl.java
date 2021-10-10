@@ -24,8 +24,8 @@ public class ThongKeServiceImpl implements ThongKeService{
     
     
     @Override
-    public List<Object[]> doanhThuTheoTour(String tenTour, Date ngayBD, Date ngayKT) {
-        return this.thongKeRepository.doanhThuTheoTour(tenTour, ngayBD, ngayKT);
+    public List<Object[]> doanhThuTheoTour(Date ngayBD, Date ngayKT) {
+        return this.thongKeRepository.doanhThuTheoTour(ngayBD, ngayKT);
     }
     
 }

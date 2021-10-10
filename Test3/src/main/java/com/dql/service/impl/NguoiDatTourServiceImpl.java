@@ -22,8 +22,13 @@ public class NguoiDatTourServiceImpl implements NguoiDatTourService{
     private NguoiDatTourRepository nguoiDatTourRepository;
     
     @Override
-    public List<Object[]> dsTourDuocDat(String tenTour) {
-        return this.nguoiDatTourRepository.dsTourDuocDat(tenTour);
+    public List<Object[]> dsTourDuocDat(String tenTour, int page) {
+        return this.nguoiDatTourRepository.dsTourDuocDat(tenTour, page);
+    }
+
+    @Override
+    public long slTourDuocDat() {
+        return this.nguoiDatTourRepository.slTourDuocDat();
     }
     
 }

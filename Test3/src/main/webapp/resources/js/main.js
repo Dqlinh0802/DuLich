@@ -30,7 +30,7 @@ function  themVaoGio(tourId, tenTour, gia) {
 function xoaTour(tourId) {
     event.preventDefault();
     if (confirm("Bạn có chắc chắn xóa tour này không?") == true) {
-        fetch(`/Test3/api/tours/${tourId}`, {
+        fetch(`/Test3/api/themSuaTour/${tourId}`, {
             method: "delete",
             headers: {
                 "Content-Type": "application/json"

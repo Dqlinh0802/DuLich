@@ -24,7 +24,7 @@ public class ApiTourController {
     @Autowired
     private TourService tourService;
     
-    @DeleteMapping("/api/tours/{tourId}")
+    @DeleteMapping("/api/themSuaTour/{tourId}")
     @ResponseStatus(HttpStatus.OK)
     public void xoaTour(@PathVariable(name = "tourId") int tourId){
         this.tourService.xoaTour(tourId);
