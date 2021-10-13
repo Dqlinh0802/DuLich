@@ -20,7 +20,7 @@
                 <input type="text" name="taiKhoan" placeholder="Tên đăng nhập" class="form-control"/>
                 <!--name phai giong trong SpringSecurityConfig--> 
                 <input type="password" name="matKhau" placeholder="Mật khẩu" class="form-control"/>
-                <a href="#" class="quen-mat-khau form-control">Quên mật khẩu?</a>
+                <!--<a href="#" class="quen-mat-khau form-control">Quên mật khẩu?</a>-->
             </div>
             <c:if test="${param.error != null}">
                 <div class="alert alert-danger mt-3 mb-3">

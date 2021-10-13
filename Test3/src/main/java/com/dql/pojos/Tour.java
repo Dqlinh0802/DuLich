@@ -20,9 +20,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -32,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Table(name = "tour")
 public class Tour implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +42,7 @@ public class Tour implements Serializable {
     private BigDecimal gia;
     private String anh;
     private String moTa;
+    private int soCho;
 
     @Transient
     private MultipartFile file;
@@ -75,6 +75,19 @@ public class Tour implements Serializable {
    
     
     
+    /**
+     * @return the soLuong
+     */
+    public int getSoCho() {
+        return soCho;
+    }
+
+    /**
+     * @param soLuong the soLuong to set
+     */
+    public void setSoCho(int soCho) {
+        this.soCho = soCho;
+    }
     /**
      * @return the chiTietHoaDons
      */

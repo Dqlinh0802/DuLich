@@ -7,18 +7,20 @@ and open the template in the editor.
     Created on : Oct 6, 2021, 6:31:13 PM
     Author     : Acer
 */
-
+h1{
+    font-family: 'Mali', cursive;
+}
 .nav-item{
     max-width: 230px;
 }
 .nav-item a, i{
     font-size: 20px;
-    color: rgba(252, 186, 3, 0.7) !important;
-    
+    color: rgba(40, 167, 69, 0.7) !important;
+    font-weight: 500;
 }
 .nav-item a:hover{
     font-size: 20px;
-    color: rgba(252, 186, 3, 1)  !important;
+    color: rgba(40, 167, 69, 1)  !important;
     text-decoration: none;
 }
 .bg-tb{

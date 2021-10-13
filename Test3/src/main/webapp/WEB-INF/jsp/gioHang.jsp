@@ -16,7 +16,7 @@
             <tr class="text-center text-white h4 bg-tb">
                 <th>Mã tour</th>
                 <th>Tên tour</th>
-                <th>Số lượng</th>
+                <th>Số lượng đặt/Số lượng còn</th>
                 <th>Đơn giá</th>
                 <th></th>
             </tr>
@@ -24,10 +24,11 @@
                 <tr class="text-center">
                     <td>${c.tourId}</td>
                     <td>${c.tenTour}</td>
-                    <td>
+                    <td class="">
                         <div class="form-group">
-                            <input type="number" min="0" value="${c.soLuong}" class="so-luong text-center" 
-                                   onblur="capNhatSLTour(this, ${c.tourId})"/>
+                            <input id="soLuong" type="number" min="0" max="${c.soCho}" value="${c.soLuong}" class="so-luong text-center" 
+                                   onblur="capNhatSLTour(this, ${c.tourId}, ${c.soCho})"/>
+                            /${c.soCho}
                         </div>
                     </td>
                     <td class="giaTien">${c.gia}</td>
@@ -39,7 +40,9 @@
         </table>
         <h4 class="alert alert-warning text-right">Tổng tiền: <span id="tongTien" class="giaTien">${tinhTien.tongTien}</span></h4>
             <c:if test="${nguoiDungDangNhap.id != null}">
-            <input type="button" onclick="thanhToan(${nguoiDungDangNhap.id})" value="Đặt ngay" class="btn btn-info thanh-toan"/>
+            <input type="button" onclick="thanhToan(${nguoiDungDangNhap.id})" 
+                   value="Đặt ngay" class="btn btn-info thanh-toan"
+                   data-toggle="modal" data-target="#myModal"/>
         </c:if>
         <c:if test="${nguoiDungDangNhap.id == null}">
             <a data-toggle="popover" data-content="Bạn cần đăng nhập để đặt tour"
@@ -47,6 +50,7 @@
         </c:if>
     </div>
 </div>
+
 <script>
     $(document).ready(function () {
         $('[data-toggle="popover"]').popover();

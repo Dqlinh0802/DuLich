@@ -8,7 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<h1 class="text-center mt-3 text-success">Thống kê doanh thu theo tour</h1>
+<h1 class="text-center mt-3 text-success" data-aos="fade-down" data-aos-duration="1500">
+    Thống kê doanh thu theo tour
+</h1>
 <div class="d-flex justify-content-center form">
     <form action="" class="text-center">
         <div class="d-flex align-items-center mt-2 mb-2">
@@ -60,4 +62,6 @@
             gia[i].innerText = formatter.format(gia[i].innerText);
         }
     }
+    
+    AOS.init();
 </script>

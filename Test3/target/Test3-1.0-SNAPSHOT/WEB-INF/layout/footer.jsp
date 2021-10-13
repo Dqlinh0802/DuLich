@@ -28,19 +28,40 @@
                 </div>
                 <div>
                     <br />
-                    <a class="btn btn-outline-dark btn-social mx-1" href="https://www.facebook.com/dqlinh0802/"><i class="fab fa-fw fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-dark btn-social mx-1" href="https://www.instagram.com/d__q__l/"><i class="fab fa-fw fa-instagram"></i></a>
-                    <a class="btn btn-outline-dark btn-social mx-1" href="https://github.com/Dqlinh0802"><i class="fab fa-fw fa-github"></i></a>
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://www.facebook.com/dqlinh0802/"
+                       data-aos="fade-up" data-aos-duration="1000">
+                        <i class="fab fa-fw fa-facebook-f"></i>
+                    </a>
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://www.instagram.com/d__q__l/"
+                       data-aos="fade-up" data-aos-duration="1500">
+                        <i class="fab fa-fw fa-instagram"></i>
+                    </a>
+                    <a class="btn btn-outline-dark btn-social mx-1" href="https://github.com/Dqlinh0802"
+                       data-aos="fade-up" data-aos-duration="2000">
+                        <i class="fab fa-fw fa-github"></i>
+                    </a>
                 </div>
             </div>
             <!-- cot2-->
             <div class="col-4">
                 <h4 class="text-uppercase mb-4 font-pacifico mx-auto">Điểm đến</h4>
                 <div class="">
-                    <a  class="btn btn-success mb-1" href="#diaDiem">Vịnh Hạ Long</a>
-                    <a  class="btn btn-info mb-1" href="#diaDiem">Đảo Phú Quốc</a>
-                    <a  class="btn btn-warning mb-1" href="#diaDiem">Đảo Cát Bà</a>
-                    <a  class="btn btn-danger mb-1" href="#diaDiem">SaPa</a>
+                    <a  class="btn btn-success mb-1" href="#diaDiem"
+                        data-aos="fade-up" data-aos-duration="1000">
+                        Vịnh Hạ Long
+                    </a>
+                    <a  class="btn btn-info mb-1" href="#diaDiem"
+                        data-aos="fade-up" data-aos-duration="1700">
+                        Đảo Phú Quốc
+                    </a>
+                    <a  class="btn btn-warning mb-1" href="#diaDiem"
+                        data-aos="fade-up" data-aos-duration="1700">
+                        Đảo Cát Bà
+                    </a>
+                    <a  class="btn btn-danger mb-1" href="#diaDiem"
+                        data-aos="fade-up" data-aos-duration="2500">
+                        SaPa
+                    </a>
                 </div>
             </div>
             <!-- cot3-->

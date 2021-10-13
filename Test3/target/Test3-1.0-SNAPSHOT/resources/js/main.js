@@ -5,7 +5,7 @@
  */
 
 
-function  themVaoGio(tourId, tenTour, gia) {
+function  themVaoGio(tourId, tenTour, gia, soCho) {
     event.preventDefault();
     fetch("/Test3/api/gioHang", {
         method: 'post',
@@ -13,7 +13,8 @@ function  themVaoGio(tourId, tenTour, gia) {
             "tourId": tourId,
             "tenTour": tenTour,
             "gia": gia,
-            "soLuong": 1
+            "soLuong": 1,
+            "soCho": soCho
         }),
         headers: {
             "Content-Type": "application/json"
@@ -63,15 +64,17 @@ function xoaNguoiDung(id) {
     }
 }
 
-function  capNhatSLTour(obj, tourId) {
+function  capNhatSLTour(obj, tourId, soCho) {
     event.preventDefault();
+    if(obj.value <= soCho){
     fetch("/Test3/api/gioHang", {
         method: "put",
         body: JSON.stringify({
             "tourId": tourId,
             "tenTour": "",
             "gia": 0,
-            "soLuong": obj.value
+            "soLuong": obj.value,
+            "soCho": 0
         }),
         headers: {
             "Content-Type": "application/json"
@@ -83,7 +86,32 @@ function  capNhatSLTour(obj, tourId) {
         slTour.innerText = data.slTour;
         let tongTien = document.getElementById("tongTien");
         tongTien.innerText = data.tongTien;
-    })
+    })}
+    else{
+    fetch("/Test3/api/gioHang", {
+        method: "put",
+        body: JSON.stringify({
+            "tourId": tourId,
+            "tenTour": "",
+            "gia": 0,
+            "soLuong": soCho,
+            "soCho":0
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (res) {
+        return res.json()
+    }).then(function (data) {
+        let slTour = document.getElementById("slTour");
+        slTour.innerText = data.slTour;
+        let tongTien = document.getElementById("tongTien");
+        tongTien.innerText = data.tongTien;
+        let soLuong = document.getElementById("soLuong");
+        soLuong.innerText = soCho;
+        location.reload();
+    })}
+        
 }
 function xoaTourTrongGio(tourId) {
     event.preventDefault();
@@ -157,7 +185,6 @@ window.onload = function () {
     let gia = document.getElementsByClassName("giaTien")
     let ngays = document.getElementsByClassName("ngayBL")
     
-    
     //dau phay trong tien
     var formatter = new Intl.NumberFormat('vi', {
         style: 'currency',
@@ -174,6 +201,7 @@ window.onload = function () {
     {
         ngays[i].innerText = "Bình luận " + moment(ngays[i].innerText).fromNow();
     }
+    AOS.init();
 }
 
 $('body').scrollspy({ target: '#navbar-example' })

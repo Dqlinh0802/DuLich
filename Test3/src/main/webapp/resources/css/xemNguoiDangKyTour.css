@@ -15,6 +15,7 @@ and open the template in the editor.
 }
 #bg-quan-ly h1{
     color: #f2c26f;
+    font-family: 'Mali', cursive;
 }
 .pagination li > a{
     font-weight: bold;

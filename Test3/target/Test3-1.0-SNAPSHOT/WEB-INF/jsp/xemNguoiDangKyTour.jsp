@@ -10,11 +10,12 @@
 
 <div id="bg-quan-ly" class="">
     <div class="container mr-auto ml-auto">
-        <h1 class="text-center">Quản lý đặt tour</h1>
+        <h1 class="text-center" data-aos="fade-down" data-aos-duration="1500">
+            Quản lý đặt tour
+        </h1>
         <table class="table bg-light">
             <tr class="text-white h5 bg-tb">
-                <th class="text-center">Mã tour</th>
-                <th class="text-center">Tên Tour</th>
+                <th class="text-center">Mã hóa đơn</th>
                 <th class="text-center">Người đặt</th>
                 <th class="text-center">Số điện thoại</th>
                 <th class="text-center">Ngày đặt</th>
@@ -24,13 +25,12 @@
             <c:forEach var="nd" items="${nguoiDatTour}">
                 <tr class="">
                     <td class="text-center">${nd[0]}</td>
-                    <td class="text-center">${nd[1]}</td>
-                    <td class="text-center">${nd[2]} ${nd[3]}</td>
+                    <td class="text-center">${nd[1]} ${nd[2]}</td>
+                    <td class="text-center">${nd[3]}</td>
                     <td class="text-center">${nd[4]}</td>
-                    <td class="text-center">${nd[5]}</td>
-                    <td class="text-center giaTien">${nd[6]}</td>
+                    <td class="text-center giaTien">${nd[5]}</td>
                     <td class="text-center">
-                        <a href="">
+                        <a href="<c:url value="/nhanVien/xemNguoiDangKyTour/${nd[0]}"/>">
                             <input type="button" value="Chi tiết" class="btn btn-success"/>
                         </a>
                     </td>

@@ -15,6 +15,7 @@ and open the template in the editor.
 }
 #bg-quan-ly h1{
     color: #f2c26f;
+    font-family: 'Mali', cursive;
 }
 #bg-quan-ly .img-fluid {
     max-height: 60px!important;

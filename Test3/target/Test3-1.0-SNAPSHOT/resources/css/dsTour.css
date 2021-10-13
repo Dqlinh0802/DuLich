@@ -12,6 +12,7 @@ and open the template in the editor.
     color: #13A211;
     font-size: 35px;
     padding-bottom: 5px;
+    font-family: 'Mali', cursive;
 }
  .so-luong-tour{
 
@@ -31,7 +32,9 @@ and open the template in the editor.
     justify-content: space-between;
     padding-bottom: 30px;
 }
-
+.row > div > div:hover{
+    box-shadow: 0 10px 20px rgb(0 0 0 / 50%), 0 15px 15px rgb(0 0 0 / 50%);
+}
 .row > div > div {
     background-color: #fff;
 }

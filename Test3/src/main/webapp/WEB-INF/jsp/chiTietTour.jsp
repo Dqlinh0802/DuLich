@@ -22,12 +22,26 @@
                 </div>
                 <div class="col-md-6">
                     <h3>${tour.tenTour}</h3>
-                    <p>Giá chỉ còn: <span class="text-success giaTien"> ${tour.gia} </span></p>
                     <h4>Mô tả </h4>
                     <p class="mo-ta">${tour.moTa}</p>
-                    <a href="javascript:;" class="btn btn-info" 
-                       onclick="themVaoGio(${tour.tourId}, '${tour.tenTour}', ${tour.gia})"
-                       data-toggle="modal" data-target="#myModal" >Đặt tour</a>
+                    <div class="margin-50"></div>
+                    <div>
+                        Ngày bắt đầu: <span class="font-weight-bold">${tour.ngayBD}</span> 
+                        <br>
+                        Ngày kết thúc: <span class="font-weight-bold">${tour.ngayKT}</span>
+                    </div>
+                    <c:if test="${tour.soCho > 0}">
+                        <div>Số chỗ còn nhận <span class="text-danger font-weight-bold">${tour.soCho}</span></div>
+                    </c:if>
+                    <c:if test="${tour.soCho <= 0}">
+                        <div><span class="text-danger font-weight-bold">Hết chỗ</span></div>
+                    </c:if>
+                    <p>Giá chỉ còn: <span class="text-success giaTien font-weight-bold"> ${tour.gia} </span></p>
+                    <c:if test="${tour.soCho > 0}">
+                        <a href="javascript:;" class="btn btn-info" 
+                           onclick="themVaoGio(${tour.tourId}, '${tour.tenTour}', ${tour.gia}, ${tour.soCho})"
+                           data-toggle="modal" data-target="#myModal" >Đặt tour</a>
+                    </c:if>
                 </div>
             </div>
             <form class="binh-luan">
@@ -68,7 +82,7 @@
                 <ul class="pagination">
                     <c:forEach begin="1" end="${Math.ceil(slBinhLuan/5)}" var="i">  
                         <li class="page-item">
-                            <a class="page-link" href="<c:url value="/themSuaTour/${tour.tourId}" />?page=${i}">${i}</a>
+                            <a class="page-link" href="<c:url value="/chiTietTour/${tour.tourId}" />?page=${i}">${i}</a>
                         </li>
                     </c:forEach>
                 </ul>
@@ -95,6 +109,7 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
+                <a href="<c:url value="/gioHang" />" class="btn btn-success">Tới giỏ hàng</a>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
             </div>
 

@@ -55,10 +55,8 @@ public class NguoiDatTourRepositoryImpl implements NguoiDatTourRepository{
             predicates.add(builder.like(rootT.get("tenTour"), String.format("%%%s%%", tenTour)));
         }
         
-//        query.multiselect(rootN.get("ho"), rootN.get("ten"),
-//                rootN.get("sdt"), rootH.get("ngayMua"), rootH.get("tongTien"));
 
-        query.multiselect(rootT.get("tourId"), rootT.get("tenTour"), rootN.get("ho"), rootN.get("ten"),
+        query.multiselect(rootH.get("id"), rootN.get("ho"), rootN.get("ten"),
                 rootN.get("sdt"), rootH.get("ngayMua"), rootH.get("tongTien"));
         
         query.where(predicates.toArray(new Predicate[] {}));
@@ -77,6 +75,36 @@ public class NguoiDatTourRepositoryImpl implements NguoiDatTourRepository{
         Session session = this.sessionFactory.getObject().getCurrentSession();
         Query q = session.createQuery("Select Count(*) From HoaDon");
         return Long.parseLong(q.getSingleResult().toString());
+    }
+
+    @Override
+    public List<Object[]> dsChiTietDat(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Object[]> query = builder.createQuery(Object[].class);
+         
+        Root rootT = query.from(Tour.class);
+        Root rootH = query.from(HoaDon.class);
+        Root rootC = query.from(ChiTietHoaDon.class);
+//        Root rootN = query.from(NguoiDung.class);
+        
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(builder.equal(rootC.get("tour"), rootT.get("tourId")));
+        predicates.add(builder.equal(rootC.get("hoaDon"), rootH.get("id")));
+        predicates.add(builder.equal(rootC.get("hoaDon"), id));
+        
+
+
+        query.multiselect(rootT.get("tourId"), rootT.get("tenTour"),
+                rootC.get("soLuong"), rootC.get("gia"), rootH.get("tongTien"));
+        
+        query.where(predicates.toArray(new Predicate[] {}));
+        query.orderBy(builder.asc(rootH.get("id")));
+        
+        Query q = session.createQuery(query);
+
+        
+        return q.getResultList();
     }
     
 }

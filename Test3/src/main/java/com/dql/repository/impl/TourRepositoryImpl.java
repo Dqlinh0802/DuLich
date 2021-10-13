@@ -36,10 +36,10 @@ public class TourRepositoryImpl implements TourRepository{
         Session session = this.sessionFactory.getObject().getCurrentSession();  
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Tour> query = builder.createQuery(Tour.class);
+        
         Root root = query.from(Tour.class);
         query = query.select(root);
-//        query = query.orderBy(builder.desc(root.get("tourId")));//sap xep
-        
+
         
         //%% -> chuyen thanh 1 dau khi xuong duoi
         if(kw != null){
@@ -56,13 +56,9 @@ public class TourRepositoryImpl implements TourRepository{
         
         return q.getResultList();
     }
+    
 
-    @Override
-    public long slTour() {
-        Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query q = session.createQuery("Select Count(*) From Tour");
-        return Long.parseLong(q.getSingleResult().toString());
-    }
+    
 
     @Override
     public boolean themHoacSua(Tour tour) {
@@ -103,7 +99,12 @@ public class TourRepositoryImpl implements TourRepository{
         
         return false;
     }
+    @Override
+    public long slTour() {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        Query q = session.createQuery("Select Count(*) From Tour");
+        return Long.parseLong(q.getSingleResult().toString());
+    }
 
 
-    
 }

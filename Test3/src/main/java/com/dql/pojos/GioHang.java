@@ -12,11 +12,29 @@ import java.math.BigDecimal;
  * @author Acer
  */
 public class GioHang {
+
+    
     private int tourId;
     private String tenTour;
     private BigDecimal gia;
     private int soLuong;
+    private int soCho;
 
+    
+    
+    /**
+     * @return the soCho
+     */
+    public int getSoCho() {
+        return soCho;
+    }
+
+    /**
+     * @param soCho the soCho to set
+     */
+    public void setSoCho(int soCho) {
+        this.soCho = soCho;
+    }
     /**
      * @return the tourId
      */

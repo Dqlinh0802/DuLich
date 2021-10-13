@@ -13,8 +13,6 @@ import com.dql.service.TourService;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,7 +48,7 @@ public class TourServiceImpl implements TourService {
                     Tour a = this.tourRepository.layTourId(tour.getTourId());
                     tour.setAnh(a.getAnh());
                 }else{
-                Map m = this.cloudinary.uploader().upload(tour.getFile().getBytes(),
+                    Map m = this.cloudinary.uploader().upload(tour.getFile().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             
                     tour.setAnh((String) m.get("secure_url"));
@@ -82,5 +80,7 @@ public class TourServiceImpl implements TourService {
     public boolean xoaTour(int tourId) {
         return this.tourRepository.xoaTour(tourId);
     }
+
+
 
 }

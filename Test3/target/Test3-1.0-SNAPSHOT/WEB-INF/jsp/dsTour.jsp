@@ -11,7 +11,7 @@
 <section class="">
     <div class="container info-sec">
         <div>
-            <h3 id="danh-sach-tour">Danh sách các tour</h3>
+            <h3 id="danh-sach-tour" data-aos="fade-right" data-aos-duration="1500">Danh sách các tour</h3>
             <form class="form-inline row container pr-xs-0"" action="">
                 <input class="form-control col-xs-1 col-md-4 mr-xs-2 mr-sm-1 mb-2" name="kw" type="search" placeholder="Bạn muốn đi đâu?" aria-label="Search">
                 <input type="submit" class="btn btn-warning mb-2 font-weight-bold" value="Tìm kiếm"/>
@@ -32,19 +32,20 @@
                 <div class="info-img">  
                     <div class="row">
                         <c:forEach var="pro" items="${tours}">   
-                            <div class="col-xs-12 col-sm-6 col-md-4" id="pro${pro.tourId}">
+                            <div class="col-xs-12 col-sm-6 col-md-4" id="pro${pro.tourId}"
+                                 data-aos="fade-up" data-aos-duration="1000">
                                 <div>
-                                    <a href="<c:url value="/themSuaTour/${pro.tourId}"/>">
-                                    <div>
+                                    <a href="<c:url value="/chiTietTour/${pro.tourId}"/>">
+                                        <div>
 
-                                        <c:if test="${pro.anh != null && pro.anh.startsWith('https') == true}">
-                                            <img class="img-fluid " src="<c:url value="${pro.anh}"/>" alt="${pro.tenTour}"/>
-                                        </c:if>
-                                        <c:if test="${pro.anh == null || pro.anh.startsWith('https') == false}">
-                                            <img class="img-fluid " src="<c:url value="/images/macDinh.gif"/>" alt="${pro.tenTour}"/>
-                                        </c:if>
+                                            <c:if test="${pro.anh!= null && pro.anh.startsWith('https') == true}">
+                                                <img class="img-fluid " src="<c:url value="${pro.anh}"/>" alt="${pro.tenTour}"/>
+                                            </c:if>
+                                            <c:if test="${pro.anh == null || pro.anh.startsWith('https') == false}">
+                                                <img class="img-fluid " src="<c:url value="/images/macDinh.gif"/>" alt="${pro.tenTour}"/>
+                                            </c:if>
 
-                                    </div>
+                                        </div>
                                     </a>
                                     <div class="info-tour">
                                         <div>
@@ -53,10 +54,16 @@
                                         <div class="margin-5">
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <a href="javascript:;" class="btn btn-info" onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia})"
-                                               data-toggle="modal" data-target="#myModal" >Đặt tour</a>
-                                            <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
-                                                <span class="m-auto">Còn: <span class="text-danger">2</span></span>
+                                            <c:if test="${pro.soCho <= 0}">
+                                                <a class="btn btn-info"
+                                               href="<c:url value="/chiTietTour/${pro.tourId}"/>">Xem tour</a>
+                                            </c:if>
+                                            <c:if test="${pro.soCho > 0}">
+                                                <a href="javascript:;" class="btn btn-info" 
+                                               onclick="themVaoGio(${pro.tourId}, '${pro.tenTour}', ${pro.gia}, ${pro.soCho})"
+                                               data-toggle="modal" data-target="#myModal" >Đặt ngay</a>
+                                            </c:if>
+                                                <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
                                                 <div class="btn-seting d-inline-block mt-1">
                                                     <sec:authorize access="hasRole('ROLE_ADMIN')">
                                                         <a href="javascript:;" onclick="xoaTour(${pro.tourId})">
@@ -70,7 +77,12 @@
                                             </sec:authorize>
                                         </div>
                                         <div class="gia d-flex justify-content-between">
-                                            <span class="mt-auto ml-2">Đã bán: <span class="text-danger">2</span></span>
+                                            <c:if test="${pro.soCho > 0}">
+                                                <span class="mt-auto ml-2">Còn: <span class="text-danger font-weight-bold">${pro.soCho}</span></span>
+                                            </c:if>
+                                            <c:if test="${pro.soCho <= 0}">
+                                                <span class="mt-auto ml-2">Hết chỗ</span>
+                                            </c:if>
                                             <span class="giaTien">${pro.gia}</span>
                                         </div>
                                     </div>
@@ -108,6 +120,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                    <a href="<c:url value="/gioHang"/>" class="btn btn-success">Tới giỏ hàng</a>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                 </div>
 

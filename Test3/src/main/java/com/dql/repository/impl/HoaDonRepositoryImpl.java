@@ -9,6 +9,7 @@ import com.dql.pojos.ChiTietHoaDon;
 import com.dql.pojos.GioHang;
 import com.dql.pojos.HoaDon;
 import com.dql.pojos.NguoiDung;
+import com.dql.pojos.Tour;
 import com.dql.repository.HoaDonRepository;
 import com.dql.repository.NguoiDungRepository;
 import com.dql.repository.TourRepository;
@@ -45,6 +46,8 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
         try {
             Session session = sessionFactory.getObject().getCurrentSession();
 
+            
+            
             HoaDon hoaDon = new HoaDon();
             hoaDon.setNguoiDung(this.nguoiDungRepository.layNguoiDungId(id));
 
@@ -56,6 +59,7 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
 
             session.save(hoaDon);
 
+            
             for (GioHang g: gioHang.values()) {
                  ChiTietHoaDon c = new ChiTietHoaDon();
                 c.setGia(g.getGia());
@@ -63,6 +67,10 @@ public class HoaDonRepositoryImpl implements HoaDonRepository {
                 c.setHoaDon(hoaDon);
                 c.setTour(this.tourRepository.layTourId(g.getTourId()));
 
+                Tour tour = this.tourRepository.layTourId(g.getTourId());
+                tour.setSoCho(tour.getSoCho() - g.getSoLuong());
+                session.save(tour); 
+                
                 session.save(c);
             }
             

@@ -15,7 +15,7 @@ and open the template in the editor.
     padding-bottom: 100px;
 }
 #bg-tour h1 {
-    font-family: sans-serif;
+    font-family: 'Mali', cursive;
     margin-bottom: 50px;
     color: #13A211;
     font-weight: bold;
@@ -33,14 +33,17 @@ and open the template in the editor.
     padding-right: 10px;
 }
 .col-md-6 > h3{
-    margin-left: 50px;
+    text-align: center;
     color: #f2c26f;
+    font-weight: 600;
 }
 .col-md-6 > p {
     font-size: 22px;
 }
+.col-md-6 .margin-50{
+    height: 50px;
+}
 .col-md-6 .mo-ta{
-    margin-top: 30px;
     font-size: 18px;
 }
 .col-md-2 > .rounded-circle{
@@ -80,25 +83,16 @@ and open the template in the editor.
     box-shadow: 0px 0px 20px 10px rgba(204 ,127, 127, 0.2) !important
 }
 .cac-binh-luan .col-md-10 p {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 0px;
     margin-top: 10px;
+    font-family: 'Mali', cursive;
 }
 .page{
     margin-top: 15px;
     color: #f2c26f;
     font-size: 20px;
 }
-/*.btn-info{
-    color: #ffc107!important;
-    border-color: #ffc107!important;
-}
-.btn-info:hover{
-    background-color: #ffc107!important;
-}
-.btn-danger:hover{
-    background-color: #dc3545!important;
-}*/
 .fa-user-secret{
     padding-top: 8px;
 }

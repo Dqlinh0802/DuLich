@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -83,7 +82,7 @@ public class TourController {
     }
     
     
-    @GetMapping("/themSuaTour/{tourId}")
+    @GetMapping("/chiTietTour/{tourId}")
     public String chiTietTour(Model model,
         @PathVariable (value = "tourId") int tourId,
         @RequestParam(required = false) Map<String , String> params){

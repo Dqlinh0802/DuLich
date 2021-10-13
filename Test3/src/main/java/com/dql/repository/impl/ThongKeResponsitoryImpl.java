@@ -52,7 +52,7 @@ public class ThongKeResponsitoryImpl implements ThongKeRepository {
 
 //        dung prod để sum
         query.multiselect(rootT.get("tourId"), rootT.get("tenTour"),
-                builder.sum(builder.prod(rootC.get("soLuong"), rootC.get("gia"))));
+                builder.sum(builder.prod(rootC.get("soLuong"), rootC.get("gia")))); 
         
 //        if (tenTour != null && tenTour.trim().isEmpty()) {
 //            predicates.add(builder.like(rootT.get("tenTour"), String.format("%%%s%%", tenTour)));
@@ -67,9 +67,9 @@ public class ThongKeResponsitoryImpl implements ThongKeRepository {
         }
         
 //        ket xong thi group lai theo tung thang
-        query.where(predicates.toArray(new Predicate[] {}));
-        query.groupBy(rootT.get("tourId"));
-        query.orderBy(builder.asc(rootT.get("tourId")));
+        query = query.where(predicates.toArray(new Predicate[] {}));
+        query = query.groupBy(rootT.get("tourId"));
+        query = query.orderBy(builder.asc(rootT.get("tourId")));
         
         Query q = session.createQuery(query);
         

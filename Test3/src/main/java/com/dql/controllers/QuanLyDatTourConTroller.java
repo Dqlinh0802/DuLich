@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -41,7 +42,15 @@ public class QuanLyDatTourConTroller {
         return "xemNguoiDangKyTour";
     }
     
-    
+    @GetMapping("/nhanVien/xemNguoiDangKyTour/{id}")
+    public String chiTietTour(Model model,
+        @PathVariable (value = "id") int id,
+        @RequestParam(required = false) Map<String, String> params){
+        
+        model.addAttribute("chiTietDat", this.nguoiDatTourService.dsChiTietDat(id));
+ 
+        return "chiTietDatTour";
+    }
     
     
 }

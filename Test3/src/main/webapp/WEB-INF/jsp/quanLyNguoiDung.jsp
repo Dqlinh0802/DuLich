@@ -10,7 +10,9 @@
 
 <div id="bg-quan-ly" class="">
     <div class="container">
-        <h1 class="text-center text-black">Quản lý người dùng</h1>
+        <h1 class="text-center text-black" data-aos="fade-down" data-aos-duration="1500">
+            Quản lý người dùng
+        </h1>
         <div class="mb-3 d-flex justify-content-between">
             <a><a href="<c:url value="/dangKy" />"  class="btn btn-info d-inline">Thêm người dùng</a>
             <form class="form-inline d-inline-block ml-auto" action="">

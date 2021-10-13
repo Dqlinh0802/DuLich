@@ -14,5 +14,5 @@ import java.util.List;
 public interface NguoiDatTourRepository {
     List<Object[]> dsTourDuocDat(String tenTour, int page);
     long slTourDuocDat();
-//    List<Object[]> ds(String tenTour, int page);
+    List<Object[]> dsChiTietDat(int  id);
 }

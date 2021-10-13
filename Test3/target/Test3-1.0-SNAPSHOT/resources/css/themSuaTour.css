@@ -16,10 +16,7 @@ and open the template in the editor.
 }
 #bg-tour h1{
     color: #f2c26f;
-}
-.info-tour{
-    padding-top: 100px;
-    padding-bottom: 100px;
+    font-family: 'Mali', cursive;
 }
 .info-tour input{
     background-color: rgba(0, 0, 0, 0.2);

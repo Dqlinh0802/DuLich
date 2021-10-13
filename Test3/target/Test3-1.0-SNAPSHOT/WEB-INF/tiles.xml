@@ -72,6 +72,11 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="css" value="/Test3/css/xemNguoiDangKyTour.css"></put-attribute>
         <put-attribute name="content" value="/WEB-INF/jsp/xemNguoiDangKyTour.jsp"></put-attribute>
     </definition>
+    <definition name="chiTietDatTour" extends="baseLayout">
+        <put-attribute name="title" value="Chi tiết tour đặt"></put-attribute>
+        <put-attribute name="css" value="/Test3/css/chiTietDatTour.css"></put-attribute>
+        <put-attribute name="content" value="/WEB-INF/jsp/chiTietDatTour.jsp"></put-attribute>
+    </definition>
     <!--admin-->
     <definition name="baseAdminLayout" template="/WEB-INF/layout/baseAdmin.jsp">
         <put-attribute name="title" value="Quản trị hệ thống"></put-attribute>

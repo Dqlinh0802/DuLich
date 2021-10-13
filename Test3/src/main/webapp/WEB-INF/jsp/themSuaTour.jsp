@@ -16,10 +16,14 @@
 
 <div id="bg-tour">
     <c:if test="${tour.tourId > 0}">
-        <h1 class="text-center">Sửa tour</h1>
+        <h1 class="text-center" data-aos="fade-down" data-aos-duration="1500">
+            Sửa tour
+        </h1>
     </c:if>
     <c:if test="${tour.tourId <= 0}">
-        <h1 class="text-center">Thêm tour</h1>
+        <h1 class="text-center" data-aos="fade-down" data-aos-duration="1500">
+            Thêm tour
+        </h1>
     </c:if>
 
     <div >
@@ -53,6 +57,10 @@
                             <div class="form-group">
                                 <label class="text-white" for="moTa">Mô tả</label>
                                 <form:textarea path="moTa" id="moTa" rows="5" cols="48" />
+                            </div>
+                            <div class="form-group">
+                                <label class="text-white" for="soCho">Số chỗ</label>
+                                <form:input type="number" min="0" path="soCho" id="soCho" class="so-cho text-center"/>
                             </div>
                             <c:if test="${tour.tourId > 0}">
                                 <div class="form-group"  id="hidden"  style="display:none;">

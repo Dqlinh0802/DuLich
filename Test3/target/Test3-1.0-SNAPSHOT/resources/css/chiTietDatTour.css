@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Oct 7, 2021, 5:48:53 PM
+    Created on : Oct 13, 2021, 8:06:17 AM
     Author     : Acer
 */
 
@@ -16,10 +16,6 @@ and open the template in the editor.
 #bg-quan-ly h1{
     color: #f2c26f;
     font-family: 'Mali', cursive;
-}
-.pagination li > a{
-    font-weight: bold;
-    color: #00c1de!important;
 }
 .bg-tb{
     background-color: #f27979!important;

@@ -30,5 +30,10 @@ public class NguoiDatTourServiceImpl implements NguoiDatTourService{
     public long slTourDuocDat() {
         return this.nguoiDatTourRepository.slTourDuocDat();
     }
+
+    @Override
+    public List<Object[]> dsChiTietDat(int id) {
+        return this.nguoiDatTourRepository.dsChiTietDat(id);
+    }
     
 }
