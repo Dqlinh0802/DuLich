@@ -9,10 +9,12 @@
 
 <div id="bg-tour" class="">
     <div class="container mr-auto ml-auto">
-        <h1 class="text-center">Chi tiết tour</h1>
+        <h1 class="text-center" data-aos="fade-down" data-aos-duration="1500">
+            Chi tiết tour
+        </h1>
         <div class="chi-tiet-tour">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right" data-aos-duration="2000">
                     <c:if test="${tour.anh != null && tour.anh.startsWith('https') == true}">
                         <img src="${tour.anh}" alt="alt"/>
                     </c:if>
@@ -21,17 +23,20 @@
                     </c:if>
                 </div>
                 <div class="col-md-6">
-                    <h3>${tour.tenTour}</h3>
-                    <h4>Mô tả </h4>
+                    <h2>${tour.tenTour}</h2>
+                    <h4 class="text-pink">Mô tả </h4>
                     <p class="mo-ta">${tour.moTa}</p>
                     <div class="margin-50"></div>
                     <div>
+                        <i class="fas fa-calendar-alt text-pink h5"></i> 
                         Ngày bắt đầu: <span class="font-weight-bold">${tour.ngayBD}</span> 
                         <br>
+                        <i class="fas fa-calendar-check text-pink h5"></i> 
                         Ngày kết thúc: <span class="font-weight-bold">${tour.ngayKT}</span>
                     </div>
                     <c:if test="${tour.soCho > 0}">
-                        <div>Số chỗ còn nhận <span class="text-danger font-weight-bold">${tour.soCho}</span></div>
+                        <div><i class="fas fa-chair text-pink h5"></i> 
+                            Số chỗ còn nhận: <span class="text-danger font-weight-bold">${tour.soCho}</span></div>
                     </c:if>
                     <c:if test="${tour.soCho <= 0}">
                         <div><span class="text-danger font-weight-bold">Hết chỗ</span></div>
@@ -54,12 +59,15 @@
                     <a data-toggle="popover" data-content="Bạn cần đăng nhập để bình luận"
                        class="btn btn-info">Đăng bình luận</a>
                 </c:if>
+                <a href="<c:url value="/dsTour"/>" class="btn btn-info">
+                Quay lại xem tour
+                </a>
             </form>
         </div>
         <div class="cac-binh-luan">
             <div class="bg-bl" id="binhLuanArea">
                 <c:forEach var="b" items="${binhLuans}">
-                    <div class="row">
+                    <div class="row" data-aos="fade-up" data-aos-duration="1000">   
                         <div class="col-md-2 d-flex justify-content-end">
                             <c:if test="${b[3] != null && b[3].startsWith('https') == true}">
                                 <img class="img-fluid rounded-circle" src="${b[3]}"  alt="alt"/>
@@ -82,7 +90,9 @@
                 <ul class="pagination">
                     <c:forEach begin="1" end="${Math.ceil(slBinhLuan/5)}" var="i">  
                         <li class="page-item">
-                            <a class="page-link" href="<c:url value="/chiTietTour/${tour.tourId}" />?page=${i}">${i}</a>
+                            <a class="page-link" 
+                               href="<c:url value="/chiTietTour/${tour.tourId}" />?page=${i}">${i}
+                            </a>
                         </li>
                     </c:forEach>
                 </ul>

@@ -12,15 +12,18 @@
     <div class="container info-sec">
         <div>
             <h3 id="danh-sach-tour" data-aos="fade-right" data-aos-duration="1500">Danh sách các tour</h3>
-            <form class="form-inline row container pr-xs-0"" action="">
+            <form class="form-inline row container pr-xs-0" action=""
+                  data-aos="fade-down" data-aos-duration="1500">
                 <input class="form-control col-xs-1 col-md-4 mr-xs-2 mr-sm-1 mb-2" name="kw" type="search" placeholder="Bạn muốn đi đâu?" aria-label="Search">
                 <input type="submit" class="btn btn-warning mb-2 font-weight-bold" value="Tìm kiếm"/>
             </form>
             <div class="d-flex justify-content-between">
                 <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGE')">
-                    <div class="so-luong-tour">Tổng số tour: ${slTour}</div>
+                    <div class="so-luong-tour" data-aos="fade-up" data-aos-duration="2000">
+                        Tổng số tour: ${slTour}
+                    </div>
                 </sec:authorize>
-                <ul class="pagination">
+                <ul class="pagination" data-aos="fade-up" data-aos-duration="2000">
                     <c:forEach begin="1" end="${Math.ceil(slTour/18)}" var="i">
                         <li class="page-item">
                             <a class="page-link" href="<c:url value="/dsTour" />?page=${i}#danh-sach-tour">${i}</a>

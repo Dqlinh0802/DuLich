@@ -10,9 +10,9 @@ and open the template in the editor.
 
 
 #bg-tour{
-    padding-top: 150px;
+    padding-top: 50px;
 /*    background-color: #383A59;*/
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 #bg-tour h1 {
     font-family: 'Mali', cursive;
@@ -32,10 +32,12 @@ and open the template in the editor.
     max-width: 500px;
     padding-right: 10px;
 }
-.col-md-6 > h3{
+.col-md-6 > h2{
+    font-family: 'Mali', cursive;
     text-align: center;
-    color: #f2c26f;
-    font-weight: 600;
+    color: #f2c53d;
+    font-size: 45px;
+    
 }
 .col-md-6 > p {
     font-size: 22px;
@@ -98,6 +100,9 @@ and open the template in the editor.
 }
 .fa-user-secret:hover{
     color: #fff;
+}
+.text-pink{
+    color: #f27979 !important;
 }
 .an-danh{
     font-size: 12px;

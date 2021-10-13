@@ -58,11 +58,12 @@ p span {
     color: #f2c26f;
 }
 .bg{
+    transform: rotateY(180deg)!important;
     background-image: url(https://ld-wp73.template-help.com/wordpress/prod_19731/v2/wp-content/uploads/2018/07/bg-home-2.png );
     width: 100% !important;
     height: 800px;
     padding-top: 200px;
-    transform: rotateY(180deg);
+    
 }
 .bg-location{
     transform: rotateY(180deg);

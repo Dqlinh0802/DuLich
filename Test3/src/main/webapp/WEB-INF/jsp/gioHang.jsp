@@ -39,7 +39,7 @@
             </c:forEach>
         </table>
         <h4 class="alert alert-warning text-right">Tổng tiền: <span id="tongTien" class="giaTien">${tinhTien.tongTien}</span></h4>
-            <c:if test="${nguoiDungDangNhap.id != null}">
+        <c:if test="${nguoiDungDangNhap.id != null}">
             <input type="button" onclick="thanhToan(${nguoiDungDangNhap.id})" 
                    value="Đặt ngay" class="btn btn-info thanh-toan"
                    data-toggle="modal" data-target="#myModal"/>
@@ -48,6 +48,9 @@
             <a data-toggle="popover" data-content="Bạn cần đăng nhập để đặt tour"
                class="btn btn-info thanh-toan">Đặt ngay</a>
         </c:if>
+        <a href="<c:url value="/dsTour"/>" class="btn btn-info">
+            Quay lại xem tour
+        </a>
     </div>
 </div>
 
