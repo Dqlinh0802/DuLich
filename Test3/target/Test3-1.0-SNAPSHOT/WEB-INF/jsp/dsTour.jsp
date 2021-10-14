@@ -37,7 +37,7 @@
                         <c:forEach var="pro" items="${tours}">   
                             <div class="col-xs-12 col-sm-6 col-md-4" id="pro${pro.tourId}"
                                  data-aos="fade-up" data-aos-duration="1000">
-                                <div>
+                                <div class="box-tour">
                                     <a href="<c:url value="/chiTietTour/${pro.tourId}"/>">
                                         <div>
 

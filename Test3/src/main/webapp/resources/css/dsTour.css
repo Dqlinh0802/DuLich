@@ -32,10 +32,10 @@ and open the template in the editor.
     justify-content: space-between;
     padding-bottom: 30px;
 }
-.row > div > div:hover{
+.row .box-tour:hover{
     box-shadow: 0 10px 20px rgb(0 0 0 / 50%), 0 15px 15px rgb(0 0 0 / 50%);
 }
-.row > div > div {
+.row .box-tour{
     background-color: #fff;
 }
 .row a{

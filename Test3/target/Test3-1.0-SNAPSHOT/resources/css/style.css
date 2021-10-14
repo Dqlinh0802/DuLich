@@ -19,7 +19,9 @@ and open the template in the editor.
     max-width: 1500px!important;
 }*/
 body{
-    background-color: #ecf0f5!important;
+    background-image: url(../images/watercolor.png);
+    background-repeat: repeat;
+    /*background-color: #ecf0f5!important;*/
     z-index: -800;
 }
 .flex-column .rounded-circle:hover{
@@ -183,9 +185,6 @@ body{
 
 
 /*===========FOOTER============*/
-.footer {
-    background-color: rgba(255, 255, 255, 1);
-}
 
 .copyright {
     background-color: rgba(0, 0, 0, 0.9);
