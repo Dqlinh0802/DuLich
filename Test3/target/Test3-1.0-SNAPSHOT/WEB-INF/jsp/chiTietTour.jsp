@@ -29,10 +29,10 @@
                     <div class="margin-50"></div>
                     <div>
                         <i class="fas fa-calendar-alt text-pink h5"></i> 
-                        Ngày bắt đầu: <span class="font-weight-bold">${tour.ngayBD}</span> 
+                        Ngày bắt đầu: <span class="font-weight-bold ngay-thang-nam">${tour.ngayBD}</span> 
                         <br>
                         <i class="fas fa-calendar-check text-pink h5"></i> 
-                        Ngày kết thúc: <span class="font-weight-bold">${tour.ngayKT}</span>
+                        Ngày kết thúc: <span class="font-weight-bold ngay-thang-nam">${tour.ngayKT}</span>
                     </div>
                     <c:if test="${tour.soCho > 0}">
                         <div><i class="fas fa-chair text-pink h5"></i> 

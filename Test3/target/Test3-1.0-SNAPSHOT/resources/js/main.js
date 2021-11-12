@@ -66,52 +66,52 @@ function xoaNguoiDung(id) {
 
 function  capNhatSLTour(obj, tourId, soCho) {
     event.preventDefault();
-    if(obj.value <= soCho){
-    fetch("/Test3/api/gioHang", {
-        method: "put",
-        body: JSON.stringify({
-            "tourId": tourId,
-            "tenTour": "",
-            "gia": 0,
-            "soLuong": obj.value,
-            "soCho": 0
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(function (res) {
-        return res.json()
-    }).then(function (data) {
-        let slTour = document.getElementById("slTour");
-        slTour.innerText = data.slTour;
-        let tongTien = document.getElementById("tongTien");
-        tongTien.innerText = data.tongTien;
-    })}
-    else{
-    fetch("/Test3/api/gioHang", {
-        method: "put",
-        body: JSON.stringify({
-            "tourId": tourId,
-            "tenTour": "",
-            "gia": 0,
-            "soLuong": soCho,
-            "soCho":0
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(function (res) {
-        return res.json()
-    }).then(function (data) {
-        let slTour = document.getElementById("slTour");
-        slTour.innerText = data.slTour;
-        let tongTien = document.getElementById("tongTien");
-        tongTien.innerText = data.tongTien;
-        let soLuong = document.getElementById("soLuong");
-        soLuong.innerText = soCho;
-        location.reload();
-    })}
-        
+    if (obj.value <= soCho) {
+        fetch("/Test3/api/gioHang", {
+            method: "put",
+            body: JSON.stringify({
+                "tourId": tourId,
+                "tenTour": "",
+                "gia": 0,
+                "soLuong": obj.value,
+                "soCho": 0
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (res) {
+            return res.json()
+        }).then(function (data) {
+            let slTour = document.getElementById("slTour");
+            slTour.innerText = data.slTour;
+            let tongTien = document.getElementById("tongTien");
+            tongTien.innerText = data.tongTien;
+        })
+    } else {
+        fetch("/Test3/api/gioHang", {
+            method: "put",
+            body: JSON.stringify({
+                "tourId": tourId,
+                "tenTour": "",
+                "gia": 0,
+                "soLuong": soCho,
+                "soCho": 0
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (res) {
+            return res.json()
+        }).then(function (data) {
+            let slTour = document.getElementById("slTour");
+            slTour.innerText = data.slTour;
+            let tongTien = document.getElementById("tongTien");
+            tongTien.innerText = data.tongTien;
+            let soLuong = document.getElementById("soLuong");
+            soLuong.innerText = soCho;
+            location.reload();
+        })
+    }
 }
 function xoaTourTrongGio(tourId) {
     event.preventDefault();
@@ -140,12 +140,13 @@ function thanhToan(id) {
             headers: {
                 "Content-Type": "application/json"
             }
-    }).then(function (res) {
-        return res.json()
-    }).then(function (code) {
-        console.info(code);
-        location.reload();
-    })
+        }).then(function (res) {
+            return res.json()
+        }).then(function (code) {
+            console.info(code);
+            location.reload();
+            
+        })
     }
 }
 
@@ -184,7 +185,8 @@ function themBinhLuan(tourId, id) {
 window.onload = function () {
     let gia = document.getElementsByClassName("giaTien")
     let ngays = document.getElementsByClassName("ngayBL")
-    
+    let ngayThangNam = document.getElementsByClassName("ngay-thang-nam")
+
     //dau phay trong tien
     var formatter = new Intl.NumberFormat('vi', {
         style: 'currency',
@@ -195,13 +197,20 @@ window.onload = function () {
 
         gia[i].innerText = formatter.format(gia[i].innerText);
     }
-    
+
     //thoi gian binh luan
     for (let i = 0; i < ngays.length; i++)
     {
         ngays[i].innerText = "Bình luận " + moment(ngays[i].innerText).fromNow();
     }
+
+    //thoi gian 
+    for (let i = 0; i < ngayThangNam.length; i++)
+    {
+        ngayThangNam[i].innerText = moment(ngayThangNam[i].innerText).format('ll');
+    }
+
     AOS.init();
 }
 
-$('body').scrollspy({ target: '#navbar-example' })
+$('body').scrollspy({target: '#navbar-example'})

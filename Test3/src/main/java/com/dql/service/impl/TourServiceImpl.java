@@ -67,7 +67,6 @@ public class TourServiceImpl implements TourService {
         } catch (IOException ex) {
             System.err.println("Đã bị lỗi!!!");
         }
-
         return false;
     }
 

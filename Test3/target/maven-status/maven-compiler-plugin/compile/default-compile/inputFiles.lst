@@ -12,12 +12,10 @@ E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\ApiTourController.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\XuLyDangNhapThanhCong.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\NguoiDungService.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\validator\TourValidator.java
-E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\HuongDanVien.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\impl\NguoiDatTourServiceImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\HoaDon.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\configs\HibernateConfig.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\GioHang.java
-E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\DiemThamQuan.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\NguoiDatTourRepository.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\impl\ThongKeResponsitoryImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\repository\ThongKeRepository.java
@@ -39,7 +37,6 @@ E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\ApiNguoiDungConTroller.ja
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\TourService.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\NguoiDung.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\controllers\QuanLyDatTourConTroller.java
-E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\KhachSan.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\impl\TourServiceImpl.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\pojos\ChiTietHoaDon.java
 E:\DoAn\DuLich\Test3\src\main\java\com\dql\service\ThongKeService.java

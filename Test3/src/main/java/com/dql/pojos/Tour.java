@@ -12,12 +12,9 @@ import java.sql.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -29,9 +26,8 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Entity
 @Table(name = "tour")
-public class Tour implements Serializable {
-
-
+public class Tour implements Serializable{
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")//****
@@ -47,20 +43,6 @@ public class Tour implements Serializable {
     @Transient
     private MultipartFile file;
 
-    //HDV
-    @ManyToOne(fetch = FetchType.LAZY)//mac dinh la eager join vao lay het
-    //lazy khi nao goi thi moi join 
-    @JoinColumn(name = "idHDV")
-    @JsonIgnore// k lay khi truyenlen Json
-    private HuongDanVien huongDanVien;
-
-    //DiemThamQuan
-    @ManyToOne(fetch = FetchType.LAZY)//mac dinh la eager join vao lay het
-    //lazy khi nao goi thi moi join 
-    @JoinColumn(name = "idDiemThamQuan")
-    @JsonIgnore// k lay khi truyenlen Json
-    private DiemThamQuan diemThamQuan;
-
 
     //HoaDon
     @OneToMany(mappedBy = "tour")//gắn với thuộc tính trong class bên kết nối
@@ -72,49 +54,7 @@ public class Tour implements Serializable {
     @OneToMany(mappedBy = "tour")//gắn với thuộc tính trong class bên kết nối
     @JsonIgnore// k lay khi truyenlen Json
     private List<ChiTietHoaDon> chiTietHoaDons;
-   
-    
-    
-    /**
-     * @return the soLuong
-     */
-    public int getSoCho() {
-        return soCho;
-    }
 
-    /**
-     * @param soLuong the soLuong to set
-     */
-    public void setSoCho(int soCho) {
-        this.soCho = soCho;
-    }
-    /**
-     * @return the chiTietHoaDons
-     */
-    public List<ChiTietHoaDon> getChiTietHoaDons() {
-        return chiTietHoaDons;
-    }
-
-    /**
-     * @param chiTietHoaDons the chiTietHoaDons to set
-     */
-    public void setChiTietHoaDons(List<ChiTietHoaDon> chiTietHoaDons) {
-        this.chiTietHoaDons = chiTietHoaDons;
-    }
-
-    /**
-     * @return the moTa
-     */
-    public String getMoTa() {
-        return moTa;
-    }
-
-    /**
-     * @param moTa the moTa to set
-     */
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
-    }
     /**
      * @return the tourId
      */
@@ -128,49 +68,6 @@ public class Tour implements Serializable {
     public void setTourId(int tourId) {
         this.tourId = tourId;
     }
-
-    /**
-     * @return the file
-     */
-    public MultipartFile getFile() {
-        return file;
-    }
-
-    /**
-     * @param file the file to set
-     */
-    public void setFile(MultipartFile file) {
-        this.file = file;
-    }
-
-    /**
-     * @return the anh
-     */
-    public String getAnh() {
-        return anh;
-    }
-
-    /**
-     * @param anh the anh to set
-     */
-    public void setAnh(String anh) {
-        this.anh = anh;
-    }
-
-    /**
-     * @return the diemThamQuan
-     */
-    public DiemThamQuan getDiemThamQuan() {
-        return diemThamQuan;
-    }
-
-    /**
-     * @param diemThamQuan the diemThamQuan to set
-     */
-    public void setDiemThamQuan(DiemThamQuan diemThamQuan) {
-        this.diemThamQuan = diemThamQuan;
-    }
-
 
     /**
      * @return the tenTour
@@ -229,17 +126,59 @@ public class Tour implements Serializable {
     }
 
     /**
-     * @return the huongDanVien
+     * @return the anh
      */
-    public HuongDanVien getHuongDanVien() {
-        return huongDanVien;
+    public String getAnh() {
+        return anh;
     }
 
     /**
-     * @param huongDanVien the huongDanVien to set
+     * @param anh the anh to set
      */
-    public void setHuongDanVien(HuongDanVien huongDanVien) {
-        this.huongDanVien = huongDanVien;
+    public void setAnh(String anh) {
+        this.anh = anh;
+    }
+
+    /**
+     * @return the moTa
+     */
+    public String getMoTa() {
+        return moTa;
+    }
+
+    /**
+     * @param moTa the moTa to set
+     */
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
+    }
+
+    /**
+     * @return the soCho
+     */
+    public int getSoCho() {
+        return soCho;
+    }
+
+    /**
+     * @param soCho the soCho to set
+     */
+    public void setSoCho(int soCho) {
+        this.soCho = soCho;
+    }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 
     /**
@@ -256,4 +195,17 @@ public class Tour implements Serializable {
         this.binhLuans = binhLuans;
     }
 
+    /**
+     * @return the chiTietHoaDons
+     */
+    public List<ChiTietHoaDon> getChiTietHoaDons() {
+        return chiTietHoaDons;
+    }
+
+    /**
+     * @param chiTietHoaDons the chiTietHoaDons to set
+     */
+    public void setChiTietHoaDons(List<ChiTietHoaDon> chiTietHoaDons) {
+        this.chiTietHoaDons = chiTietHoaDons;
+    }
 }

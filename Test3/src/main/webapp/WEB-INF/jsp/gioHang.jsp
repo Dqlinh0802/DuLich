@@ -11,7 +11,7 @@
 
 <div id="bg-tour" class="text-white">
     <div class="container mr-auto ml-auto">
-        <h1 class="text-center">Thanh toán</h1>
+        <h1 class="text-center">Đăng ký đặt tour</h1>
         <table class="table text-white">
             <tr class="text-center text-white h4 bg-tb">
                 <th>Mã tour</th>
@@ -39,7 +39,7 @@
             </c:forEach>
         </table>
         <h4 class="alert alert-warning text-right">Tổng tiền: <span id="tongTien" class="giaTien">${tinhTien.tongTien}</span></h4>
-        <c:if test="${nguoiDungDangNhap.id != null}">
+            <c:if test="${nguoiDungDangNhap.id != null}">
             <input type="button" onclick="thanhToan(${nguoiDungDangNhap.id})" 
                    value="Đặt ngay" class="btn btn-info thanh-toan"
                    data-toggle="modal" data-target="#myModal"/>
