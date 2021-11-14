@@ -37,6 +37,7 @@ and open the template in the editor.
 }
 .row .box-tour{
     background-color: #fff;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 10%), 0 15px 15px rgb(0 0 0 / 10%);
 }
 .row a{
     text-decoration: none;

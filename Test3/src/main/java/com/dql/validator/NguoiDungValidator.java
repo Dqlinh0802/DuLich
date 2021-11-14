@@ -26,21 +26,9 @@ public class NguoiDungValidator implements Validator{
     public void validate(Object o, Errors errors) {
         NguoiDung n = (NguoiDung) o;
         //rejectValue name nó biet truong nào bị lỗi
-//        if(n.getTen() == "" || n.getTen() == null)
-//            errors.rejectValue("ten", "nguoidung.errNull");
-        
-//        if(n.getAnh() == "" || n.getAnh() == null)
-//            errors.rejectValue("anh", "nguoidung.errNull");
-//        if(n.getHo() == "" || n.getHo() == null)
-//            errors.rejectValue("ho", "nguoidung.errNull");
-//        if(n.getEmail()== "" || n.getEmail() == null)
-//            errors.rejectValue("email", "nguoidung.errNull");
-//        if(n.getDiaChi()== "" || n.getDiaChi() == null)
-//            errors.rejectValue("diaChi", "nguoidung.errNull");
-//        if(n.getSdt() == "" || n.getSdt() == null)
-//            errors.rejectValue("sdt", "nguoidung.errNull");
-//        if(n.getTaiKhoan()== "" || n.getTaiKhoan() == null)
-//            errors.rejectValue("taiKhoan", "nguoidung.errNull");
+        if(n.getTaiKhoan()== "" || n.getTaiKhoan() == null)
+            errors.rejectValue("taiKhoan", "nguoidung.errNull");
+
         if (!n.getMatKhau().equals(n.getXacThucMatKhau()))
             errors.rejectValue("xacThucMatKhau", "nguoidung.errMatKhau");
     }

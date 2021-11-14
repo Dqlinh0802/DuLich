@@ -37,7 +37,7 @@
                         </a>
                         <div class="dropdown-menu text-center quan-ly" aria-labelledby="navbarDropdownMenuLink2">
                             <div>
-                                <a class="btn btn-info mr-auto ml-auto mb-2" href="<c:url value="/nhanVien/themSuaTour"/>">Tour</a>
+                                <a class="btn btn-info mr-auto ml-auto mb-2" href="<c:url value="/nhanVien/themSuaTour"/>">Thêm tour</a>
                             </div> 
                             <div>
                                 <a class="btn btn-info mr-auto ml-auto mb-2"  href="<c:url value="/nhanVien/xemNguoiDangKyTour"/>">Đặt tour</a>
@@ -61,12 +61,12 @@
 
             </ul>
             <div class="nav-item dropdown d-flex">
-                <div class="item-gio-hang">
-                    <a class="gioHang" href="<c:url value="/gioHang" />">
-                        <i class="fas fa-cart-arrow-down"></i>
-                        <span class="badge badge-danger" id="slTour">${demSLTour}</span>
-                    </a>
-                </div>
+                    <div class="item-gio-hang">
+                        <a class="gioHang" href="<c:url value="/gioHang" />">
+                            <i class="fas fa-cart-arrow-down"></i>
+                            <span class="badge badge-danger" id="slTour">${demSLTour}</span>
+                        </a>
+                    </div>
                 <c:if test="${pageContext.request.userPrincipal.name == null}">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

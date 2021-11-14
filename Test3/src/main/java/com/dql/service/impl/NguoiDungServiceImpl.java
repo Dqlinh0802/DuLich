@@ -50,11 +50,15 @@ public class NguoiDungServiceImpl implements NguoiDungService{
         if(nguoiDung.getVaiTro() == null)
             nguoiDung.setVaiTro(NguoiDung.USER);
         try{
-            Map m = this.cloudinary.uploader().upload(nguoiDung.getFile().getBytes(),
+            if(nguoiDung.getFile().getBytes().length != 0){
+                Map m = this.cloudinary.uploader().upload(nguoiDung.getFile().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             
                 nguoiDung.setAnh((String) m.get("secure_url"));
                 nguoiDung.setVaiTro(nguoiDung.getVaiTro());
+            } else {
+                return false;
+            }
                 return this.nguoiDungRepository.themSuaNguoiDung(nguoiDung);
         } catch (IOException ex) {
             System.err.println("Đã xảy ra lỗi!!!");
@@ -62,7 +66,6 @@ public class NguoiDungServiceImpl implements NguoiDungService{
         
         return false;
     }
-
     
     @Override
     public List<NguoiDung> danhSachNguoiDung(String ten) {
