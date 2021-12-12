@@ -26,11 +26,11 @@ public class NguoiDungValidator implements Validator{
     public void validate(Object o, Errors errors) {
         NguoiDung n = (NguoiDung) o;
         //rejectValue name nó biet truong nào bị lỗi
-        if(n.getTaiKhoan()== "" || n.getTaiKhoan() == null)
-            errors.rejectValue("taiKhoan", "nguoidung.errNull");
-
-        if (!n.getMatKhau().equals(n.getXacThucMatKhau()))
-            errors.rejectValue("xacThucMatKhau", "nguoidung.errMatKhau");
+//        if(n.getTaiKhoan()== "" || n.getTaiKhoan() == null)
+//            errors.rejectValue("taiKhoan", "nguoidung.errNull");
+//
+//        if (!n.getMatKhau().equals(n.getXacThucMatKhau()))
+//            errors.rejectValue("xacThucMatKhau", "nguoidung.errMatKhau");
     }
     
 }
